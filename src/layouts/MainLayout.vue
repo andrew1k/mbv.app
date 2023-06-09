@@ -1,5 +1,6 @@
 <template>
-  <TheAppBar />
+  <TheAppBar :appbar-title="$route.meta.title" />
+  <TheNavDrawer />
   <v-main class="ma-2">
     <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
@@ -7,16 +8,19 @@
       </transition>
     </router-view>
   </v-main>
+  <TheBottomNavigation />
 </template>
 
 <script setup>
-import TheAppBar from '@/layouts/nav/TheAppBar.vue'
+import TheAppBar from '@/components/navigations/TheAppBar.vue'
+import TheNavDrawer from '@/components/navigations/TheNavDrawer.vue'
+import TheBottomNavigation from '@/components/navigations/TheBottomNavigation.vue'
 </script>
 
 <style>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.7s ease;
 }
 
 .fade-enter-from,
