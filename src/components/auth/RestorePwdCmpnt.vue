@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import {useAuthStore} from '@/stores/authStore'
+import {useAuthStore} from '@/store/authstore'
 import {useField, useForm} from 'vee-validate'
 import * as yup from 'yup'
 const {restorePassword} = useAuthStore()

@@ -1,6 +1,7 @@
 import MainLayout from '@/layouts/MainLayout.vue'
 import HomePage from '@/views/home/HomePage.vue'
 import DiscoverPage from '@/views/discover/DiscoverPage.vue'
+import CalendarPage from '@/views/calendar/CalendarPage.vue'
 
 export default [
   {
@@ -24,10 +25,17 @@ export default [
         meta: {
           title: 'Открой для себя церковь',
         }
+      }, {
+        path: '/calendar',
+        name: 'Calendar',
+        component: CalendarPage,
+        meta: {
+          title: 'Открой для себя церковь',
+        }
       },{
         path: '/purposes/worship',
         name: 'worship',
-        component: () => import('@/views/purposes/worship/purposeWorship.vue'),
+        component: () => import('@/views/purposes/worship/PurposeWorship.vue'),
         meta: {
           title: 'Поклонение',
           color: 'worship', // error
@@ -35,7 +43,7 @@ export default [
       },{
         path: '/purposes/fellowship',
         name: 'fellowship',
-        component: () => import('@/views/purposes/fellowship/purposeFellowship.vue'),
+        component: () => import('@/views/purposes/fellowship/PurposeFellowship.vue'),
         meta: {
           title: 'Общение',
           color: 'fellowship', // warning
@@ -43,7 +51,7 @@ export default [
       },{
         path: '/purposes/discepleship',
         name: 'discepleship',
-        component: () => import('@/views/purposes/discepleship/purposeDiscepleship.vue'),
+        component: () => import('@/views/purposes/discepleship/PurposeDiscepleship.vue'),
         meta: {
           title: 'Ученичество',
           color: 'discepleship', // success
@@ -51,7 +59,7 @@ export default [
       },{
         path: '/purposes/ministry',
         name: 'ministry',
-        component: () => import('@/views/purposes/ministry/purposeMinistry.vue'),
+        component: () => import('@/views/purposes/ministry/PurposeMinistry.vue'),
         meta: {
           title: 'Служение',
           color: 'ministry', // secondary
@@ -59,7 +67,7 @@ export default [
       },{
         path: '/purposes/evangelism',
         name: 'evangelism',
-        component: () => import('@/views/purposes/evangelism/purposeEvangelism.vue'),
+        component: () => import('@/views/purposes/evangelism/PurposeEvangelism.vue'),
         meta: {
           title: 'Благовестие',
           color: 'evangelism', // info

@@ -13,7 +13,7 @@
     <v-expand-transition>
         <v-card v-show="signToStep" variant="text" elevation="0" rounded="0" class="ma-2">
             <VCardText v-text="'Запишитесь на ближайший шаг в календаре и вам придет уведомление за день до семинара'"/>
-            <CalendarEventCard
+            <EventCard
                     v-for="evnt in filteredEvents"
                     :key="evnt.id"
                     :event-title="evnt.title"
@@ -79,7 +79,7 @@
         <v-card v-show="signToFirstMeeting" variant="text" elevation="0" rounded="0" class="ma-2">
             <VCardSubtitle v-text="'Ближайшая встреча-знакомство в календаре'"/>
             <VDivider/>
-            <CalendarEventCard
+            <EventCard
                     v-for="evnt in firstMeetingEvnt"
                     :key="evnt.id"
                     :event-title="evnt.title"
@@ -130,12 +130,12 @@ import smallGroups from '@/assets/fellowshipPics/smallGroups.jpg'
 import onePlusOne from '@/assets/fellowshipPics/onePlusOne.jpg'
 import {ref} from 'vue'
 import SignToBaptism from '@/views/purposes/fellowship/components/forms/signToBaptism.vue'
-import PCard from '@/components/purposes/cardsInPurposes.vue'
+import PCard from '@/components/purposes/PurposesCards.vue'
 import SignToSG from '@/views/purposes/fellowship/components/forms/signToSG.vue'
-import CalendarEventCard from '@/views/calendar/components/calendarEventCard.vue'
-import {useCalendarEventsStore} from '@/stores/calendarStore'
+import EventCard from '@/components/calendar/EventCard.vue'
+import {useCalendarEventsStore} from '@/store/calendarstore'
 import {storeToRefs} from 'pinia'
-import {useFormsStore} from '@/stores/formsStore'
+import {useFormsStore} from '@/store/formstore'
 
 const togglerSG = ref(false)
 const baptismToggler = ref(false)
@@ -154,7 +154,7 @@ const sgText = ref([
 ])
 const stepText = ref([
   `Шаг 1 «Общение» или «Узнавая больше о нашей церковной семье» – это первый из основополагающих курсов церкви «Миссия Благая Весть». <br /><br />
-  Каждый человек создан для того, чтобы быть частью церковной семьи, и церковь «Миссия Благая Весть» хочет стать для вас местом, где вам будет комфортно, как дома. Каждая здоровая семья имеет общие убеждения, цели и обязательства и на этом семинаре мы хотим поделиться с вами тем, кто мы, во что мы верим и куда мы идём.<br /><br />
+  Каждый человек создан для того, чтобы быть частью церковной семьи, и церковь «Миссия Благая Весть» хочет стать для вас местом, где вам будет комфортно как дома. Каждая здоровая семья имеет общие убеждения, цели и обязательства и на этом семинаре мы хотим поделиться с вами тем, кто мы, во что мы верим и куда мы идём.<br /><br />
   Мы поговорим о том, как устроена наша церковь, какова её история, видение и структура. Раскроем пять жизненных целей, которые были предназначены для нас Богом, поговорим о преимуществах церковной семьи, а также о том, как стать членом церкви «Миссия Благая Весть».`,
 ])
 const textBaptism = ref([

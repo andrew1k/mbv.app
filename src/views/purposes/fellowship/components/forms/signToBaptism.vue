@@ -30,7 +30,7 @@
 
 <script setup>
 import {ref} from 'vue'
-import {useFormsStore} from '@/stores/formsStore'
+import {useFormsStore} from '@/store/formstore'
 
 const answer = ref()
 const question = ref()

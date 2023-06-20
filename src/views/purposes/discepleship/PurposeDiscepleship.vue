@@ -14,7 +14,7 @@
     <v-expand-transition>
         <v-card v-show="signToStep" variant="text" elevation="0" rounded="0" class="ma-2">
             <VCardText v-text="'Запишитесь на ближайший шаг в календаре и вам придет уведомление за день до семинара'"/>
-            <CalendarEventCard
+            <EventCard
                     v-for="evnt in filteredEvents"
                     :key="evnt.id"
                     :event-title="evnt.title"
@@ -45,8 +45,8 @@ import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
 import 'vue-lite-youtube-embed/style.css'
 import {ref} from 'vue'
 import step from '@/assets/discepleshipPics/step.jpg'
-import CalendarEventCard from '@/views/calendar/components/calendarEventCard.vue'
-import {useCalendarEventsStore} from '@/stores/calendarStore'
+import EventCard from '@/components/calendar/EventCard.vue'
+import {useCalendarEventsStore} from '@/store/calendarstore'
 import {storeToRefs} from 'pinia'
 
 const stepText = ref(`Это 4-х часовой семинар, который является второй ступенью процесса духовного роста человека.<br/> На семинаре рассказываются о том, какие привычки и навыки нужно иметь каждому христианину, чтобы стать духовно зрелым учеником, а также узнать о том, как понять Библию, как правильно молиться, зачем нужно отдавать десятину и почему так важно быть частью малой группы.<br/> На семинаре предоставляется материал, который служит хорошим помощником для того, чтобы духовное возрастание было максимально легким и комфортным.`)

@@ -12,7 +12,7 @@
     <v-expand-transition>
         <v-card v-show="signToStep" variant="text" elevation="0" rounded="0" class="ma-2">
             <VCardText v-text="'Запишитесь на ближайший шаг в календаре и вам придет уведомление за день до семинара'"/>
-            <CalendarEventCard
+            <EventCard
                     v-for="evnt in filteredEvents"
                     :key="evnt.id"
                     :event-title="evnt.title"
@@ -95,13 +95,12 @@ import vechno from '@/assets/evangelismPics/vechno.png'
 import steiger from '@/assets/evangelismPics/steiger.jpg'
 import YoursOne from '@/assets/evangelismPics/YoursOne.jpg'
 import step from '@/assets/evangelismPics/step.jpg'
-import CalendarEventCard from '@/views/calendar/components/calendarEventCard.vue'
-import {useCalendarEventsStore} from '@/stores/calendarStore'
+import EventCard from '@/components/calendar/EventCard.vue'
+import {useCalendarEventsStore} from '@/store/calendarstore'
 import {storeToRefs} from 'pinia'
 import {ref} from 'vue'
-import PCard from '@/components/purposes/cardsInPurposes.vue'
-import {useFormsStore} from '@/stores/formsStore'
-import router from '@/router'
+import PCard from '@/components/purposes/PurposesCards.vue'
+import {useFormsStore} from '@/store/formstore'
 
 const calendarEventsStore = useCalendarEventsStore()
 const {allCalendarEvents} = storeToRefs(calendarEventsStore)

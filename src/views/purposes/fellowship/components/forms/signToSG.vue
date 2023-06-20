@@ -47,9 +47,9 @@
 
 <script setup>
 import {ref} from 'vue'
-import {useSGLeadersTable} from '@/stores/dataTablesStore'
+import {useSGLeadersTable} from '@/store/dataTablesStore'
 import {storeToRefs} from 'pinia'
-import {useFormsStore} from '@/stores/formsStore'
+import {useFormsStore} from '@/store/formstore'
 
 const sgLeadersTable = useSGLeadersTable()
 const {getSGLeaders} = sgLeadersTable

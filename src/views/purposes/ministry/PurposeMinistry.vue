@@ -12,7 +12,7 @@
     <v-expand-transition>
         <v-card v-show="signToStep" variant="text" elevation="0" rounded="0" class="ma-2">
             <VCardText v-text="'Запишитесь на ближайший шаг в календаре и вам придет уведомление за день до семинара'"/>
-            <CalendarEventCard
+            <EventCard
                     v-for="evnt in filteredEvents"
                     :key="evnt.id"
                     :event-title="evnt.title"
@@ -66,7 +66,7 @@
 </template>
 
 <script setup>
-import PCard from '@/components/purposes/cardsInPurposes.vue'
+import PCard from '@/components/purposes/PurposesCards.vue'
 
 const servHeaders = ref([{title: 'Наши служения', key: 'title'}])
 const expanded = ref([])
@@ -142,8 +142,8 @@ const ourServs = ref([
 // ------------------------------------------------------------------------------------------------------------------------------ STEP
 import {ref} from 'vue'
 import step from '@/assets/ministryPics/step.jpg'
-import CalendarEventCard from '@/views/calendar/components/calendarEventCard.vue'
-import {useCalendarEventsStore} from '@/stores/calendarStore'
+import EventCard from '@/components/calendar/EventCard.vue'
+import {useCalendarEventsStore} from '@/store/calendarstore'
 import {storeToRefs} from 'pinia'
 
 const stepText = ref(`Узнавая больше о своей уникальности!<br/><br/>
