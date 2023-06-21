@@ -54,17 +54,17 @@ const navList = ref([
     icon: 'mdi-home',
     color: 'black',
     title: 'Главная',
-    routeTo: '/home',
+    routeTo: {name: 'Home'},
   }, {
     icon: 'mdi-calendar',
     color: 'pink',
     title: 'Календарь',
-    routeTo: '/calendar',
+    routeTo: {name: 'Calendar'},
   }, {
     icon: 'mdi-compass',
     color: 'indigo',
     title: 'Открой для себя церковь',
-    routeTo: '/discover',
+    routeTo: {name: 'Discover'},
   },
   // {
   //   icon: 'mdi-clock',

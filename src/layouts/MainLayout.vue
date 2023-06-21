@@ -1,7 +1,7 @@
 <template>
   <TheAppBar :appbar-title="$route.meta.title" />
   <TheNavDrawer />
-  <v-main class="ma-2">
+  <v-main>
     <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
         <component :is="Component" />

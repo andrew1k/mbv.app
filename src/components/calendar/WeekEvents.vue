@@ -38,6 +38,3 @@ const {weekCalendarEvents} = storeToRefs(calendarEventsStore)
 const appState = useAppState()
 const {isPending} = storeToRefs(appState)
 </script>
-
-<style scoped>
-</style>

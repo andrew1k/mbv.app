@@ -7,12 +7,13 @@ export default [
   {
     path: '/',
     component: MainLayout,
+    redirect: 'home',
     meta: {
       auth: true,
     },
     children: [
       {
-        path: '/home',
+        path: 'home',
         name: 'Home',
         component: HomePage,
         meta: {
@@ -30,7 +31,7 @@ export default [
         name: 'Calendar',
         component: CalendarPage,
         meta: {
-          title: 'Открой для себя церковь',
+          title: 'Календарь',
         }
       },{
         path: '/purposes/worship',

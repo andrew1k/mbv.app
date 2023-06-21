@@ -8,7 +8,7 @@ import vuetify from './plugins/vuetify'
 import {loadFonts} from './plugins/webfontloader'
 import {auth} from '@/plugins/firebase.config'
 import {onAuthStateChanged} from 'firebase/auth'
-import '@/plugins/variables.scss'
+import "vuetify/styles"
 import {plugin, FormKitSchema, defaultConfig} from '@formkit/vue'
 import formkitConfig from '@/plugins/formkit.config'
 

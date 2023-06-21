@@ -1,7 +1,7 @@
 <template>
-  <v-card elevation="0" rounded="0" variant="text">
+  <v-card elevation="0" rounded="0" variant="text" max-width="600" class="mx-auto">
     <v-card
-      class="mx-2 my-4"
+      class="ma-2"
       v-for="(card, i) in purposesCards"
       :key="i"
       @click="$router.push(card.routerTo)"
