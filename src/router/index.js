@@ -1,16 +1,18 @@
 // Composables
-import { createRouter, createWebHistory } from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 import routes from '@/router/routes'
 import {App} from '@capacitor/app'
 import {storeToRefs} from 'pinia'
-import {useAuthStore} from '@/store/authstore'
+import {useAuthStore} from '@/store/auth.store'
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 })
 
-App.addListener('backButton', () => {router.back()}) // для Android слушает кнопку назад
+App.addListener('backButton', () => {
+  router.back()
+}) // для Android слушает кнопку назад
 
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()

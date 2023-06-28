@@ -7,25 +7,25 @@
     flat
   >
     <VBtn @click="drawer = !drawer">
-      <VIcon icon="mdi-menu" size="20" />
+      <VIcon icon="mdi-menu" size="20"/>
       {{ appbarTitle }}
     </VBtn>
 
-    <VSpacer />
+    <VSpacer/>
     <VBtn icon="mdi-gift" to="/giving" color="info"/>
-    <TheAccountMenu />
+    <TheAccountMenu/>
   </v-app-bar>
 </template>
 
 <script setup>
 import {storeToRefs} from 'pinia'
-import {useAppState} from '@/store/appstate'
+import {useAppState} from '@/store/app.store'
 import TheAccountMenu from '@/components/navigations/TheAccountMenu.vue'
-import {defineProps} from 'vue'
+
 defineProps({
   appbarTitle: {
     type: String,
-    default: 'МБВ'
+    default: 'МБВ',
   },
 })
 

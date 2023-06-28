@@ -11,10 +11,10 @@ import {
   deleteField,
 } from 'firebase/firestore'
 import {db, auth} from '@/plugins/firebase.config'
-import {useAuthStore} from '@/store/authstore'
-import {useNotificationsStore} from '@/store/notificationstore'
-import {useAppState} from '@/store/appstate'
-import {useSnackbarMessages} from '@/store/snackbarmessages'
+import {useAuthStore} from '@/store/auth.store'
+import {useNotificationsStore} from '@/store/notification.store'
+import {useAppState} from '@/store/app.store'
+import {useSnackbarMessages} from '@/store/snackbarmessages.store'
 
 export const useCalendarEventsStore = defineStore('calendarEventsStore', () => {
   const {setMessage} = useSnackbarMessages()
@@ -131,7 +131,7 @@ export const useCalendarEventsStore = defineStore('calendarEventsStore', () => {
       chipValues: payload.chipValues
     }
 
-    // проверка на существование в бд записи на этот день, тогда обнавляет док
+    // проверка на существование в бд записи на этот день, тогда обновляет док
     if (docIds.value.includes(payload.eventDate)) {
       await updateDoc(doc(db, 'calendar', payload.eventDate), eventToDB)
         .then(() => {

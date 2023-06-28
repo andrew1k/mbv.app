@@ -14,9 +14,9 @@
 <script setup>
 import {Calendar} from 'v-calendar'
 import {ref} from 'vue'
-import {useCalendarEventsStore} from '@/store/calendarstore'
+import {useCalendarEventsStore} from '@/store/calendar.store'
 import {storeToRefs} from 'pinia'
-import {useAppState} from '@/store/appstate'
+import {useAppState} from '@/store/app.store'
 
 const calendarEventsStore = useCalendarEventsStore()
 const {allCalendarEvents} = storeToRefs(calendarEventsStore)

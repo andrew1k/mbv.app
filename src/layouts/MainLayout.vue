@@ -1,14 +1,14 @@
 <template>
-  <TheAppBar :appbar-title="$route.meta.title" />
-  <TheNavDrawer />
+  <TheAppBar :appbar-title="$route.meta.title"/>
+  <TheNavDrawer/>
   <v-main>
     <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
-        <component :is="Component" />
+        <component :is="Component"/>
       </transition>
     </router-view>
   </v-main>
-  <TheBottomNavigation />
+  <TheBottomNavigation/>
 </template>
 
 <script setup>

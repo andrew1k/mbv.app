@@ -1,6 +1,6 @@
 <template>
   <v-toolbar color="background" density="compact">
-    <VSpacer />
+    <VSpacer/>
     <v-btn to="/auth/signup">Зарегистрироваться</v-btn>
   </v-toolbar>
   <v-card variant="text" elevation="0" rounded="0" max-width="600" class="mx-auto">
@@ -29,7 +29,7 @@
             @click:append-inner="passwordEye = !passwordEye"
           />
           <v-btn class="my-2" size="x-large" :disabled="!!eError || !!pError" block type="submit">Войти</v-btn>
-          <VBtn to="/auth/restorePassword" variant="text" block text="забыли пароль?" class="mt-5" />
+          <VBtn to="/auth/restorePassword" variant="text" block text="забыли пароль?" class="mt-5"/>
         </v-form>
       </v-card>
     </v-fade-transition>
@@ -40,7 +40,7 @@
 import {onMounted, ref} from 'vue'
 import {useField, useForm} from 'vee-validate'
 import * as yup from 'yup'
-import {useAuthStore} from '@/store/authstore'
+import {useAuthStore} from '@/store/auth.store'
 import mobileLogin from '@/assets/illustrations/Mobile login.svg'
 
 const {appLogin} = useAuthStore()
@@ -70,8 +70,12 @@ const _pic = ref(false)
 const _card = ref(false)
 
 onMounted(() => {
-  setTimeout(() => {_pic.value = true},1000)
-  setTimeout(() => {_card.value = true},2000)
+  setTimeout(() => {
+    _pic.value = true
+  }, 1000)
+  setTimeout(() => {
+    _card.value = true
+  }, 2000)
 
 })
 </script>

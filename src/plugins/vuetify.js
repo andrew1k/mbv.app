@@ -16,11 +16,11 @@ export default createVuetify({
         elevation: 3,
         rounded: 'xl',
       },
-      VCardActions:{
+      VCardActions: {
         VBtn: {
           variant: 'flat',
-          size: 'large'
-        }
+          size: 'large',
+        },
       },
       VBtn: {
         elevation: 0,
@@ -36,9 +36,9 @@ export default createVuetify({
         pill: true,
       },
       VTextField: {
-        variant: 'outlined'
-      },VTextarea: {
-        variant: 'outlined'
+        variant: 'outlined',
+      }, VTextarea: {
+        variant: 'outlined',
       },
     },
     components: {

@@ -1,50 +1,51 @@
+<!-- eslint-disable vue/no-mutating-props -->
 <template>
+  <v-card
+    :ripple="false"
+    class="mx-1 my-2"
+    :elevation="show ? 0 : 4"
+    rounded="pill"
+    :color="show ? 'background' : 'surface'"
+    @click="show = !show"
+  >
+    <v-card-actions>
+      <VIcon :icon="eventIcon" :color="eventColor" class="ml-2"/>
+      <VCardItem
+        :title="eventTitle"
+        :subtitle="show ? `${eventTime.slice(0,10)}  в ${eventTime.slice(11)}`  : null"
+      />
+      <VSpacer/>
+      <v-chip v-if="signedEventsIds.includes(eventId)" rounded="pill" color="success">
+        <VIcon icon="mdi-check"/>
+      </v-chip>
+      <VIcon class="mx-2" :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"/>
+    </v-card-actions>
+  </v-card>
+  <v-expand-transition>
     <v-card
-
-            :ripple="false"
-            class="mx-1 my-2"
-            :elevation="show ? 0 : 4"
-            rounded="pill"
-            :color="show ? 'background' : 'surface'"
-            @click="show = !show"
+      v-show="show"
+      variant="text"
+      elevation="0"
+      class="mx-2"
     >
-        <v-card-actions>
-            <VIcon :icon="eventIcon" :color="eventColor" class="ml-2"/>
-            <VCardItem :title="eventTitle"
-                       :subtitle="show ? `${eventTime.slice(0,10)}  в ${eventTime.slice(11)}`  : null"/>
-            <VSpacer/>
-            <v-chip v-if="signedEventsIds.includes(eventId)" rounded="pill" color="success">
-                <VIcon icon="mdi-check"/>
-            </v-chip>
-            <VIcon class="mx-2" :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"/>
-        </v-card-actions>
+      <VCardText>{{ eventText }}</VCardText>
+      <v-card-actions class="mx-2">
+        <v-chip v-if="signedEventsIds.includes(eventId)" rounded="pill" color="success">вы записаны</v-chip>
+        <VSpacer/>
+        <slot name="deleteBtnSpace"/>
+        <v-btn :color="eventColor" v-if="!signedEventsIds.includes(eventId)" variant="outlined"
+               @click="$emit('signBtn')">Записаться
+        </v-btn>
+        <v-btn color="error" v-if="signedEventsIds.includes(eventId)" variant="outlined"
+               @click="$emit('unsignBtn')">Отменить запись
+        </v-btn>
+      </v-card-actions>
     </v-card>
-    <v-expand-transition>
-        <v-card
-                v-show="show"
-                variant="text"
-                elevation="0"
-                class="mx-2"
-        >
-            <VCardText v-html="eventText"/>
-            <v-card-actions class="mx-2">
-                <v-chip v-if="signedEventsIds.includes(eventId)" rounded="pill" color="success">вы записаны</v-chip>
-                <VSpacer/>
-                <slot name="deleteBtnSpace"/>
-                <v-btn :color="eventColor" v-if="!signedEventsIds.includes(eventId)" variant="outlined"
-                       @click="$emit('signBtn')">Записаться
-                </v-btn>
-                <v-btn color="error" v-if="signedEventsIds.includes(eventId)" variant="outlined"
-                       @click="$emit('unsignBtn')">Отменить запись
-                </v-btn>
-            </v-card-actions>
-        </v-card>
-    </v-expand-transition>
+  </v-expand-transition>
 </template>
 
 <script setup>
-import {defineEmits} from 'vue'
-import {useAuthStore} from '@/store/authstore'
+import {useAuthStore} from '@/store/auth.store'
 import {storeToRefs} from 'pinia'
 
 const authStore = useAuthStore()

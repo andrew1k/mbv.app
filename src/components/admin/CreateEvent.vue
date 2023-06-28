@@ -62,19 +62,21 @@
     />
     <v-card-actions>
       <VSpacer/>
-      <v-btn @click="saveEventToDB({eventTitle,eventText,eventDate,eventColor,eventTime, chipValues, chipIcon})">Создать</v-btn>
+      <v-btn @click="saveEventToDB({eventTitle,eventText,eventDate,eventColor,eventTime, chipValues, chipIcon})">
+        Создать
+      </v-btn>
     </v-card-actions>
   </v-card>
 </template>
 
 <script setup>
 import {ref} from 'vue'
-import {useCalendarEventsStore} from '@/store/calendarstore'
+import {useCalendarEventsStore} from '@/store/calendar.store'
 
 const {saveEventToDB} = useCalendarEventsStore()
 
 const chipItems = ref(['ministry', 'fellowship', 'discepleship', 'evangelism', 'worship', 'youth', 'first', 'second', 'third', 'fourth', 'baptism', 'firstMeeting'])
-const chipIcons = ref(['mdi-heart', 'mdi-account-multiple', 'mdi-school', 'mdi-hand-heart', 'mdi-torch', 'mdi-run',])
+const chipIcons = ref(['mdi-heart', 'mdi-account-multiple', 'mdi-school', 'mdi-hand-heart', 'mdi-torch', 'mdi-run'])
 const chipIcon = ref()
 const chipValues = ref([])
 const eventDate = ref('')

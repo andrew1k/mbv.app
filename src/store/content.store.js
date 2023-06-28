@@ -13,18 +13,15 @@ import {
 } from 'firebase/firestore'
 import {uploadBytes, ref as sref, getDownloadURL, deleteObject} from 'firebase/storage'
 import {ref} from 'vue'
-import {useAppState} from '@/store/appstate'
-import {useAuthStore} from '@/store/authstore'
+import {useAppState} from '@/store/app.store'
 
-export const useNewsfeedStore = defineStore('newsfeedStore', () => {
+export const useContentStore = defineStore('contentStore', () => {
   const news = ref([])
   const newsIds = ref([])
   const stories = ref([])
   const storiesIds = ref([])
   const newsItem = ref()
   const sunday = ref({docId: '0'})
-  const authStore = useAuthStore()
-  const {userAge} = storeToRefs(authStore)
   const appState = useAppState()
   const {isPending} = storeToRefs(appState)
 

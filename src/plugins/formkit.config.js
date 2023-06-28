@@ -1,16 +1,16 @@
-import { ru } from '@formkit/i18n'
-import { createFloatingLabelsPlugin } from '@formkit/addons'
+import {ru} from '@formkit/i18n'
+import {createFloatingLabelsPlugin} from '@formkit/addons'
 import '@formkit/addons/css/floatingLabels'
 
 const config = {
-  locales: { ru },
+  locales: {ru},
   locale: 'ru',
   theme: 'genesis',
   plugins: [
     createFloatingLabelsPlugin({
-      useAsDefault: false
-    })
-  ]
+      useAsDefault: false,
+    }),
+  ],
 }
 
 export default config

@@ -1,57 +1,57 @@
 <template>
-    <VSelect
-            v-model="from"
-            :items="selectForm"
-            multiple
-            :item-value="value"
-            :item-title="title"
-            label="Откуда вы узнали о малых группах?"
-            variant="outlined"
-            class="mx-2 mt-4"
-    />
-    <VTextField
-            label="Район, где вам удобно посещать Малую Группу"
-            v-model="metro"
-            variant="outlined"
-            class="ma-2"
-    />
-    <VDivider/>
-    <v-card-text>
-        Ниже вы можете ознакомиться с группами и выбрать подходящую или просто нажмите присоединиться. Вы
-        можете воспользоваться поиском или сортировкой нажав на нужную вам категорию
-    </v-card-text>
-    <VTextField
-            prepend-inner-icon="mdi-magnify"
-            v-model="searchText"
-            label="Поиск по ведущему, метро, возрасту"
-            variant="outlined"
-            class="ma-2"
-    />
-    <VDataTableVirtual
-            v-model="leader"
-            show-select
-            fixed-header
-            :headers="tableHeader"
-            :items="sgLeadersData"
-            :search="searchText"
-            height="400"
-            must-sort
-    />
-    <v-card-actions>
-        <VSpacer/>
-        <v-btn color="fellowship" elevation="0" @click="sendForm('fellowship', {leader, metro, from}, 'Записаться в мг')">
-            Присоединиться
-        </v-btn>
-    </v-card-actions>
+  <VSelect
+    v-model="from"
+    :items="selectForm"
+    multiple
+    :item-value="value"
+    :item-title="title"
+    label="Откуда вы узнали о малых группах?"
+    variant="outlined"
+    class="mx-2 mt-4"
+  />
+  <VTextField
+    label="Район, где вам удобно посещать Малую Группу"
+    v-model="metro"
+    variant="outlined"
+    class="ma-2"
+  />
+  <VDivider/>
+  <v-card-text>
+    Ниже вы можете ознакомиться с группами и выбрать подходящую или просто нажмите присоединиться. Вы
+    можете воспользоваться поиском или сортировкой нажав на нужную вам категорию
+  </v-card-text>
+  <VTextField
+    prepend-inner-icon="mdi-magnify"
+    v-model="searchText"
+    label="Поиск по ведущему, метро, возрасту"
+    variant="outlined"
+    class="ma-2"
+  />
+  <VDataTableVirtual
+    v-model="leader"
+    show-select
+    fixed-header
+    :headers="tableHeader"
+    :items="sgLeadersData"
+    :search="searchText"
+    height="400"
+    must-sort
+  />
+  <v-card-actions>
+    <VSpacer/>
+    <v-btn color="fellowship" elevation="0" @click="sendForm('fellowship', {leader, metro, from}, 'Записаться в мг')">
+      Присоединиться
+    </v-btn>
+  </v-card-actions>
 </template>
 
 <script setup>
 import {ref} from 'vue'
-import {useSGLeadersTable} from '@/store/dataTablesStore'
+import {useContentStore} from '@/store/content.store'
 import {storeToRefs} from 'pinia'
-import {useFormsStore} from '@/store/formstore'
+import {useFormsStore} from '@/store/form.store'
 
-const sgLeadersTable = useSGLeadersTable()
+const sgLeadersTable = useContentStore()
 const {getSGLeaders} = sgLeadersTable
 getSGLeaders()
 const {sgLeadersData} = storeToRefs(sgLeadersTable)

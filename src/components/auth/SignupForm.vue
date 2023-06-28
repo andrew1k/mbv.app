@@ -99,7 +99,7 @@
 
 <script setup>
 import {onMounted, ref} from 'vue'
-import {useAuthStore} from '@/store/authstore'
+import {useAuthStore} from '@/store/auth.store'
 import {useField, useForm} from 'vee-validate'
 import * as yup from 'yup'
 import mobileSignup from '@/assets/illustrations/MobileSignUp.svg'
@@ -162,8 +162,12 @@ const submit = handleSubmit(async values => {
 const _pic = ref(false)
 const _card = ref(false)
 onMounted(() => {
-  setTimeout(() => {_pic.value = true},1000)
-  setTimeout(() => {_card.value = true},2000)
+  setTimeout(() => {
+    _pic.value = true
+  }, 1000)
+  setTimeout(() => {
+    _card.value = true
+  }, 2000)
 
 })
 </script>

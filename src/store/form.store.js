@@ -1,8 +1,8 @@
 import {defineStore, storeToRefs} from 'pinia'
-import {useAuthStore} from '@/store/authstore'
+import {useAuthStore} from '@/store/auth.store'
 import {collection, doc, onSnapshot, setDoc, query, where, getDocs} from 'firebase/firestore'
 import {db} from '@/plugins/firebase.config'
-import {useSnackbarMessages} from '@/store/snackbarmessages'
+import {useSnackbarMessages} from '@/store/snackbarmessages.store'
 import {ref} from 'vue'
 
 export const useFormsStore = defineStore('formsStore', () => {

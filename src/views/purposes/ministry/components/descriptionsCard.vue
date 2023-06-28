@@ -7,8 +7,8 @@
   >
     <v-card-actions>
       <VCardItem :title="title" :subtitle="show ? subtitle : null"/>
-      <VSpacer />
-      <VIcon class="mx-3" :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'" />
+      <VSpacer/>
+      <VIcon class="mx-3" :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"/>
     </v-card-actions>
   </v-card>
   <v-expand-transition>
@@ -18,7 +18,7 @@
       elevation="0"
       class="mx-2"
     >
-      <VCardText v-text="text"/>
+      <VCardText>{{ text }}</VCardText>
     </v-card>
   </v-expand-transition>
 </template>

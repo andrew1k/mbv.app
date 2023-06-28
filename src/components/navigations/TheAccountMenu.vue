@@ -9,18 +9,18 @@
           </template>
         </v-list-item>
         <vDivider/>
-<!--        <v-list-item title="Уведомления" to="/notifications">-->
-<!--          <template v-slot:append>-->
-<!--            <VIcon icon="mdi-bell" color="secondary"/>-->
-<!--          </template>-->
-<!--        </v-list-item>-->
-<!--        <VDivider />-->
+        <!--        <v-list-item title="Уведомления" to="/notifications">-->
+        <!--          <template v-slot:append>-->
+        <!--            <VIcon icon="mdi-bell" color="secondary"/>-->
+        <!--          </template>-->
+        <!--        </v-list-item>-->
+        <!--        <VDivider />-->
         <v-list-item title="Пожертвование" to="/giving">
           <template v-slot:append>
             <VIcon icon="mdi-gift"/>
           </template>
         </v-list-item>
-        <VDivider />
+        <VDivider/>
         <v-list-item title="Тема" @click="handleTheme">
           <template v-slot:append>
             <VIcon icon="mdi-lightbulb-on"/>
@@ -32,9 +32,9 @@
 </template>
 
 <script setup>
-import {useAuthStore} from '@/store/authstore'
+import {useAuthStore} from '@/store/auth.store'
 import {storeToRefs} from 'pinia'
-import {useAppState} from '@/store/appstate'
+import {useAppState} from '@/store/app.store'
 //
 const {handleTheme} = useAppState()
 const authStore = useAuthStore()

@@ -1,5 +1,5 @@
 <template>
-  <v-card-title v-if="allCalendarEvents.length" class="mt-4">Все события в найшей церкви</v-card-title>
+  <v-card-title v-if="allCalendarEvents.length" class="mt-4">Все события в нашей церкви</v-card-title>
   <v-card-title v-if="!allCalendarEvents.length" class="mt-4">Пока что нет новых событий</v-card-title>
   <v-card variant="text" elevation="0">
     <v-chip-group
@@ -38,10 +38,10 @@
 
 <script setup>
 import CalendarEventCard from '@/components/calendar/EventCard.vue'
-import {useCalendarEventsStore} from '@/store/calendarstore'
+import {useCalendarEventsStore} from '@/store/calendar.store'
 import {storeToRefs} from 'pinia'
 import {watch, ref} from 'vue'
-import {useAuthStore} from '@/store/authstore'
+import {useAuthStore} from '@/store/auth.store'
 
 const calendarEventsStore = useCalendarEventsStore()
 const {allCalendarEvents} = storeToRefs(calendarEventsStore)
@@ -86,9 +86,9 @@ const selectedChip = ref([])
 
 watch(selectedChip, () => {
   if (selectedChip.value) {
-      filteredEvents.value = allCalendarEvents.value.filter(evnt => {
-        if (evnt.chipValues.includes(selectedChip.value)) return evnt
-      })
+    filteredEvents.value = allCalendarEvents.value.filter(evnt => {
+      if (evnt.chipValues.includes(selectedChip.value)) return evnt
+    })
   } else {
     filteredEvents.value = allCalendarEvents.value
   }

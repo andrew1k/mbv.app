@@ -12,9 +12,9 @@
 </template>
 
 <script setup>
-  import {useSnackbarMessages} from '@/store/snackbarmessages'
+  import {useSnackbarMessages} from '@/store/snackbarmessages.store'
   import {storeToRefs} from 'pinia'
-  import {useAppState} from '@/store/appstate'
+  import {useAppState} from '@/store/app.store'
 
   const snackbarMessages = useSnackbarMessages()
   const {snackbarMessage} = storeToRefs(snackbarMessages)

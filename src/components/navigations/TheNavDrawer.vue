@@ -30,19 +30,26 @@
       </v-list-item>
     </v-list>
     <template v-slot:append>
-      <VListItem variant="tonal" to="/giving" title="Пожертвовать" class="text-center ma-1" color="primary" rounded="xl"/>
+      <VListItem
+        variant="tonal"
+        to="/giving"
+        title="Пожертвовать"
+        class="text-center ma-1"
+        color="primary"
+        rounded="xl"
+      />
       <VDivider/>
       <v-card-actions>
         <VSpacer/>
         <VBtn density="compact" icon="mdi-youtube" color="error" href="https://www.youtube.com/@120SPD"/>
-        <VSpacer />
+        <VSpacer/>
       </v-card-actions>
     </template>
   </v-navigation-drawer>
 </template>
 
 <script setup>
-import {useAppState} from '@/store/appstate'
+import {useAppState} from '@/store/app.store'
 import {storeToRefs} from 'pinia'
 import {ref} from 'vue'
 

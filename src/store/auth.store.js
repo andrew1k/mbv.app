@@ -12,7 +12,7 @@ import {
 import {auth, db} from '@/plugins/firebase.config'
 import {doc, setDoc, updateDoc, onSnapshot, getDoc, deleteDoc} from 'firebase/firestore'
 import router from '@/router'
-import {useSnackbarMessages} from '@/store/snackbarmessages'
+import {useSnackbarMessages} from '@/store/snackbarmessages.store'
 
 export const useAuthStore = defineStore('authStore', () => {
   const {setMessage} = useSnackbarMessages() // messages for errors to user
@@ -31,6 +31,7 @@ export const useAuthStore = defineStore('authStore', () => {
   })
   // calendar part
   const signedEventsIds = ref(computed(() => dbUser.value.signedEvents?.map(e => e.eventId)))
+
   const appSignup = async (payload) => {  // ------------------------------------------------------------------------------------------------------------------------------------ Done: tests needed
     try {
       const res = await createUserWithEmailAndPassword(auth, payload.email, payload.password)
@@ -49,7 +50,7 @@ export const useAuthStore = defineStore('authStore', () => {
       await onSnapshot(doc(db, 'users', res.user.uid), (snapshot) => {
         dbUser.value = snapshot.data()
       })
-      await router.push('/')
+      await router.push({name: 'Home'})
     } catch (e) {
       setMessage(e.message)
     }
@@ -58,7 +59,7 @@ export const useAuthStore = defineStore('authStore', () => {
     try {
       const res = await signInWithEmailAndPassword(auth, payload.email, payload.password)
       if (!res) new Error('Ошибка входа, нет ответа с сервера')
-      await router.push('/')
+      await router.push({name: 'Home'})
     } catch (e) {
       setMessage(e.message)
     }
@@ -102,6 +103,8 @@ export const useAuthStore = defineStore('authStore', () => {
         .then(() => {
           updateDoc(doc(db, 'users', user.value.uid), {
             email,
+          }).then(() => {
+            setMessage('Всё хорошо')
           })
         })
         .catch(e => {
