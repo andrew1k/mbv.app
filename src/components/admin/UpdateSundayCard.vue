@@ -1,4 +1,5 @@
 <template>
+  Sunday Card
   <v-card class="ma-2">
     <VTextField
       class="ma-2"
@@ -13,7 +14,7 @@
       label="ID"
       hide-details
     />
-    <FormKit/>
+    <FormKit type="textarea" placeholder="Проповедь в формате html" class="mx-2" v-model="text"/>
     <v-card-actions>
       <VSpacer/>
       <v-btn @click="updateSunday({text, title, id})">Обновить</v-btn>

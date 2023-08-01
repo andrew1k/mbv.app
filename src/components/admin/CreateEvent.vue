@@ -4,7 +4,6 @@
     <VTextField
       class="ma-1"
       density="comfortable"
-      variant="solo"
       v-model="eventDate"
       label="Дата"
       type="date"
@@ -12,7 +11,6 @@
     <VTextField
       class="ma-1"
       density="comfortable"
-      variant="solo"
       v-model="eventTime"
       label="Время"
       type="time"
@@ -20,7 +18,6 @@
     <VSelect
       class="ma-1"
       density="comfortable"
-      variant="solo"
       v-model="eventColor"
       label="Цвет"
       :items="['gray', 'red', 'orange', 'yellow', 'green', 'teal', 'blue', 'indigo', 'purple', 'pink', 'brown']"
@@ -28,7 +25,6 @@
     <VTextField
       class="ma-1"
       density="comfortable"
-      variant="solo"
       v-model="eventTitle"
       label="Заголовок"
       type="string"
@@ -36,14 +32,12 @@
     <VTextField
       class="ma-1"
       density="comfortable"
-      variant="solo"
       v-model="eventText"
       label="Текст"
       type="string"
     />
     <VSelect
       v-model="chipValues"
-      variant="solo"
       class="ma-1"
       density="comfortable"
       :items="chipItems"
@@ -53,7 +47,6 @@
     />
     <VSelect
       v-model="chipIcon"
-      variant="solo"
       class="ma-1"
       density="comfortable"
       :items="chipIcons"

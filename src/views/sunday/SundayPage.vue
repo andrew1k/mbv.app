@@ -1,24 +1,24 @@
 <template>
   <v-scale-transition>
-  <v-card variant="text" elevation="0" rounded="0">
-  <v-card class="ma-2">
-    <LiteYouTubeEmbed :id="sunday.id" :title="sunday.title" />
-  </v-card>
-  <v-card class="ma-2 pa-2">
-    <v-card-title>Конспект проповеди</v-card-title>
-      <QuillEditor v-model:content="sunday.text" content-type="html" toolbar="minimal" />
-    <v-card-actions>
-      <vSpacer/>
-      <v-btn
-              @click="saveNotes(sunday.text, sunday.id)"
-              variant="text"
-              append-icon="mdi-bookmark-outline"
-      >
-          Сохранить
-      </v-btn>
-    </v-card-actions>
-  </v-card>
-  </v-card>
+    <v-card variant="text" elevation="0" rounded="0">
+      <v-card class="ma-2">
+        <LiteYouTubeEmbed :id="sunday.id" :title="sunday.title"/>
+      </v-card>
+      <v-card class="ma-2 pa-2">
+        <v-card-title>Конспект проповеди</v-card-title>
+        <QuillEditor v-model:content="sunday.text" content-type="html" toolbar="minimal"/>
+        <v-card-actions>
+          <vSpacer/>
+          <v-btn
+            @click="saveNotes(sunday.text, sunday.id)"
+            variant="text"
+            append-icon="mdi-bookmark-outline"
+          >
+            Сохранить
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-card>
   </v-scale-transition>
 </template>
 
@@ -27,7 +27,7 @@ import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
 import 'vue-lite-youtube-embed/style.css'
 import {useContentStore} from '@/store/content.store'
 import {storeToRefs} from 'pinia'
-import { QuillEditor } from '@vueup/vue-quill'
+import {QuillEditor} from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css'
 
 const contentStore = useContentStore()

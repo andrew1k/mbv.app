@@ -1,5 +1,5 @@
 <template>
-  <v-card elevation="0" rounded="0" variant="text" max-width="600" class="mx-auto">
+  <v-card elevation="0" rounded="0" variant="text" class="mx-auto">
     <StoryCreationCard/>
     <NewsCreationCard/>
     <UpdateSundayCard/>

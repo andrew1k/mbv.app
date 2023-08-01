@@ -1,19 +1,15 @@
 <template>
-  <v-card class="ma-2" rounded="pill" append-icon="mdi-pen" v-if="showForm" title="Создать новость"
-          @click="showForm = !showForm">
-  </v-card>
-  <v-card v-if="!showForm" class="ma-2" elevation="0" variant="text">
+  <v-card class="ma-2" elevation="0" variant="text">
     <v-file-input
       class="ma-2"
-      variant="solo"
       label="Image"
       v-model="img"
       show-size
       prepend-icon="mdi-camera"
     />
-    <v-text-field class="ma-2" variant="solo" label="Title" hide-details v-model="title"/>
-    <v-text-field class="ma-2" variant="solo" label="Subtitle" hide-details v-model="subtitle"/>
-    <v-textarea class="ma-2" variant="solo" label="Text" hide-details v-model="text"/>
+    <v-text-field class="ma-2" label="Title" hide-details v-model="title"/>
+    <v-text-field class="ma-2" label="Subtitle" hide-details v-model="subtitle"/>
+    <v-textarea class="ma-2" label="Text" hide-details v-model="text"/>
     <VSelect
       v-model="leader"
       variant="solo"
@@ -26,7 +22,6 @@
       label="Leader"
     />
     <v-card-actions>
-      <VBtn icon="mdi-close" @click="showForm = !showForm"/>
       <VSpacer/>
       <v-btn variant="flat" @click="uploadNews(img, {title, subtitle, text, leader: leader.leaderTitle})">
         Сохранить
@@ -40,7 +35,6 @@
 import {ref} from 'vue'
 import {useContentStore} from '@/store/content.store'
 
-const showForm = ref(true)
 const {uploadNews} = useContentStore()
 const img = ref(null)
 const title = ref('')
