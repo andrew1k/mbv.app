@@ -1,0 +1,8 @@
+{
+  "appId": "mbv.app",
+  "appName": "mbv.app",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}

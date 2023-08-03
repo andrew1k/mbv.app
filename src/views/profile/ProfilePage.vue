@@ -41,7 +41,7 @@ import {storeToRefs} from 'pinia'
 import AccountSettings from '@/components/profile/AccountSettings.vue'
 import AuthSettings from '@/components/profile/AuthSettings.vue'
 import {ref} from 'vue'
-import UserSaves from '@//components/saves/userSaves.vue'
+import UserSaves from '@//components/saves/UserSaves.vue'
 
 const authStore = useAuthStore()
 const { dbUser } = storeToRefs(authStore)

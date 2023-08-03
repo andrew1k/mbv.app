@@ -5,10 +5,7 @@
   </v-toolbar>
   <v-card variant="text" elevation="0" rounded="0" max-width="600" class="mx-auto">
     <v-fade-transition>
-      <VImg v-if="_pic" :src="mobileSignup"/>
-    </v-fade-transition>
-    <v-fade-transition>
-      <v-card class="mx-2 mt-n5 mb-2 pa-2" v-if="_card">
+      <v-card class="ma-2 pa-2" v-if="card">
         <VProgressLinear indeterminate v-if="isSubmitting"/>
         <v-card-title>Зарегистрироваться</v-card-title>
         <v-form @submit.prevent="submit">
@@ -159,15 +156,10 @@ const submit = handleSubmit(async values => {
   await appSignup({...values})
 })
 
-const _pic = ref(false)
-const _card = ref(false)
+const card = ref(false)
 onMounted(() => {
   setTimeout(() => {
-    _pic.value = true
+    card.value = true
   }, 1000)
-  setTimeout(() => {
-    _card.value = true
-  }, 2000)
-
 })
 </script>
