@@ -8,7 +8,6 @@
 </template>
 
 <script setup>
-
 import StoryCreationCard from '@/components/admin/StoryCreationCard.vue'
 import NewsCreationCard from '@/components/admin/NewsCreationCard.vue'
 import UpdateSundayCard from '@/components/admin/UpdateSundayCard.vue'

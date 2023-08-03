@@ -34,7 +34,6 @@ import {useContentStore} from '@/store/content.store'
 import {storeToRefs} from 'pinia'
 import {onBeforeMount, ref} from 'vue'
 import StoryCard from '@/components/home/stories/StoryCard.vue'
-
 import {useAppState} from '@/store/app.store'
 
 const newsfeedStore = useContentStore()
