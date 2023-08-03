@@ -129,7 +129,7 @@ export const useContentStore = defineStore('contentStore', () => {
       })
       // path in storage
       const previewImgPath = `stories/${storyId}/${previewImg.name}`
-      // uploading img to strage
+      // uploading img to storage
       await uploadBytes(sref(storage, previewImgPath), previewImg)
       // getting img url in storage
       const previewImgUrl = await getDownloadURL(sref(storage, previewImgPath))

@@ -5,7 +5,6 @@ import {StatusBar, Style} from '@capacitor/status-bar'
 export const useAppState = defineStore('appState', () => {
   const drawer = ref(null)
   const theme = ref('mbvLight')
-  // const theme = ref('mbvLight')
   const isPending = ref(false)
   const setStatusBarStyleDark = async () => {
     await StatusBar.setStyle({style: Style.Dark})

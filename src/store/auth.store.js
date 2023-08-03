@@ -45,6 +45,19 @@ export const useAuthStore = defineStore('authStore', () => {
         phoneNumber: payload.phoneNumber,
         servTeam: [],
         signedEvents: [],
+        verificationPerson: false,
+        familyStatus: '',
+        childrenStatus: [],
+        churchMembership: false,
+        stepsPassed: [],
+        adminComments: [],
+        baptismDate: '',
+        listeners: {
+          loginsCounter: 0,
+          eventRegs: 0,
+          formsSend: 0,
+          notificationsRead: 0,
+        },
       }
       await setDoc(doc(db, 'users', res.user.uid), dbData)
       await onSnapshot(doc(db, 'users', res.user.uid), (snapshot) => {
@@ -84,6 +97,7 @@ export const useAuthStore = defineStore('authStore', () => {
       setMessage(e.message)
     }
   }
+  //  До запуска можно пропустить
   const appUpdateUserData = async (payload) => {
     try {
       await updateDoc(doc(db, 'users', user.value.uid), {
