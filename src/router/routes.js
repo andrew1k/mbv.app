@@ -8,6 +8,7 @@ import ProfilePage from '@/views/profile/ProfilePage.vue'
 import CardLayout from '@/layouts/CardLayout.vue'
 import SundayPage from '@/views/sunday/SundayPage.vue'
 import GivingPage from '@/views/giving/GivingPage.vue'
+import NewsPage from '@/components/home/news/NewsPage.vue'
 
 export default [
   {
@@ -63,9 +64,9 @@ export default [
           color: 'fellowship', // warning
         },
       }, {
-        path: '/purposes/discepleship',
+        path: '/purposes/discipleship',
         name: 'discepleship',
-        component: () => import('@/views/purposes/discepleship/PurposeDiscepleship.vue'),
+        component: () => import('@/views/purposes/discipleship/PurposeDiscipleship.vue'),
         meta: {
           title: 'Ученичество',
           color: 'discepleship', // success
@@ -153,5 +154,14 @@ export default [
         color: 'worship',
       },
     }],
+  },{
+    path: '/news/:id',
+    name: 'NewsPage',
+    props: true,
+    component: NewsPage,
+    meta: {
+      title: 'Назад',
+      auth: true,
+    }
   },
 ]

@@ -7,16 +7,16 @@
     >
       {{ snackbarMessage }}
     </v-snackbar>
-    <RouterView />
+    <RouterView/>
   </v-app>
 </template>
 
 <script setup>
-  import {useSnackbarMessages} from '@/store/snackbarmessages.store'
-  import {storeToRefs} from 'pinia'
-  import {useAppState} from '@/store/app.store'
+import {useSnackbarMessages} from '@/store/snackbarmessages.store'
+import {storeToRefs} from 'pinia'
+import {useAppState} from '@/store/app.store'
 
-  const snackbarMessages = useSnackbarMessages()
-  const {snackbarMessage} = storeToRefs(snackbarMessages)
-  const {theme} = storeToRefs(useAppState())
+const snackbarMessages = useSnackbarMessages()
+const {snackbarMessage} = storeToRefs(snackbarMessages)
+const {theme} = storeToRefs(useAppState())
 </script>

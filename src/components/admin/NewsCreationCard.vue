@@ -1,4 +1,5 @@
 <template>
+  <v-card-title>News creation</v-card-title>
   <v-card class="ma-2" elevation="0" variant="text">
     <v-file-input
       class="ma-2"
@@ -7,6 +8,7 @@
       show-size
       prepend-icon="mdi-camera"
     />
+<!--    <PictureInput :removable="true" :crop="false" height="200" width="200" v-model="img"  />-->
     <v-text-field class="ma-2" label="Title" hide-details v-model="title"/>
     <v-text-field class="ma-2" label="Subtitle" hide-details v-model="subtitle"/>
     <v-textarea class="ma-2" label="Text" hide-details v-model="text"/>
@@ -34,6 +36,7 @@
 <script setup>
 import {ref} from 'vue'
 import {useContentStore} from '@/store/content.store'
+// import PictureInput from 'vue-picture-input'
 
 const {uploadNews} = useContentStore()
 const img = ref(null)
@@ -48,6 +51,7 @@ const leaders = ref([
   {leaderName: 'Анастасия Кошелева', leaderTitle: 'AnKo'},
   {leaderName: 'Татьяна Ступа', leaderTitle: 'TaSt'},
   {leaderName: 'Виталий Голиков', leaderTitle: 'ViGo'},
+  {leaderName: 'Миссия Благая Весть', leaderTitle: 'MBV'},
 ])
 // const leaders = ref([
 //   {leaderName: 'Даниил Шатров', leaderTitle: 'Ведущий пастор', leaderUrl: 'https://firebasestorage.googleapis.com/v0/b/telegraf-e4d87.appspot.com/o/leaders%2FDaniil%20Shatrov.jpg?alt=media&token=b63b150a-8c9d-4c48-a1fd-4bd72a808bfa'},

@@ -15,6 +15,7 @@ App.addListener('backButton', () => {
 }) // для Android слушает кнопку назад
 
 router.beforeEach((to, from, next) => {
+  window.scrollTo(0,0)
   const authStore = useAuthStore()
   const {isAuthed} = storeToRefs(authStore)
   const requireAuth = to.meta.auth

@@ -29,7 +29,7 @@
       label="Заголовок"
       type="string"
     />
-    <VTextField
+    <VTextarea
       class="ma-1"
       density="comfortable"
       v-model="eventText"

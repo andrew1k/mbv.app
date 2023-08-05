@@ -1,69 +1,71 @@
 <template>
-  <v-card class="ma-2">
-    <PCard
-      title="Семинар «Шаг 3. Служение»"
-      :img="step"
-      :text="stepText"
-      btn="Записаться на Шаг 3"
-      color="ministry"
-      @togglerBtn="signToStep = !signToStep"
-    />
-  </v-card>
-  <v-expand-transition>
-    <v-card v-show="signToStep" variant="text" elevation="0" rounded="0" class="ma-2">
-      <VCardText>
-        Запишитесь на ближайший шаг в календаре и вам придет уведомление за день до семинара
-      </VCardText>
-      <EventCard
-        v-for="evnt in filteredEvents"
-        :key="evnt.id"
-        :event-title="evnt.title"
-        :event-text="evnt.text"
-        :event-time="evnt.start"
-        :event-color="evnt.color"
-        :event-icon="evnt.icon"
-        :event-id="evnt.id"
-        :show="true"
-        @sign-btn="signToEvent(evnt)"
-        @unsign-btn="unsignToEvent(evnt)"/>
+  <v-card elevation="0" rounded="0" variant="text" max-width="600" class="mx-auto">
+    <v-card class="ma-2">
+      <PCard
+        title="Семинар «Шаг 3. Служение»"
+        :img="step"
+        :text="stepText"
+        btn="Записаться на Шаг 3"
+        color="ministry"
+        @togglerBtn="signToStep = !signToStep"
+      />
     </v-card>
-  </v-expand-transition>
-  <!--   ------------------------------------------------------------------------------------------------------------------ -->
-  <v-card class="ma-2">
-    <v-expansion-panels variant="accordion">
-      <v-expansion-panel v-for="(panel, i) in ourServs" :key="i">
-        <v-expansion-panel-title>
-          {{ panel.title }}
-        </v-expansion-panel-title>
-        <v-expansion-panel-text>
-          <v-card-text>
-            {{ panel.text }}
-          </v-card-text>
-          <v-card-text class="font-weight-thin">
-            {{ panel.subtitle }}
-          </v-card-text>
-        </v-expansion-panel-text>
-      </v-expansion-panel>
-    </v-expansion-panels>
-  </v-card>
-  <v-card class="ma-2">
-    <VCardTitle>Консультация</VCardTitle>
-    <v-card-text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis culpa deleniti dolor dolore
-      dolorum
-      esse eveniet inventore libero quidem vel?
-    </v-card-text>
-  </v-card>
-  <v-card class="ma-2">
-    <VCardTitle>Проект 'Век Добра'</VCardTitle>
-    <v-card-text>
-      Церковь- это место, где каждый человек может найти поддержку, принятие и помощь.
-      Мы хотим помочь вам преодолевать трудные ситуации и вместе с вами радоваться победам!
-    </v-card-text>
-    <v-card-item>
-      <v-avatar rounded="0"
-                image="https://mbv.spb.ru/wp-content/uploads/2016/08/BL_Logo_Gorizont_Main_Vertical-208x140.png"/>
-      Благотворительный фонд «Яркая жизнь»
-    </v-card-item>
+    <v-expand-transition>
+      <v-card v-show="signToStep" variant="text" elevation="0" rounded="0" class="ma-2">
+        <VCardText>
+          Запишитесь на ближайший шаг в календаре и вам придет уведомление за день до семинара
+        </VCardText>
+        <EventCard
+          v-for="evnt in filteredEvents"
+          :key="evnt.id"
+          :event-title="evnt.title"
+          :event-text="evnt.text"
+          :event-time="evnt.start"
+          :event-color="evnt.color"
+          :event-icon="evnt.icon"
+          :event-id="evnt.id"
+          :show="true"
+          @sign-btn="signToEvent(evnt)"
+          @unsign-btn="unsignToEvent(evnt)"/>
+      </v-card>
+    </v-expand-transition>
+    <!--   ------------------------------------------------------------------------------------------------------------------ -->
+    <v-card class="ma-2">
+      <v-expansion-panels variant="accordion">
+        <v-expansion-panel v-for="(panel, i) in ourServs" :key="i">
+          <v-expansion-panel-title>
+            {{ panel.title }}
+          </v-expansion-panel-title>
+          <v-expansion-panel-text>
+            <v-card-text>
+              {{ panel.text }}
+            </v-card-text>
+            <v-card-text class="font-weight-thin">
+              {{ panel.subtitle }}
+            </v-card-text>
+          </v-expansion-panel-text>
+        </v-expansion-panel>
+      </v-expansion-panels>
+    </v-card>
+    <v-card class="ma-2">
+      <VCardTitle>Консультация</VCardTitle>
+      <v-card-text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis culpa deleniti dolor dolore
+        dolorum
+        esse eveniet inventore libero quidem vel?
+      </v-card-text>
+    </v-card>
+    <v-card class="ma-2">
+      <VCardTitle>Проект 'Век Добра'</VCardTitle>
+      <v-card-text>
+        Церковь- это место, где каждый человек может найти поддержку, принятие и помощь.
+        Мы хотим помочь вам преодолевать трудные ситуации и вместе с вами радоваться победам!
+      </v-card-text>
+      <v-card-item>
+        <v-avatar rounded="0"
+                  image="https://mbv.spb.ru/wp-content/uploads/2016/08/BL_Logo_Gorizont_Main_Vertical-208x140.png"/>
+        Благотворительный фонд «Яркая жизнь»
+      </v-card-item>
+    </v-card>
   </v-card>
 </template>
 

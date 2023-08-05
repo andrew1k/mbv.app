@@ -13,14 +13,13 @@
 
     <VSpacer/>
     <VBtn icon="mdi-gift" to="/giving" color="info"/>
-    <TheAccountMenu/>
+
   </v-app-bar>
 </template>
 
 <script setup>
 import {storeToRefs} from 'pinia'
 import {useAppState} from '@/store/app.store'
-import TheAccountMenu from '@/components/navigations/TheAccountMenu.vue'
 
 defineProps({
   appbarTitle: {

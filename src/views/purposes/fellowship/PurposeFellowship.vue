@@ -1,124 +1,126 @@
 <template>
-  <!------------------------------------------------------------------------------------------------------------------------------    Step  -->
-  <v-card class="ma-2">
-    <PCard
-      title="Семинар - шаг 1 «Общение»"
-      btn="Записаться на Шаг 1"
-      :img="step"
-      :text="stepText"
-      color="fellowship"
-      @toggler-btn="signToStep = !signToStep"
-    />
-  </v-card>
-  <v-expand-transition>
-    <v-card v-show="signToStep" variant="text" elevation="0" rounded="0" class="ma-2">
-      <VCardText>Запишитесь на ближайший шаг в календаре и вам придет уведомление за день до семинара</VCardText>
-      <EventCard
-        v-for="evnt in filteredEvents"
-        :key="evnt.id"
-        :event-title="evnt.title"
-        :event-text="evnt.text"
-        :event-time="evnt.start"
-        :event-color="evnt.color"
-        :event-icon="evnt.icon"
-        :event-id="evnt.id"
-        @sign-btn="signToEvent(evnt)"
-        @unsign-btn="unsignToEvent(evnt)"
-        :show="true"
+  <v-card elevation="0" rounded="0" variant="text" max-width="600" class="mx-auto">
+    <!------------------------------------------------------------------------------------------------------------------------------    Step  -->
+    <v-card class="ma-2">
+      <PCard
+        title="Семинар - шаг 1 «Общение»"
+        btn="Записаться на Шаг 1"
+        :img="step"
+        :text="stepText"
+        color="fellowship"
+        @toggler-btn="signToStep = !signToStep"
       />
     </v-card>
-  </v-expand-transition>
-  <!------------------------------------------------------------------------------------------------------------------------------    Small Group-->
-  <!--    <VCardTitle class="mt-6" v-text="'МАЛЫЕ ГРУППЫ'"/>-->
-  <v-card class="ma-2">
-    <PCard
-      title="Малые группы"
-      btn="Найти Малую Группу"
-      :img="smallGroups"
-      :text="sgText"
-      color="fellowship"
-      @toggler-btn="togglerSG = !togglerSG"
-    />
-  </v-card>
-  <v-expand-transition>
-    <v-card v-show="togglerSG" variant="text" elevation="0" rounded="0" class="ma-2">
-      <SignToSG/>
+    <v-expand-transition>
+      <v-card v-show="signToStep" variant="text" elevation="0" rounded="0" class="ma-2">
+        <VCardText>Запишитесь на ближайший шаг в календаре и вам придет уведомление за день до семинара</VCardText>
+        <EventCard
+          v-for="evnt in filteredEvents"
+          :key="evnt.id"
+          :event-title="evnt.title"
+          :event-text="evnt.text"
+          :event-time="evnt.start"
+          :event-color="evnt.color"
+          :event-icon="evnt.icon"
+          :event-id="evnt.id"
+          @sign-btn="signToEvent(evnt)"
+          @unsign-btn="unsignToEvent(evnt)"
+          :show="true"
+        />
+      </v-card>
+    </v-expand-transition>
+    <!------------------------------------------------------------------------------------------------------------------------------    Small Group-->
+    <!--    <VCardTitle class="mt-6" v-text="'МАЛЫЕ ГРУППЫ'"/>-->
+    <v-card class="ma-2">
+      <PCard
+        title="Малые группы"
+        btn="Найти Малую Группу"
+        :img="smallGroups"
+        :text="sgText"
+        color="fellowship"
+        @toggler-btn="togglerSG = !togglerSG"
+      />
     </v-card>
-  </v-expand-transition>
-  <!------------------------------------------------------------------------------------------------------------------------------ Baptism-->
-  <!--    <VCardTitle v-text="'КРЕЩЕНИЕ'" class="mt-6"/>-->
-  <v-card class="ma-2">
-    <PCard
-      title="Водное крещение"
-      btn="Хочу принять водное крещение"
-      :img="baptism"
-      :text="textBaptism"
-      color="fellowship"
-      @toggler-btn="baptismToggler = !baptismToggler"
-    />
-  </v-card>
-  <v-expand-transition>
-    <v-card v-show="baptismToggler" variant="text" elevation="0" rounded="0" class="ma-2">
-      <SignToBaptism/>
+    <v-expand-transition>
+      <v-card v-show="togglerSG" variant="text" elevation="0" rounded="0" class="ma-2">
+        <SignToSG/>
+      </v-card>
+    </v-expand-transition>
+    <!------------------------------------------------------------------------------------------------------------------------------ Baptism-->
+    <!--    <VCardTitle v-text="'КРЕЩЕНИЕ'" class="mt-6"/>-->
+    <v-card class="ma-2">
+      <PCard
+        title="Водное крещение"
+        btn="Хочу принять водное крещение"
+        :img="baptism"
+        :text="textBaptism"
+        color="fellowship"
+        @toggler-btn="baptismToggler = !baptismToggler"
+      />
     </v-card>
-  </v-expand-transition>
+    <v-expand-transition>
+      <v-card v-show="baptismToggler" variant="text" elevation="0" rounded="0" class="ma-2">
+        <SignToBaptism/>
+      </v-card>
+    </v-expand-transition>
 
-  <!---------------------------------------------------------------------------------------------------------------------------  First Meeting-->
-  <!--    <VCardTitle class=" mt-6" v-text="'ВСТРЕЧА-ЗНАКОМСТВО'"/>-->
-  <v-card class="ma-2">
-    <PCard
-      title="Встреча-знакомство"
-      btn="Записаться"
-      :img="firstMeeting"
-      :text="textFirstMeeting"
-      color="fellowship"
-      @toggler-btn="signToFirstMeeting = !signToFirstMeeting"
-    />
-  </v-card>
-  <v-expand-transition>
-    <v-card v-show="signToFirstMeeting" variant="text" elevation="0" rounded="0" class="ma-2">
-      <VCardSubtitle>Ближайшая встреча-знакомство в календаре</VCardSubtitle>
-      <VDivider/>
-      <EventCard
-        v-for="evnt in firstMeetingEvnt"
-        :key="evnt.id"
-        :event-title="evnt.title"
-        :event-text="evnt.text"
-        :event-time="evnt.start"
-        :event-color="evnt.color"
-        :event-icon="evnt.icon"
-        :event-id="evnt.id"
-        @sign-btn="signToEvent(evnt)"
-        @unsign-btn="unsignToEvent(evnt)"
-        :show="true"
+    <!---------------------------------------------------------------------------------------------------------------------------  First Meeting-->
+    <!--    <VCardTitle class=" mt-6" v-text="'ВСТРЕЧА-ЗНАКОМСТВО'"/>-->
+    <v-card class="ma-2">
+      <PCard
+        title="Встреча-знакомство"
+        btn="Записаться"
+        :img="firstMeeting"
+        :text="textFirstMeeting"
+        color="fellowship"
+        @toggler-btn="signToFirstMeeting = !signToFirstMeeting"
       />
     </v-card>
-  </v-expand-transition>
-  <!----------------------------------------------------------------------------------------------------------------------------  One Plus One -->
-  <v-card class=" ma-2">
-    <PCard
-      title="Программа «1+1»"
-      btn="Найти мне наставника"
-      :img="onePlusOne"
-      :text="textOnePlusOne"
-      color="fellowship"
-      @toggler-btn="oPo = !oPo"
-    />
-  </v-card>
-  <v-expand-transition>
-    <v-card v-show="oPo" variant="text" elevation="0" rounded="0" class="ma-2">
-      <v-radio-group v-model="answer" class="my-1" label="Как с вами удобнее связаться?" density="comfortable"
-                     color="success" hide-details>
-        <VRadio label="What's App" value="WhatsApp"/>
-        <VRadio label="Telegram" value="Telegram"/>
-        <VRadio label="По телефону" value="По телефону"/>
-      </v-radio-group>
-      <v-card-actions>
-        <VSpacer/>
-        <v-btn color="fellowship" @click="sendForm('fellowship', {answer}, '1 + 1')">Отправить</v-btn>
-      </v-card-actions>
+    <v-expand-transition>
+      <v-card v-show="signToFirstMeeting" variant="text" elevation="0" rounded="0" class="ma-2">
+        <VCardSubtitle>Ближайшая встреча-знакомство в календаре</VCardSubtitle>
+        <VDivider/>
+        <EventCard
+          v-for="evnt in firstMeetingEvnt"
+          :key="evnt.id"
+          :event-title="evnt.title"
+          :event-text="evnt.text"
+          :event-time="evnt.start"
+          :event-color="evnt.color"
+          :event-icon="evnt.icon"
+          :event-id="evnt.id"
+          @sign-btn="signToEvent(evnt)"
+          @unsign-btn="unsignToEvent(evnt)"
+          :show="true"
+        />
+      </v-card>
+    </v-expand-transition>
+    <!----------------------------------------------------------------------------------------------------------------------------  One Plus One -->
+    <v-card class=" ma-2">
+      <PCard
+        title="Программа «1+1»"
+        btn="Найти мне наставника"
+        :img="onePlusOne"
+        :text="textOnePlusOne"
+        color="fellowship"
+        @toggler-btn="oPo = !oPo"
+      />
     </v-card>
-  </v-expand-transition>
+    <v-expand-transition>
+      <v-card v-show="oPo" variant="text" elevation="0" rounded="0" class="ma-2">
+        <v-radio-group v-model="answer" class="my-1" label="Как с вами удобнее связаться?" density="comfortable"
+                       color="success" hide-details>
+          <VRadio label="What's App" value="WhatsApp"/>
+          <VRadio label="Telegram" value="Telegram"/>
+          <VRadio label="По телефону" value="По телефону"/>
+        </v-radio-group>
+        <v-card-actions>
+          <VSpacer/>
+          <v-btn color="fellowship" @click="sendForm('fellowship', {answer}, '1 + 1')">Отправить</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-expand-transition>
+  </v-card>
 </template>
 
 <script setup>

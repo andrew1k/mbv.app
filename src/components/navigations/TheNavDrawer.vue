@@ -96,7 +96,7 @@ const purposeNavList = ref([
     icon: 'mdi-school',
     color: 'green',
     title: 'Ученичество',
-    routeTo: '/purposes/discepleship',
+    routeTo: '/purposes/discipleship',
   }, {
     icon: 'mdi-hand-heart',
     color: 'brown',

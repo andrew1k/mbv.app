@@ -1,5 +1,5 @@
 <template>
-  <v-card-title class="mt-6">Для вас</v-card-title>
+  <h2 class="mt-6 ml-4">Для вас</h2>
   <!--                                            Skeleton Cards                -->
   <v-card class="ma-2" v-if="isPending">
     <v-container class="ma-0 pa-0">
@@ -34,8 +34,8 @@
     v-for="item in news"
     :key="item.id"
     :title="item.title"
+    :subtitle="item.subtitle"
     :img="item.url"
-    :leader-name="item.leaderName"
     :id="item.id"
   />
 </template>
