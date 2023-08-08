@@ -1,8 +1,8 @@
 <template>
   <v-card
-    class="my-2 mx-1"
-    height="250"
-    width="250"
+    class="my-2 ml-2"
+    height="200"
+    width="200"
     :image="img"
     :to="route"
   >

@@ -53,6 +53,7 @@ export default createVuetify({
           colors: {
             background: '#efefef', // f1f1f1
             surface: '#ffffff',
+            contrast: '#1C1B1F',
             primary: '#9C27B0',
             secondary: '#CB9821',
             error: '#D28782',
@@ -77,6 +78,7 @@ export default createVuetify({
             background: '#1C1B1F',
             surface: '#49454F', // 264653
             primary: '#D0BCFF',
+            contrast: '#ffffff',
             // primary: '#2a9d8f',
             secondary: '#CCC2DC',
             // secondary: '#f4a261',
