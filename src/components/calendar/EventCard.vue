@@ -3,7 +3,7 @@
   <v-card
     :ripple="false"
     class="mx-1 my-2"
-    :elevation="show ? 0 : 4"
+    elevation="0"
     rounded="pill"
     :color="show ? 'background' : 'surface'"
     @click="show = !show"
@@ -28,7 +28,7 @@
       elevation="0"
       class="mx-2"
     >
-      <VCardText>{{ eventText }}</VCardText>
+      <VCardText v-html="eventText"/>
       <v-card-actions class="mx-2">
         <v-chip v-if="signedEventsIds.includes(eventId)" rounded="pill" color="success">вы записаны</v-chip>
         <VSpacer/>

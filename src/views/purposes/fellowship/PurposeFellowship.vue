@@ -66,7 +66,7 @@
 
     <!---------------------------------------------------------------------------------------------------------------------------  First Meeting-->
     <!--    <VCardTitle class=" mt-6" v-text="'ВСТРЕЧА-ЗНАКОМСТВО'"/>-->
-    <v-card class="ma-2">
+    <v-card class="ma-2" id="firstMeeting">
       <PCard
         title="Встреча-знакомство"
         btn="Записаться"
@@ -130,9 +130,9 @@ import firstMeeting from '@/assets/fellowshipPics/firstMeeting.jpg'
 import smallGroups from '@/assets/fellowshipPics/smallGroups.jpg'
 import onePlusOne from '@/assets/fellowshipPics/onePlusOne.jpg'
 import {ref} from 'vue'
-import SignToBaptism from '@/views/purposes/fellowship/components/forms/signToBaptism.vue'
+import SignToBaptism from '@/components/purposes/fellowship/forms/SignToBaptism.vue'
 import PCard from '@/components/purposes/PurposesCards.vue'
-import SignToSG from '@/views/purposes/fellowship/components/forms/signToSG.vue'
+import SignToSG from '@/components/purposes/fellowship/forms/SignToSG.vue'
 import EventCard from '@/components/calendar/EventCard.vue'
 import {useCalendarEventsStore} from '@/store/calendar.store'
 import {storeToRefs} from 'pinia'

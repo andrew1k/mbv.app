@@ -4,10 +4,10 @@
       <VCardTitle class="text-white">{{ title }}</VCardTitle>
     </div>
   </v-img>
-  <VCardText>{{ text }}</VCardText>
+  <VCardText v-html="text"/>
   <v-card-actions v-if="btn">
     <VSpacer/>
-    <VBtn :color="color" @click="$emit('togglerBtn')">{{ btn }}</VBtn>
+    <VBtn :color="color" block variant="outlined" @click="$emit('togglerBtn')">{{ btn }}</VBtn>
   </v-card-actions>
 </template>
 

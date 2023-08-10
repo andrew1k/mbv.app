@@ -1,20 +1,3 @@
-<!--<template>-->
-<!--  <v-card elevation="0" rounded="0" variant="text" max-width="600" class="mx-auto">-->
-<!--    <v-card-->
-<!--      class="ma-2"-->
-<!--      v-for="(card, i) in purposesCards"-->
-<!--      :key="i"-->
-<!--      @click="$router.push(card.routerTo)"-->
-<!--      rounded="xl"-->
-<!--    >-->
-<!--      <v-card-actions>-->
-<!--        <VAvatar class="mx-3" :image="card.img" rounded="0" />-->
-<!--        <VCardItem :title="card.title" :subtitle="card.subtitle"/>-->
-<!--      </v-card-actions>-->
-<!--    </v-card>-->
-<!--  </v-card>-->
-<!--</template>-->
-
 <!--<script setup>-->
 <!--import worship from '@/assets/icons/worship.svg'-->
 <!--import evangelism from '@/assets/icons/evangelism.svg'-->
@@ -71,10 +54,10 @@
     <v-card elevation="0" rounded="xl" class="mb-4 mt-2 mx-2">
       <v-card elevation="0" @click="purposes.worship.isOpen = !purposes.worship.isOpen">
         <v-card-actions>
-          <VCardItem
-            :prepend-icon="purposes.worship.icon"
-            :title="purposes.worship.title"
-          />
+          <VIcon class="ml-4" :color="purposes.worship.color" :icon="purposes.worship.icon"/>
+          <v-card-title>
+            {{ purposes.worship.title }}
+          </v-card-title>
           <VSpacer/>
           <VIcon
             class="mx-4"
@@ -86,30 +69,20 @@
         <v-card v-if="purposes.worship.isOpen" elevation="0" rounded="0" variant="text">
           <v-slide-group>
             <v-slide-group-item v-for="(pAct, i) in purposes.worship.actions" :key="i">
-              <v-card
-                class="my-2 ml-2"
-                height="200"
-                width="200"
-                :image="pAct.route"
-                :to="pAct.img"
-              >
-                <div class="fill-height justify-center bottom-gradient d-flex align-end">
-                  <h3 class="text-white my-3">{{ pAct.title }}</h3>
-                </div>
-              </v-card>
+              <PurposeSliderItem :title="pAct.title" :route="pAct.route" :img="pAct.img" :href="pAct.href"/>
             </v-slide-group-item>
           </v-slide-group>
         </v-card>
       </v-expand-transition>
     </v-card>
-<!-- --------------------------------------------------------------------------------------------------------------- -->
+    <!-- --------------------------------------------------------------------------------------------------------------- -->
     <v-card elevation="0" rounded="xl" class="mb-4 mt-2 mx-2">
       <v-card elevation="0" @click="purposes.fellowship.isOpen = !purposes.fellowship.isOpen">
         <v-card-actions>
-          <VCardItem
-            :prepend-icon="purposes.fellowship.icon"
-            :title="purposes.fellowship.title"
-          />
+          <VIcon class="ml-4" :color="purposes.fellowship.color" :icon="purposes.fellowship.icon"/>
+          <v-card-title>
+            {{ purposes.fellowship.title }}
+          </v-card-title>
           <VSpacer/>
           <VIcon
             class="mx-4"
@@ -119,18 +92,29 @@
       </v-card>
       <v-expand-transition>
         <v-card v-if="purposes.fellowship.isOpen" elevation="0" rounded="0" variant="text">
-
+          <v-card class="ma-2" height="220" :image="firstMeeting">
+            <div class="fill-height bottom-gradient-darker d-flex flex-column align-center justify-end">
+              <h3 class="text-white">Встреча-знакомство</h3>
+              <p class="text-mono text-white text-caption">Мы будем рады познакомиться с тобой</p>
+              <v-btn class="ma-2" color="surface" variant="outlined" to="/purposes/fellowship/firstMeeting">Хочу</v-btn>
+            </div>
+          </v-card>
+          <v-slide-group>
+            <v-slide-group-item v-for="(pAct, i) in purposes.fellowship.actions" :key="i">
+              <PurposeSliderItem :title="pAct.title" :route="pAct.route" :img="pAct.img"/>
+            </v-slide-group-item>
+          </v-slide-group>
         </v-card>
       </v-expand-transition>
     </v-card>
-<!-- --------------------------------------------------------------------------------------------------------------- -->
+    <!-- --------------------------------------------------------------------------------------------------------------- -->
     <v-card elevation="0" rounded="xl" class="mb-4 mt-2 mx-2">
       <v-card elevation="0" @click="purposes.discipleship.isOpen = !purposes.discipleship.isOpen">
         <v-card-actions>
-          <VCardItem
-            :prepend-icon="purposes.discipleship.icon"
-            :title="purposes.discipleship.title"
-          />
+          <VIcon class="ml-4" :color="purposes.discipleship.color" :icon="purposes.discipleship.icon"/>
+          <v-card-title>
+            {{ purposes.discipleship.title }}
+          </v-card-title>
           <VSpacer/>
           <VIcon
             class="mx-4"
@@ -140,18 +124,35 @@
       </v-card>
       <v-expand-transition>
         <v-card v-if="purposes.discipleship.isOpen" elevation="0" rounded="0" variant="text">
-
+          <v-card
+            elevation="0"
+            rounded="0"
+            variant="text"
+            class="ma-0"
+            v-for="(pAct, i) in purposes.discipleship.actions"
+            :key="i"
+            :to="pAct.route"
+          >
+            <VDivider/>
+            <v-card-actions>
+              <VIcon :icon="pAct.icon" color="discipleship" class="ml-2"/>
+              <VCardItem
+                :title="pAct.title"
+                :subtitle="pAct.subtitle"
+              />
+            </v-card-actions>
+          </v-card>
         </v-card>
       </v-expand-transition>
     </v-card>
-<!-- --------------------------------------------------------------------------------------------------------------- -->
+    <!-- --------------------------------------------------------------------------------------------------------------- -->
     <v-card elevation="0" rounded="xl" class="mb-4 mt-2 mx-2">
       <v-card elevation="0" @click="purposes.ministry.isOpen = !purposes.ministry.isOpen">
         <v-card-actions>
-          <VCardItem
-            :prepend-icon="purposes.ministry.icon"
-            :title="purposes.ministry.title"
-          />
+          <VIcon class="ml-4" :color="purposes.ministry.color" :icon="purposes.ministry.icon"/>
+          <v-card-title>
+            {{ purposes.ministry.title }}
+          </v-card-title>
           <VSpacer/>
           <VIcon
             class="mx-4"
@@ -161,7 +162,56 @@
       </v-card>
       <v-expand-transition>
         <v-card v-if="purposes.ministry.isOpen" elevation="0" rounded="0" variant="text">
-
+          <v-card class="ma-2" height="220" :image="ministry">
+            <div class="fill-height bottom-gradient-darker d-flex flex-column align-center justify-end">
+              <h3 class="text-white">Начни служить</h3>
+              <p class="text-mono text-white text-caption">Раскрой свои дары и таланты</p>
+              <v-btn class="ma-2" color="surface" variant="outlined" to="/purposes/ministry/signToMinistry">Хочу
+                служить
+              </v-btn>
+            </div>
+          </v-card>
+          <v-card
+            elevation="0"
+            rounded="0"
+            variant="text"
+            class="ma-0"
+            to="/purposes/ministry/step"
+          >
+            <VDivider/>
+            <v-card-actions>
+              <VIcon :icon="purposes.ministry.icon" color="ministry" class="ml-2"/>
+              <VCardItem
+                title="Шаг 3"
+                subtitle="Место больших возможностей!"
+              />
+            </v-card-actions>
+          </v-card>
+        </v-card>
+      </v-expand-transition>
+    </v-card>
+    <!-- --------------------------------------------------------------------------------------------------------------- -->
+    <v-card elevation="0" rounded="xl" class="mb-4 mt-2 mx-2">
+      <v-card elevation="0" @click="purposes.evangelism.isOpen = !purposes.evangelism.isOpen">
+        <v-card-actions>
+          <VIcon class="ml-4" :color="purposes.evangelism.color" :icon="purposes.evangelism.icon"/>
+          <v-card-title>
+            {{ purposes.evangelism.title }}
+          </v-card-title>
+          <VSpacer/>
+          <VIcon
+            class="mx-4"
+            :icon="purposes.evangelism.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+          />
+        </v-card-actions>
+      </v-card>
+      <v-expand-transition>
+        <v-card v-if="purposes.evangelism.isOpen" elevation="0" rounded="0" variant="text">
+          <v-slide-group>
+            <v-slide-group-item v-for="(pAct, i) in purposes.evangelism.actions" :key="i">
+              <PurposeSliderItem :title="pAct.title" :route="pAct.route" :img="pAct.img" :href="pAct.href"/>
+            </v-slide-group-item>
+          </v-slide-group>
         </v-card>
       </v-expand-transition>
     </v-card>
@@ -170,35 +220,53 @@
 
 <script setup>
 import {ref} from 'vue'
+import PurposeSliderItem from '@/components/purposes/PurposeSliderItem.vue'
+
+// import pics
+import steiger from '@/assets/evangelismPics/steiger.jpg'
+import vechno from '@/assets/evangelismPics/vechnoSq.jpg'
+import step4 from '@/assets/evangelismPics/step.jpg'
+import oneSq from '@/assets/evangelismPics/OneSq.jpg'
+import sunday from '@/assets/worshipPics/sunday.jpg'
+import praying from '@/assets/worshipPics/praying.jpg'
+import songs from '@/assets/worshipPics/songs.jpg'
+import firstMeeting from '@/assets/fellowshipPics/firstMeeting.jpg'
+import step from '@/assets/fellowshipPics/step.jpg'
+import SG from '@/assets/fellowshipPics/smallGroups.jpg'
+import baptism from '@/assets/fellowshipPics/baptismSq.jpg'
+import ministry from '@/assets/ministryPics/step.jpg'
+
 
 const purposes = ref({
   worship: {
     title: 'Поклонение',
     route: '/purposes/worship',
     color: 'worship',
-    icon: 'mdi-heart',
+    icon: 'mdi-heart-outline',
     isOpen: true,
     actions: [
       {
         title: 'Воскресенье',
-        img: '',
-        route: '/home',
+        img: sunday,
+        route: '/sunday',
       }, {
         title: 'Молитвы',
-        img: '',
-        route: '',
-      }, {
-        title: 'Конференции',
-        img: '',
-        route: '',
-      }, {
-        title: 'Вечер Хвалы',
-        img: '',
-        route: '',
-      }, {
+        img: praying,
+        href: 'https://www.youtube.com/playlist?list=PLjjvxd6WcKV04vM9MkM6Gd69-qdkzpRbj',
+      },
+      // {
+      //   title: 'Конференции',
+      //   img: '',
+      //   route: '',
+      // }, {
+      //   title: 'Вечер Хвалы',
+      //   img: '',
+      //   route: '',
+      // },
+      {
         title: 'Песни',
-        img: '',
-        route: '',
+        img: songs,
+        href: 'https://www.youtube.com/playlist?list=PLjjvxd6WcKV0iJGU4PM6DR4EZ4ideQrR9',
       },
     ],
   },
@@ -206,29 +274,21 @@ const purposes = ref({
     title: 'С чего начать?',
     route: '/purposes/fellowship',
     color: 'fellowship',
-    icon: 'mdi-account-multiple',
-    isOpen: false,
+    icon: 'mdi-account-multiple-outline',
+    isOpen: true,
     actions: [
       {
-        title: 'Встреча-знакомство',
-        img: '',
-        route: '',
-      }, {
         title: 'Шаг 1',
-        img: '',
-        route: '',
+        img: step,
+        route: `/purposes/fellowship/step`,
       }, {
         title: 'Малые Группы',
-        img: '',
-        route: '',
+        img: SG,
+        route: `/purposes/fellowship/smallGroups`,
       }, {
         title: 'Крещение',
-        img: '',
-        route: '',
-      }, {
-        title: 'Наставничество',
-        img: '',
-        route: '',
+        img: baptism,
+        route: `/purposes/fellowship/baptism`,
       },
     ],
   },
@@ -236,33 +296,29 @@ const purposes = ref({
     title: 'Рост и обучение',
     route: '/purposes/discipleship',
     color: 'discipleship',
-    icon: 'mdi-school',
+    icon: 'mdi-school-outline',
     isOpen: false,
     actions: [
       {
         title: 'Наставничество',
-        img: '',
-        route: '',
+        subtitle: 'Мы поможем тебе начать',
+        icon: 'mdi-account-arrow-up-outline',
+        route: '/purposes/discipleship/mentoring',
       }, {
         title: 'Шаг 2',
-        img: '',
-        route: '',
+        subtitle: 'Мы будем возрастать!',
+        icon: 'mdi-school-outline',
+        route: '/purposes/discipleship/step',
       }, {
-        title: 'Ретрит',
-        img: '',
+        title: 'Курсы',
+        subtitle: 'Изучай новое вместе с нами',
+        icon: 'mdi-book-outline',
         route: '',
       }, {
         title: 'Семейное служение',
-        img: '',
-        route: '',
-      }, {
-        title: 'Книги',
-        img: '',
-        route: '',
-      }, {
-        title: 'Курсы',
-        img: '',
-        route: '',
+        subtitle: 'Твои корни',
+        icon: 'mdi-human-male-female-child',
+        route: '/home',
       },
     ],
   },
@@ -270,56 +326,42 @@ const purposes = ref({
     title: 'Начать служить',
     route: '/purposes/ministry',
     color: 'ministry',
-    icon: 'mdi-hand-heart',
+    icon: 'mdi-hand-heart-outline',
     isOpen: false,
-    actions: [
-      {
-        title: 'Служения',
-        img: '',
-        route: '',
-      }, {
-        title: 'Консультация',
-        img: '',
-        route: '',
-      }, {
-        title: 'Шаг 3',
-        img: '',
-        route: '',
-      },
-    ],
-  }
-  ,
+  },
   evangelism: {
     title: 'Рассказать об Иисусе',
     route: '/purposes/evangelism',
     color: 'evangelism',
     icon: 'mdi-torch',
-    isOpen: false,
+    isOpen: true,
     actions: [
       {
         title: 'VECHNO',
-        img: '',
-        route: '',
+        img: vechno,
+        route: '/purposes/evangelism/vechno',
       }, {
         title: 'Шаг 4',
-        img: '',
-        route: '',
+        img: step4,
+        route: '/purposes/evangelism/step',
       }, {
         title: 'Кто твой один?',
-        img: '',
-        route: '',
-      }, {
-        title: 'Семинар',
-        img: '',
-        route: '',
-      }, {
-        title: 'Спектакли',
-        img: '',
-        route: '',
-      }, {
+        img: oneSq,
+        route: '/purposes/evangelism/one',
+      },
+      // {
+      //   title: 'Семинар',
+      //   img: '',
+      //   route: '',
+      // }, {
+      //   title: 'Спектакли',
+      //   img: '',
+      //   route: '',
+      // },
+      {
         title: 'OutReach',
-        img: '',
-        route: '',
+        img: steiger,
+        route: '/purposes/evangelism/outreach',
       },
     ],
   },
@@ -358,6 +400,14 @@ const purposes = ref({
   background-image: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.25) 0%,
+    transparent 250px
+  );
+}
+
+.bottom-gradient-darker {
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.5) 0%,
     transparent 250px
   );
 }

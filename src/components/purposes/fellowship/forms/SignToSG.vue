@@ -39,7 +39,7 @@
   />
   <v-card-actions>
     <VSpacer/>
-    <v-btn color="fellowship" elevation="0" @click="sendForm('fellowship', {leader, metro, from}, 'Записаться в мг')">
+    <v-btn block variant="outlined" elevation="0" @click="sendForm('fellowship', {leader, metro, from}, 'Записаться в мг')">
       Присоединиться
     </v-btn>
   </v-card-actions>

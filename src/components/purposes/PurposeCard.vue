@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-import PurposeSlider from '@/components/purposes/PurposeSlider.vue'
+import PurposeSlider from '@/components/purposes/PurposeSliderItem.vue'
 
 
 defineProps({

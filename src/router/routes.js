@@ -95,6 +95,102 @@ export default [
           title: 'MBVYouth',
           color: 'secondary',
         },
+      }, {
+        path: '/purposes/fellowship/baptism',
+        name: 'baptism',
+        component: () => import('@/views/purposes/fellowship/views/BaptismPage.vue'),
+        meta: {
+          title: 'Крещение',
+          color: 'fellowship',
+        },
+      }, {
+        path: '/purposes/fellowship/step',
+        name: 'stepOne',
+        component: () => import('@/views/purposes/fellowship/views/StepOnePage.vue'),
+        meta: {
+          title: 'Шаг 1',
+          color: 'fellowship',
+        },
+      }, {
+        path: '/purposes/fellowship/firstMeeting',
+        name: 'firstMeeting',
+        component: () => import('@/views/purposes/fellowship/views/FirstMeetingPage.vue'),
+        meta: {
+          title: 'Встреча знакомство',
+          color: 'fellowship',
+        },
+      }, {
+        path: '/purposes/fellowship/smallGroups',
+        name: 'smallGroups',
+        component: () => import('@/views/purposes/fellowship/views/SmallGroupsPage.vue'),
+        meta: {
+          title: 'Малые группы',
+          color: 'fellowship',
+        },
+      }, {
+        path: '/purposes/ministry/step',
+        name: 'stepThree',
+        component: () => import('@/views/purposes/ministry/views/StepThreePage.vue'),
+        meta: {
+          title: 'Шаг 3',
+          color: 'ministry',
+        },
+      }, {
+        path: '/purposes/ministry/signToMinistry',
+        name: 'signToMinistry',
+        component: () => import('@/views/purposes/ministry/views/SignToMinistryPage.vue'),
+        meta: {
+          title: 'Служение',
+          color: 'ministry',
+        },
+      }, {
+        path: '/purposes/discipleship/step',
+        name: 'stepTwo',
+        component: () => import('@/views/purposes/discipleship/views/StepTwoPage.vue'),
+        meta: {
+          title: 'Шаг 2',
+          color: 'ministry',
+        },
+      }, {
+        path: '/purposes/discipleship/mentoring',
+        name: 'mentoring',
+        component: () => import('@/views/purposes/discipleship/views/MentoringPage.vue'),
+        meta: {
+          title: 'Наставничество',
+          color: 'ministry',
+        },
+      }, {
+        path: '/purposes/evangelism/vechno',
+        name: 'vechno',
+        component: () => import('@/views/purposes/evangelism/views/VechnoPage.vue'),
+        meta: {
+          title: 'Vechno',
+          color: 'ministry',
+        },
+      }, {
+        path: '/purposes/evangelism/step',
+        name: 'stepFour',
+        component: () => import('@/views/purposes/evangelism/views/StepFourPage.vue'),
+        meta: {
+          title: 'Шаг 4',
+          color: 'ministry',
+        },
+      }, {
+        path: '/purposes/evangelism/one',
+        name: 'one',
+        component: () => import('@/views/purposes/evangelism/views/OnePage.vue'),
+        meta: {
+          title: 'Кто твой один',
+          color: 'ministry',
+        },
+      }, {
+        path: '/purposes/evangelism/outreach',
+        name: 'outreach',
+        component: () => import('@/views/purposes/evangelism/views/OutreachPage.vue'),
+        meta: {
+          title: 'Уличная евангелизация',
+          color: 'ministry',
+        },
       },
     ],
   }, {
@@ -154,7 +250,7 @@ export default [
         color: 'worship',
       },
     }],
-  },{
+  }, {
     path: '/news/:id',
     name: 'NewsPage',
     props: true,
@@ -162,6 +258,6 @@ export default [
     meta: {
       title: 'Назад',
       auth: true,
-    }
+    },
   },
 ]

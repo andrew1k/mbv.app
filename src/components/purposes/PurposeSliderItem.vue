@@ -1,10 +1,11 @@
 <template>
   <v-card
-    class="my-2 ml-2"
+    class="my-2 ml-2 mr-2"
     height="200"
     width="200"
     :image="img"
-    :to="route"
+    :to="route ? route : false"
+    :href="href ? href : false"
   >
     <div class="fill-height bottom-gradient d-flex align-end">
       <h3 class="text-white ma-2">{{title}}</h3>
@@ -23,9 +24,11 @@ defineProps({
     type: String,
   },
   route: {
-    required: true,
-    type: String,
+    required: false,
   },
+  href: {
+    required: false,
+  }
 })
 </script>
 

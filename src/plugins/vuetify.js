@@ -51,10 +51,10 @@ export default createVuetify({
         mbvLight: {
           dark: false,
           colors: {
-            background: '#efefef', // f1f1f1
+            background: '#ECEFF1', // efefef
             surface: '#ffffff',
             contrast: '#1C1B1F',
-            primary: '#9C27B0',
+            primary: '#37474F', // 9C27B0
             secondary: '#CB9821',
             error: '#D28782',
             info: '#1B78AF',
