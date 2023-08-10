@@ -12,7 +12,7 @@ import NewsPage from '@/components/home/news/NewsPage.vue'
 
 export default [
   {
-    path: '/',
+    path: '',
     component: MainLayout,
     redirect: '/home',
     meta: {

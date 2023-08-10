@@ -99,7 +99,6 @@ import {onMounted, ref} from 'vue'
 import {useAuthStore} from '@/store/auth.store'
 import {useField, useForm} from 'vee-validate'
 import * as yup from 'yup'
-import mobileSignup from '@/assets/illustrations/MobileSignUp.svg'
 
 const {appSignup} = useAuthStore()
 

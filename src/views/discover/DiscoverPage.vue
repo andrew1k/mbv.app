@@ -51,8 +51,8 @@
     max-width="600"
     class="mx-auto"
   >
-    <v-card elevation="0" rounded="xl" class="mb-4 mt-2 mx-2">
-      <v-card elevation="0" @click="purposes.worship.isOpen = !purposes.worship.isOpen">
+    <v-card elevation="0" rounded="xl" :variant="purposes.worship.isOpen? 'text' : 'elevated'" class="mb-4 mt-2 mx-2">
+      <v-card elevation="0" variant="text" @click="purposes.worship.isOpen = !purposes.worship.isOpen">
         <v-card-actions>
           <VIcon class="ml-4" :color="purposes.worship.color" :icon="purposes.worship.icon"/>
           <v-card-title>
@@ -76,8 +76,8 @@
       </v-expand-transition>
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
-    <v-card elevation="0" rounded="xl" class="mb-4 mt-2 mx-2">
-      <v-card elevation="0" @click="purposes.fellowship.isOpen = !purposes.fellowship.isOpen">
+    <v-card elevation="0" rounded="xl" :variant="purposes.fellowship.isOpen? 'text' : 'elevated'" class="mb-4 mt-2 mx-2">
+      <v-card elevation="0" variant="text" @click="purposes.fellowship.isOpen = !purposes.fellowship.isOpen">
         <v-card-actions>
           <VIcon class="ml-4" :color="purposes.fellowship.color" :icon="purposes.fellowship.icon"/>
           <v-card-title>
@@ -146,8 +146,8 @@
       </v-expand-transition>
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
-    <v-card elevation="0" rounded="xl" class="mb-4 mt-2 mx-2">
-      <v-card elevation="0" @click="purposes.ministry.isOpen = !purposes.ministry.isOpen">
+    <v-card elevation="0" rounded="xl" :variant="purposes.ministry.isOpen? 'text' : 'elevated'" class="mb-4 mt-2 mx-2">
+      <v-card variant="text" elevation="0" @click="purposes.ministry.isOpen = !purposes.ministry.isOpen">
         <v-card-actions>
           <VIcon class="ml-4" :color="purposes.ministry.color" :icon="purposes.ministry.icon"/>
           <v-card-title>
@@ -191,8 +191,8 @@
       </v-expand-transition>
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
-    <v-card elevation="0" rounded="xl" class="mb-4 mt-2 mx-2">
-      <v-card elevation="0" @click="purposes.evangelism.isOpen = !purposes.evangelism.isOpen">
+    <v-card elevation="0" :variant="purposes.evangelism.isOpen? 'text' : 'elevated'" rounded="xl" class="mb-4 mt-2 mx-2">
+      <v-card variant="text" elevation="0" @click="purposes.evangelism.isOpen = !purposes.evangelism.isOpen">
         <v-card-actions>
           <VIcon class="ml-4" :color="purposes.evangelism.color" :icon="purposes.evangelism.icon"/>
           <v-card-title>
