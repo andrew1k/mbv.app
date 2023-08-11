@@ -3,9 +3,11 @@
   <TheNavDrawer/>
   <v-main>
     <router-view v-slot="{ Component }">
-      <transition name="fade" mode="out-in">
-        <component :is="Component"/>
-      </transition>
+      <v-card variant="text" elevation="0" rounded="0" max-width="600" class="mx-auto">
+        <transition name="fade" mode="out-in">
+          <component :is="Component"/>
+        </transition>
+      </v-card>
     </router-view>
   </v-main>
   <TheBottomNavigation/>
