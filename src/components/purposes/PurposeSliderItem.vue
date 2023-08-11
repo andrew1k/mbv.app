@@ -27,7 +27,7 @@ defineProps({
     required: false,
   },
   href: {
-    required: false,
+    default: '',
   }
 })
 </script>

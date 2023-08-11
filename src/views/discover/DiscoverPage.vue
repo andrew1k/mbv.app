@@ -76,7 +76,8 @@
       </v-expand-transition>
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
-    <v-card elevation="0" rounded="xl" :variant="purposes.fellowship.isOpen? 'text' : 'elevated'" class="mb-4 mt-2 mx-2">
+    <v-card elevation="0" rounded="xl" :variant="purposes.fellowship.isOpen? 'text' : 'elevated'"
+            class="mb-4 mt-2 mx-2">
       <v-card elevation="0" variant="text" @click="purposes.fellowship.isOpen = !purposes.fellowship.isOpen">
         <v-card-actions>
           <VIcon class="ml-4" :color="purposes.fellowship.color" :icon="purposes.fellowship.icon"/>
@@ -191,7 +192,8 @@
       </v-expand-transition>
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
-    <v-card elevation="0" :variant="purposes.evangelism.isOpen? 'text' : 'elevated'" rounded="xl" class="mb-4 mt-2 mx-2">
+    <v-card elevation="0" :variant="purposes.evangelism.isOpen ? 'text' : 'elevated'" rounded="xl"
+            class="mb-4 mt-2 mx-2">
       <v-card variant="text" elevation="0" @click="purposes.evangelism.isOpen = !purposes.evangelism.isOpen">
         <v-card-actions>
           <VIcon class="ml-4" :color="purposes.evangelism.color" :icon="purposes.evangelism.icon"/>
@@ -212,6 +214,56 @@
               <PurposeSliderItem :title="pAct.title" :route="pAct.route" :img="pAct.img" :href="pAct.href"/>
             </v-slide-group-item>
           </v-slide-group>
+        </v-card>
+      </v-expand-transition>
+    </v-card>
+    <!-- --------------------------------------------------------------------------------------------------------------- -->
+    <v-card elevation="0" rounded="xl" class="mb-4 mt-2 mx-2">
+      <v-card elevation="0" rounded="0" to="/aboutChurch">
+        <v-card-actions>
+          <VIcon class="ml-4" icon="mdi-church-outline"/>
+          <v-card-title>О церкви</v-card-title>
+          <VSpacer/>
+        </v-card-actions>
+      </v-card>
+    </v-card>
+    <!-- --------------------------------------------------------------------------------------------------------------- -->
+    <v-card elevation="0" rounded="xl" class="mb-4 mt-2 mx-2">
+      <v-card elevation="0" :color="purposes.help.color" rounded="0" @click="purposes.help.toggleOpen()">
+        <v-card-actions>
+          <VIcon class="ml-4" :icon="purposes.help.icon"/>
+          <v-card-title>
+            {{ purposes.help.title }}
+          </v-card-title>
+          <VSpacer/>
+          <VIcon
+            class="mx-4"
+            :icon="purposes.help.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+          />
+        </v-card-actions>
+      </v-card>
+      <v-expand-transition>
+        <v-card v-if="purposes.help.isOpen" elevation="0" rounded="0" variant="text">
+          <v-card
+            elevation="0"
+            rounded="0"
+            variant="text"
+            class="ma-0"
+            v-for="(pAct, i) in purposes.help.actions"
+            :key="i"
+            :to="pAct.route"
+          >
+            <VDivider/>
+            <v-card-actions>
+              <v-avatar variant="outlined" class="ml-2">
+                <VIcon :icon="pAct.icon" size="large" color="primary"/>
+              </v-avatar>
+              <VCardItem
+                :title="pAct.title"
+                :subtitle="pAct.subtitle"
+              />
+            </v-card-actions>
+          </v-card>
         </v-card>
       </v-expand-transition>
     </v-card>
@@ -368,27 +420,41 @@ const purposes = ref({
   help: {
     title: 'Помощь',
     route: '/home',
+    color: 'primary',
+    icon: 'mdi-handshake-outline',
+    isOpen: false,
+    toggleOpen() {
+      this.isOpen = !this.isOpen
+      if (this.isOpen)
+        setTimeout(() => {
+          window.scrollBy({
+            top: 500,
+            left: 0,
+            behavior: "smooth",
+          })
+        }, 300)
+    },
     actions: [
       {
         title: 'Молитвенная поддержка',
-        img: '',
-        route: '',
+        icon: 'mdi-hands-pray',
+        route: '/purposes/help/prayerSupport',
       }, {
         title: 'Молитвенный сад',
-        img: '',
-        route: '',
+        icon: 'mdi-tree-outline',
+        route: '/purposes/help/prayerGarden',
       }, {
         title: 'Духовная консультация',
-        img: '',
-        route: '',
+        icon: 'mdi-account-question-outline',
+        route: '/purposes/help/spiritualCounselling',
       }, {
         title: 'Ретрит',
-        img: '',
-        route: '',
+        icon: 'mdi-account-supervisor-outline',
+        route: '/purposes/help/retreat',
       }, {
         title: 'Связь с церковью',
-        img: '',
-        route: '',
+        icon: 'mdi-list-box-outline',
+        route: '/connect',
       },
     ],
   },

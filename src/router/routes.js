@@ -191,6 +191,54 @@ export default [
           title: 'Уличная евангелизация',
           color: 'ministry',
         },
+      }, {
+        path: '/purposes/help/prayerSupport',
+        name: 'prayerSupport',
+        component: () => import('@/views/purposes/help/views/PrayerSupportPage.vue'),
+        meta: {
+          title: 'Молитвенная поддержка',
+          color: 'worship',
+        },
+      }, {
+        path: '/purposes/help/prayerGarden',
+        name: 'prayerGarden',
+        component: () => import('@/views/purposes/help/views/PrayerGardenPage.vue'),
+        meta: {
+          title: 'Молитвенный сад',
+          color: 'worship',
+        },
+      }, {
+        path: '/purposes/help/spiritualCounselling',
+        name: 'spiritualCounselling',
+        component: () => import('@/views/purposes/help/views/SpiritualCounsellingPage.vue'),
+        meta: {
+          title: 'Духовная консультация',
+          color: 'worship',
+        },
+      }, {
+        path: '/purposes/help/retreat',
+        name: 'retreat',
+        component: () => import('@/views/purposes/help/views/RetreatPage.vue'),
+        meta: {
+          title: 'Ретрит',
+          color: 'worship',
+        },
+      }, {
+        path: '/connect',
+        name: 'connect',
+        component: () => import('@/views/connect/ConnectionPage.vue'),
+        meta: {
+          title: 'Связь с церковью',
+          color: 'primary',
+        },
+      }, {
+        path: '/aboutChurch',
+        name: 'aboutChurch',
+        component: () => import('@/views/about/AboutChurchPage.vue'),
+        meta: {
+          title: 'О церкви',
+          color: 'primary',
+        },
       },
     ],
   }, {

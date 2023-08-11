@@ -7,7 +7,7 @@
         :img="baptism"
 
         :text="textBaptism"
-        @toggler-btn="baptismToggler = !baptismToggler"
+        @toggler-btn="toggleOpen"
       />
     </v-card>
     <v-expand-transition>
@@ -30,4 +30,16 @@ const textBaptism = ref([
   Мы верим, что крещение нужно принимать по вере, в осознанном возрасте, исповедуя Иисуса Христа Господом и Спасителем.`,
 ])
 const baptismToggler = ref(false)
+
+const toggleOpen = () => {
+  baptismToggler.value = !baptismToggler.value
+  if (baptismToggler.value)
+    setTimeout(() => {
+      window.scrollBy({
+        top: 500,
+        left: 0,
+        behavior: "smooth",
+      })
+    }, 300)
+}
 </script>

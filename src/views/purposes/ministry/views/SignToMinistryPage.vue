@@ -110,7 +110,11 @@ const signToggle = () => {
   sign.value = !sign.value
   if (sign.value)
     setTimeout(() => {
-      window.scrollBy(0, 500)
-    }, 100)
+      window.scrollBy({
+        top: 500,
+        left: 0,
+        behavior: "smooth",
+      })
+    }, 300)
 }
 </script>

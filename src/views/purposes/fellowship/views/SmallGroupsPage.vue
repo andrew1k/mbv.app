@@ -6,7 +6,7 @@
         btn="Найти Малую Группу"
         :img="smallGroups"
         :text="sgText"
-        @toggler-btn="togglerSG = !togglerSG"
+        @toggler-btn="toggleOpen"
       />
     </v-card>
     <v-expand-transition>
@@ -24,6 +24,18 @@ import PCard from '@/components/purposes/PurposesCards.vue'
 import {ref} from 'vue'
 
 const togglerSG = ref(false)
+
+const toggleOpen = () => {
+  togglerSG.value = !togglerSG.value
+  if (togglerSG.value)
+    setTimeout(() => {
+      window.scrollBy({
+        top: 500,
+        left: 0,
+        behavior: "smooth",
+      })
+    }, 300)
+}
 
 const sgText = ref([
   `Малая группа - это встречи верующих людей среди недели в тёплой, домашней, дружеской обстановке для общения, изучения Библии, совместных молитв и помощи друг другу. <br /><br />
