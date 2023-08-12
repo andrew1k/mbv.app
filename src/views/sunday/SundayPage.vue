@@ -1,25 +1,23 @@
 <template>
-  <v-scale-transition>
-    <v-card variant="text" elevation="0" rounded="0">
-      <v-card class="ma-2">
-        <LiteYouTubeEmbed :id="sunday.id" :title="sunday.title"/>
-      </v-card>
-      <v-card class="ma-2 pa-2">
-        <v-card-title>Конспект проповеди</v-card-title>
-        <QuillEditor v-model:content="sunday.text" content-type="html" toolbar="minimal"/>
-        <v-card-actions>
-          <vSpacer/>
-          <v-btn
-            @click="saveNotes(sunday.text, sunday.id)"
-            variant="text"
-            append-icon="mdi-bookmark-outline"
-          >
-            Сохранить
-          </v-btn>
-        </v-card-actions>
-      </v-card>
+  <v-card variant="text" elevation="0" rounded="0">
+    <v-card class="ma-2">
+      <LiteYouTubeEmbed :id="sunday.id" :title="sunday.title"/>
     </v-card>
-  </v-scale-transition>
+    <v-card class="ma-2 pa-2">
+      <v-card-title>Конспект проповеди</v-card-title>
+      <QuillEditor v-model:content="sunday.text" content-type="html" toolbar="minimal"/>
+      <v-card-actions>
+        <vSpacer/>
+        <v-btn
+          @click="saveNotes(sunday.text, sunday.id)"
+          variant="text"
+          append-icon="mdi-bookmark-outline"
+        >
+          Сохранить
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-card>
 </template>
 
 <script setup>

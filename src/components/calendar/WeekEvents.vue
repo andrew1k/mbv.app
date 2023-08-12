@@ -1,5 +1,5 @@
 <template>
-  <v-card-title class="mt-4">События на этой неделе</v-card-title>
+  <h2 class="mt-6 ml-4 font-weight-medium">События недели</h2>
   <v-card rounded="pill" class="mx-1 my-2" v-if="!weekCalendarEvents.length && !isPending">
     <VCardItem prepend-icon="mdi-close" title="Нет событий"/>
   </v-card>

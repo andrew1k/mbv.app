@@ -1,8 +1,5 @@
 <template>
-  <v-card elevation="0" rounded="0" variant="text" max-width="600" class="mx-auto">
-    <v-toolbar color="background" density="compact">
-      <VBtn variant="text" prepend-icon="mdi-chevron-left" @click="$router.push('/home')">Назад</VBtn>
-    </v-toolbar>
+  <v-card elevation="0" rounded="0" variant="text">
     <v-card class="ma-2">
       <VImg :src="newsItem?.url"/>
     </v-card>

@@ -1,5 +1,5 @@
 <template>
-  <h2 class="mt-6 ml-4">Для вас</h2>
+  <h2 class="mt-6 ml-4 font-weight-medium">Для вас</h2>
   <!--                                            Skeleton Cards                -->
   <v-card class="ma-2" v-if="isPending">
     <v-container class="ma-0 pa-0">

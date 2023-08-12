@@ -5,7 +5,6 @@ import CalendarPage from '@/views/calendar/CalendarPage.vue'
 import AdminPage from '@/views/admin/AdminPage.vue'
 import ProfileLayout from '@/layouts/ProfileLayout.vue'
 import ProfilePage from '@/views/profile/ProfilePage.vue'
-import CardLayout from '@/layouts/CardLayout.vue'
 import SundayPage from '@/views/sunday/SundayPage.vue'
 import GivingPage from '@/views/giving/GivingPage.vue'
 import NewsPage from '@/components/home/news/NewsPage.vue'
@@ -239,6 +238,30 @@ export default [
           title: 'О церкви',
           color: 'primary',
         },
+      }, {
+        path: '/sunday',
+        name: 'Sunday',
+        component: SundayPage,
+        meta: {
+          title: 'В это воскресение',
+          color: 'worship',
+        },
+      }, {
+        path: '/giving',
+        name: 'Giving',
+        component: GivingPage,
+        meta: {
+          title: 'Пожертвовать',
+          color: 'worship',
+        },
+      }, {
+        path: '/news/:id',
+        name: 'NewsPage',
+        props: true,
+        component: NewsPage,
+        meta: {
+          title: 'Для вас',
+        },
       },
     ],
   }, {
@@ -275,37 +298,5 @@ export default [
         component: ProfilePage,
       },
     ],
-  }, {
-    path: '',
-    component: CardLayout,
-    meta: {
-      auth: true,
-    },
-    children: [{
-      path: '/sunday',
-      name: 'Sunday',
-      component: SundayPage,
-      meta: {
-        title: 'В это воскресение',
-        color: 'worship',
-      },
-    }, {
-      path: '/giving',
-      name: 'Giving',
-      component: GivingPage,
-      meta: {
-        title: 'Пожертвовать',
-        color: 'worship',
-      },
-    }],
-  }, {
-    path: '/news/:id',
-    name: 'NewsPage',
-    props: true,
-    component: NewsPage,
-    meta: {
-      title: 'Назад',
-      auth: true,
-    },
   },
 ]

@@ -1,5 +1,5 @@
 <template>
-  <v-card-title class="mt-2">В это воскресенье</v-card-title>
+  <h2 class="mt-6 ml-4 font-weight-medium">В это воскресенье</h2>
   <v-card class="ma-2" v-if="isPending" variant="tonal">
     <VResponsive :aspect-ratio="16 / 9"/>
   </v-card>

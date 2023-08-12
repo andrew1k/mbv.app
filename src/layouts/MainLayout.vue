@@ -1,5 +1,5 @@
 <template>
-  <TheAppBar :appbar-title="$route.meta.title"/>
+  <TheAppBar :main-screen="mainScreen" :appbar-title="$route.meta.title"/>
   <TheNavDrawer/>
   <v-main>
     <router-view v-slot="{ Component }">
@@ -17,12 +17,21 @@
 import TheAppBar from '@/components/navigations/TheAppBar.vue'
 import TheNavDrawer from '@/components/navigations/TheNavDrawer.vue'
 import TheBottomNavigation from '@/components/navigations/TheBottomNavigation.vue'
+import {computed, ref, watch} from 'vue'
+import {useRoute} from 'vue-router'
+
+const mainScreen = ref(true)
+const route = useRoute()
+const path = computed(() => route.path)
+watch(path, () => {
+  mainScreen.value = path.value === '/home' || path.value === '/calendar' || path.value === '/discover'
+})
 </script>
 
 <style>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.7s ease;
+  transition: opacity 0.5s ease;
 }
 
 .fade-enter-from,

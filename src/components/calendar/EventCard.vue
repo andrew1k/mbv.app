@@ -12,7 +12,6 @@
       <VIcon :icon="eventIcon" :color="eventColor" class="ml-2"/>
       <VCardItem
         :title="eventTitle"
-        :subtitle="show ? `${eventTime.slice(0,10)}  в ${eventTime.slice(11)}`  : null"
       />
       <VSpacer/>
       <v-chip v-if="signedEventsIds.includes(eventId)" rounded="pill" color="success">
@@ -28,6 +27,7 @@
       elevation="0"
       class="mx-2"
     >
+      <v-card-title class="text-mono">{{ show ? `${eventTime.slice(0,10)}  в ${eventTime.slice(11)}`  : null }}</v-card-title>
       <VCardText v-html="eventText"/>
       <v-card-actions class="mx-2">
         <v-chip v-if="signedEventsIds.includes(eventId)" rounded="pill" color="success">вы записаны</v-chip>
