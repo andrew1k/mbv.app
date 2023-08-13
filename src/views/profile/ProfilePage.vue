@@ -1,37 +1,46 @@
 <template>
-  <v-card class="ma-2">
-    <v-card-actions>
-      <v-avatar color="background" size="90" class="my-1 mx-2" @click="changeAvatar">
-        <VIcon size="40" icon="mdi-account"/>
-      </v-avatar>
-        <v-card-item>
-          <v-card-title class="mt-2" @click="accSettingsToggler = !accSettingsToggler">
-            {{ dbUser.firstName + ' ' + dbUser.secondName }}
-            <VIcon icon="mdi-pencil" size="x-small"/>
-          </v-card-title>
-          <v-card-subtitle>
-            {{ dbUser.birthDate }}
-          </v-card-subtitle>
-          <v-card-subtitle>
-            {{ '+7' + dbUser.phoneNumber }}
-          </v-card-subtitle>
-        </v-card-item>
-    </v-card-actions>
-    <v-slide-y-transition>
-      <AccountSettings v-if="accSettingsToggler"/>
-    </v-slide-y-transition>
-    <v-tabs v-model="tab" align-tabs="center">
-      <v-tab value="saves">Сохранения</v-tab>
-      <v-tab value="auth">Настройки</v-tab>
-    </v-tabs>
-    <v-window v-model="tab">
-      <v-window-item value="saves">
-        <UserSaves />
-      </v-window-item>
-      <v-window-item value="auth">
-        <AuthSettings />
-      </v-window-item>
-    </v-window>
+  <v-card rounded="0" variant="text">
+    <ProfileView/>
+    <v-card class="mx-2 mt-4">
+      <v-card class="d-flex " elevation="0" @click="prStngs = !prStngs">
+        <v-avatar class="ml-3 my-2" variant="outlined">
+          <VIcon size="x-large" icon="mdi-cog"/>
+        </v-avatar>
+        <v-card-title class="my-1">
+          Настройки профиля
+        </v-card-title>
+      </v-card>
+      <v-expand-transition>
+        <v-card rounded="0" class="mx-2" v-if="prStngs">
+          <AccountSettings/>
+        </v-card>
+      </v-expand-transition>
+    </v-card>
+    <v-card elevation="0" class="mx-2 mt-4">
+      <v-card class="d-flex " elevation="0" @click="authStngs = !authStngs">
+        <v-avatar class="ml-3 my-2" variant="outlined">
+          <VIcon size="x-large" icon="mdi-shield"/>
+        </v-avatar>
+        <v-card-title class="my-1">
+          Настройки авторизации
+        </v-card-title>
+      </v-card>
+      <v-expand-transition>
+        <v-card elevation="0" rounded="0" class="mx-2" v-if="authStngs">
+          <AuthSettings/>
+        </v-card>
+      </v-expand-transition>
+    </v-card>
+    <v-card elevation="0" class="mx-2 mt-4">
+      <v-card class="d-flex " elevation="0">
+        <v-avatar class="ml-3 my-2" variant="outlined">
+          <VIcon size="x-large" icon="mdi-arrow-down"/>
+        </v-avatar>
+        <v-card-title class="my-1">
+          Сохранения
+        </v-card-title>
+      </v-card>
+    </v-card>
   </v-card>
 </template>
 
@@ -41,16 +50,12 @@ import {storeToRefs} from 'pinia'
 import AccountSettings from '@/components/profile/AccountSettings.vue'
 import AuthSettings from '@/components/profile/AuthSettings.vue'
 import {ref} from 'vue'
-import UserSaves from '@//components/saves/UserSaves.vue'
+import ProfileView from '@/components/profile/ProfileView.vue'
 
 const authStore = useAuthStore()
-const { dbUser } = storeToRefs(authStore)
-
-let accSettingsToggler = ref(false)
+const {dbUser, email, isAdmin} = storeToRefs(authStore)
 
 const tab = ref('auth')
-
-const changeAvatar = () => {
-  alert('coming soon')
-}
+const prStngs = ref(false)
+const authStngs = ref(false)
 </script>

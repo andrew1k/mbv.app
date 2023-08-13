@@ -26,7 +26,7 @@ export const useFormsStore = defineStore('formsStore', () => {
     }
     let requestAlreadyExist
     try {
-      const querySnapshot = await getDocs(query(collection(db, path), where('uid', '==', uid.value)))
+      const querySnapshot = await getDocs(query(collection(db, path), where('uid', '==', uid.value), where('from', '==', from)))
       querySnapshot.forEach((doc) => {
         requestAlreadyExist = doc.id
       })
@@ -35,7 +35,7 @@ export const useFormsStore = defineStore('formsStore', () => {
           ...toDB,
           answer: JSON.stringify(form),
         })
-        await setMessage('Ваша форма успешно отправленна')
+        await setMessage('Ваша форма успешно отправлена')
       } else setMessage(`Вы уже отправляли ответ, номер заявки ${requestAlreadyExist}`)
     } catch (e) {
       setMessage(e)

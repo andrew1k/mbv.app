@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedReference
+
 import {defineStore} from 'pinia'
 import {ref, computed} from 'vue'
 import {
@@ -21,7 +23,8 @@ export const useAuthStore = defineStore('authStore', () => {
   const uid = computed(() => user.value.uid)
   const email = computed(() => user.value.email)
   const isAuthed = computed(() => !!user.value)
-  const isAdmin = computed(() => user.value.uid === process.env.VUE_APP_ADMIN_ID)
+  const adminEnv = import.meta.env.VITE_APP_ADMIN_ID
+  const isAdmin = computed(() => user.value.uid === adminEnv)
   const userAge = computed(() => {
     const birthdate = new Date(dbUser.value.birthDate)
     const today = new Date()
@@ -53,12 +56,12 @@ export const useAuthStore = defineStore('authStore', () => {
         adminComments: [],
         baptismDate: '',
         churchLevel: 1, // 1 = newBorn, 2 = member, 3 = student, 4 = serv, 5 = leader
-        listeners: {
-          loginsCounter: 0,
-          eventRegs: 0,
-          formsSend: 0,
-          notificationsRead: 0,
-        },
+        // listeners: {
+        //   loginsCounter: 0,
+        //   eventRegs: 0,
+        //   formsSend: 0,
+        //   notificationsRead: 0,
+        // },
       }
       await setDoc(doc(db, 'users', res.user.uid), dbData)
       await onSnapshot(doc(db, 'users', res.user.uid), (snapshot) => {
@@ -166,15 +169,20 @@ export const useAuthStore = defineStore('authStore', () => {
   }
 
   // realtime actions for getting current state of user
-  onAuthStateChanged(auth, (_user) => {
-    user.value = _user
-    if (_user) onSnapshot(doc(db, 'users', _user.uid), (snapshot) => {
+  onAuthStateChanged(auth, (usr) => {
+    user.value = usr
+    if (usr) onSnapshot(doc(db, 'users', usr.uid), (snapshot) => {
       dbUser.value = snapshot.data()
     })
   })
   if (auth.currentUser) onSnapshot(doc(db, 'users', auth.currentUser.uid), (snapshot) => {
     dbUser.value = snapshot.data()
   })
+
+  const getUser = async (uid) => {
+    const snap = await getDoc(doc(db, 'users', uid))
+    if (snap.exists()) return snap.data()
+  }
 
   return {
     uid,
@@ -192,5 +200,6 @@ export const useAuthStore = defineStore('authStore', () => {
     appUpdateEmail,
     appUpdatePassword,
     appDeleteAcc,
+    getUser,
   }
 })

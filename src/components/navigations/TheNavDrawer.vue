@@ -7,12 +7,15 @@
   >
     <template v-slot:prepend>
       <v-list-item
+        class="py-2"
         :title="`${dbUser.firstName} ${dbUser.secondName}`"
         :subtitle="email"
         to="/profile"
       >
         <template v-slot:prepend>
-          <VIcon icon="mdi-account" color="primary"/>
+          <v-avatar variant="outlined">
+            <VIcon icon="mdi-account" color="primary"/>
+          </v-avatar>
         </template>
       </v-list-item>
     </template>
@@ -47,6 +50,7 @@
           </v-card>
           <VDivider/>
           <v-list-item
+            class="py-2"
             title="Шаг 1"
             subtitle="Узнай больше о церкви"
             to="/purposes/fellowship/step"
@@ -72,6 +76,7 @@
       <v-expand-transition>
         <v-card elevation="0" rounded="0" v-if="grows">
           <v-list-item
+            class="py-2"
             title="Шаг 2"
             subtitle="в учении Апостолов"
             to="/purposes/discipleship/step"
@@ -84,6 +89,7 @@
           </v-list-item>
           <VDivider/>
           <v-list-item
+            class="py-2"
             title="Наставничество"
             subtitle="Мы поможем))"
             to="/purposes/discipleship/mentoring"
@@ -96,6 +102,7 @@
           </v-list-item>
           <VDivider/>
           <v-list-item
+            class="py-2"
             title="Семейное служение"
             subtitle="Распространи свои пределы"
             to="/purposes/discipleship/family"
@@ -131,6 +138,7 @@
           </v-card>
           <VDivider/>
           <v-list-item
+            class="py-2"
             title="Шаг 3"
             subtitle="Узнай больше о своей уникальности"
             to="/purposes/ministry/step"
@@ -166,6 +174,7 @@
           </v-card>
           <VDivider/>
           <v-list-item
+            class="py-2"
             title="Шаг 4"
             subtitle="Научись благовествовать"
             to="/purposes/evangelism/step"
@@ -190,6 +199,7 @@
       <v-expand-transition>
         <v-card elevation="0" rounded="0" v-if="help">
           <v-list-item
+            class="py-2"
             title="Молитвенная Поддержка"
             to="/purposes/help/prayerSupport"
           >
@@ -201,6 +211,7 @@
           </v-list-item>
           <VDivider/>
           <v-list-item
+            class="py-2"
             title="Духовная консультация"
             to="/purposes/help/spiritualCounselling"
           >
@@ -211,23 +222,23 @@
             </template>
           </v-list-item>
           <VDivider/>
-          <v-list-item
-            title="Связь с церковью"
-            to="/connect"
-          >
-            <template #prepend>
-              <v-avatar size="small" variant="outlined">
-                <VIcon icon="mdi-list-box-outline"/>
-              </v-avatar>
-            </template>
-          </v-list-item>
+<!--          <v-list-item-->
+<!--            title="Связь с церковью"-->
+<!--            to="/connect"-->
+<!--          >-->
+<!--            <template #prepend>-->
+<!--              <v-avatar size="small" variant="outlined">-->
+<!--                <VIcon icon="mdi-list-box-outline"/>-->
+<!--              </v-avatar>-->
+<!--            </template>-->
+<!--          </v-list-item>-->
         </v-card>
       </v-expand-transition>
     </v-card>
     <!-- ----------------------------------------------------------------- -->
-    <v-card class="mx-2 mt-2 mb-4" rounded="lg" elevation="0" to="/aboutChurch">
+    <v-card class="mx-2 mt-2 mb-4" rounded="lg" elevation="0" to="/connect">
       <VCardItem
-        title="О церкви"
+        title="Связь с церковью"
         append-icon="mdi-chevron-right"
       />
     </v-card>

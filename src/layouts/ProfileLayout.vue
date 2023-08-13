@@ -5,7 +5,7 @@
     </template>
   </the-card-toolbar>
   <v-main>
-    <v-card elevation="0" variant="text" class="mx-auto h-screen" max-width="600">
+    <v-card variant="text" class="mx-auto" max-width="600">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />

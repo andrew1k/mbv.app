@@ -103,6 +103,8 @@ export const useContentStore = defineStore('contentStore', () => {
         subtitle: payload.subtitle,
         text: payload.text,
         leader: payload.leader,
+        form: payload.form,
+        formSchema: payload.formSchema,
         url: url,
         filePath: filePath,
       })

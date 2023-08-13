@@ -19,7 +19,7 @@
         </v-radio-group>
         <v-card-actions>
           <VSpacer/>
-          <v-btn block variant="outlined" @click="sendForm('discipleship', {answer}, '1 + 1')">Отправить</v-btn>
+          <v-btn block variant="outlined" @click="sendForm('discipleship', {answer}, 'Наставничество')">Отправить</v-btn>
         </v-card-actions>
       </v-card>
     </v-expand-transition>

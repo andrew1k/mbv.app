@@ -14,7 +14,7 @@
         </v-radio-group>
         <v-card-actions>
           <VSpacer/>
-          <v-btn block variant="outlined" @click="sendForm('Counseling', {answer}, 'Pastor')">Отправить</v-btn>
+          <v-btn block variant="outlined" @click="sendForm('counseling', {answer}, 'Консультация с пастором')">Отправить</v-btn>
         </v-card-actions>
       </v-form>
     </v-expand-transition>

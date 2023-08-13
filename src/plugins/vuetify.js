@@ -13,7 +13,7 @@ export default createVuetify({
     defaults: {
       global: {},
       VCard: {
-        elevation: 3,
+        elevation: 0,
         rounded: 'xl',
       },
       VCardActions: {
@@ -37,7 +37,14 @@ export default createVuetify({
       },
       VTextField: {
         variant: 'outlined',
-      }, VTextarea: {
+      },
+      VTextarea: {
+        variant: 'outlined',
+      },
+      VSelect: {
+        variant: 'outlined',
+      },
+      VFileInput: {
         variant: 'outlined',
       },
     },

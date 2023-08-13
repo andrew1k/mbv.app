@@ -3,7 +3,6 @@ import HomePage from '@/views/home/HomePage.vue'
 import DiscoverPage from '@/views/discover/DiscoverPage.vue'
 import CalendarPage from '@/views/calendar/CalendarPage.vue'
 import AdminPage from '@/views/admin/AdminPage.vue'
-import ProfileLayout from '@/layouts/ProfileLayout.vue'
 import ProfilePage from '@/views/profile/ProfilePage.vue'
 import SundayPage from '@/views/sunday/SundayPage.vue'
 import GivingPage from '@/views/giving/GivingPage.vue'
@@ -44,7 +43,7 @@ export default [
         name: 'Admin',
         component: AdminPage,
         meta: {
-          title: 'Календарь',
+          title: 'Admin',
         },
       }, {
         path: '/purposes/worship',
@@ -262,6 +261,21 @@ export default [
         meta: {
           title: 'Для вас',
         },
+      }, {
+        path: '/profile',
+        name: 'Profile',
+        component: ProfilePage,
+        meta: {
+          title: 'Мой профиль',
+        }
+      },{
+        path: '/user/:id',
+        name: 'User',
+        props: true,
+        component: () => import('@/views/profile/UserPage.vue'),
+        meta: {
+          title: 'профиль',
+        }
       },
     ],
   }, {
@@ -286,17 +300,12 @@ export default [
       },
     ],
   }, {
-    path: '/profile',
-    component: ProfileLayout,
+    path: '/admin/formReview',
+    name: 'formReview',
+    component: () => import('@/views/admin/FormReviewer.vue'),
     meta: {
+      title: 'Admin',
       auth: true,
-    },
-    children: [
-      {
-        path: '',
-        name: 'Profile',
-        component: ProfilePage,
-      },
-    ],
+    }
   },
 ]

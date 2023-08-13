@@ -1,60 +1,47 @@
 <template>
-  <v-card class="ma-2" elevation="0" rounded="0" variant="text">
-    <VTextField
-      class="ma-1"
-      v-model="title"
-      density="compact"
-      label="Описание"
-      hide-details
-    />
-    <VTextField
-      class="ma-1"
-      v-model="link"
-      density="compact"
-      label="link"
-      hide-details
-    />
-    <VTextField
-      class="ma-1"
-      v-model="linkColor"
-      density="compact"
-      label="linkColor"
-      hide-details
-    />
-    <VTextField
-      class="ma-1"
-      v-model="linkLabel"
-      density="compact"
-      label="linkLabel"
-      hide-details
-    />
-    <VFileInput
-      class="ma-1"
-      variant="outlined"
-      clearable
-      label="Preview pic"
-      hide-details
-      density="compact"
-      v-model="previewIgm"
-    />
-    <VFileInput
-      class="ma-1"
-      variant="outlined"
-      multiple
-      density="compact"
-      clearable
-      chips
-      hide-details
-      label="Story pics"
-      v-model="storyImgs"
-    />
-    <v-card-actions>
-      <VSpacer/>
-      <v-btn variant="flat" @click="uploadStory(previewIgm, storyImgs, title, link, linkColor, linkLabel)">Upload
-        story
-      </v-btn>
-    </v-card-actions>
-  </v-card>
+  <v-card-actions>
+    <v-card-title>Создать Story карточку</v-card-title>
+    <VSpacer/>
+    <v-btn @click="openCard = !openCard">Создать</v-btn>
+  </v-card-actions>
+  <v-expand-transition>
+    <v-card class="ma-2 pa-2" v-if="openCard">
+      <VTextField
+        v-model="title"
+        label="Описание"
+      />
+      <VTextField
+        v-model="link"
+        label="link"
+      />
+      <VTextField
+        v-model="linkColor"
+        label="linkColor"
+      />
+      <VTextField
+        v-model="linkLabel"
+        label="linkLabel"
+      />
+      <VFileInput
+        clearable
+        label="Preview pic"
+        v-model="previewIgm"
+      />
+      <VFileInput
+        multiple
+        clearable
+        chips
+        label="Story pics"
+        v-model="storyImgs"
+      />
+      <v-card-actions>
+        <VSpacer/>
+        <v-btn block @click="uploadStory(previewIgm, storyImgs, title, link, linkColor, linkLabel)">
+          Upload story
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-expand-transition>
 </template>
 
 <script setup>
@@ -69,4 +56,6 @@ const linkColor = ref('')
 const linkLabel = ref('')
 
 const {uploadStory} = useContentStore()
+
+const openCard = ref(false)
 </script>

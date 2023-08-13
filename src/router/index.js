@@ -1,4 +1,3 @@
-// Composables
 import {createRouter, createWebHistory} from 'vue-router'
 import routes from '@/router/routes'
 import {App} from '@capacitor/app'
@@ -8,6 +7,9 @@ import {useAuthStore} from '@/store/auth.store'
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  scrollBehavior() {
+    return { top: 0, left: 0, behavior: 'smooth' }
+  }
 })
 
 App.addListener('backButton', () => {
@@ -15,11 +17,6 @@ App.addListener('backButton', () => {
 }) // для Android слушает кнопку назад
 
 router.beforeEach((to, from, next) => {
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth',
-  })
   const authStore = useAuthStore()
   const {isAuthed} = storeToRefs(authStore)
   const requireAuth = to.meta.auth

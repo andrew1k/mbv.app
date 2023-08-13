@@ -1,49 +1,60 @@
 <template>
-  <v-card-title>News creation</v-card-title>
-  <v-card class="ma-2" elevation="0" variant="text">
-    <v-file-input
-      class="ma-2"
-      label="Image"
-      v-model="img"
-      show-size
-      prepend-icon="mdi-camera"
-    />
-<!--    <PictureInput :removable="true" :crop="false" height="200" width="200" v-model="img"  />-->
-    <v-text-field class="ma-2" label="Title" hide-details v-model="title"/>
-    <v-text-field class="ma-2" label="Subtitle" hide-details v-model="subtitle"/>
-    <v-textarea class="ma-2" label="Text" hide-details v-model="text"/>
-    <VSelect
-      v-model="leader"
-      variant="solo"
-      class="ma-2"
-      :items="leaders"
-      :hint="`${leader?.leaderName} ${leader?.leaderTitle}`"
-      item-title="leaderName"
-      item-value="leaderName"
-      return-object
-      label="Leader"
-    />
-    <v-card-actions>
-      <VSpacer/>
-      <v-btn variant="flat" @click="uploadNews(img, {title, subtitle, text, leader: leader.leaderTitle})">
-        Сохранить
-      </v-btn>
-    </v-card-actions>
-  </v-card>
-  <VDivider/>
+  <v-card-actions>
+    <v-card-title>Создать новостную карточку</v-card-title>
+    <VSpacer/>
+    <v-btn @click="openCard = !openCard">Создать</v-btn>
+  </v-card-actions>
+  <v-expand-transition>
+    <v-card class="ma-2 pa-2" v-if="openCard">
+      <v-file-input
+        label="Image"
+        v-model="img"
+        show-size
+        prepend-icon="mdi-camera"
+      />
+      <v-text-field label="Title" v-model="title"/>
+      <v-text-field label="Subtitle" v-model="subtitle"/>
+      <QuillEditor v-model:content="text" content-type="html" placeholder="Text"/>
+      <v-card-text>{{ text }}</v-card-text>
+      <v-card-subtitle class="text-end">{{ `${leader?.leaderName} ${leader?.leaderTitle}` }}</v-card-subtitle>
+      <VSelect
+        v-model="leader"
+        :items="leaders"
+        item-title="leaderName"
+        item-value="leaderName"
+        return-object
+        label="Leader"
+      />
+      <v-switch v-model="form" :label="`Создать форму ${form.toString()}`"/>
+      <v-textarea label="form Schema" class="mt-2" v-model="formSchema"/>
+      <v-card-actions>
+        <VSpacer/>
+        <v-btn
+          block
+          class="mt-6"
+          @click="uploadNews(img, {title, subtitle, text, leader: leader.leaderTitle, form, formSchema: [JSON.parse(formSchema)]})"
+        >
+          Сохранить
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-expand-transition>
 </template>
 
 <script setup>
 import {ref} from 'vue'
 import {useContentStore} from '@/store/content.store'
+import {QuillEditor} from '@vueup/vue-quill'
 // import PictureInput from 'vue-picture-input'
 
 const {uploadNews} = useContentStore()
 const img = ref(null)
+const form = ref(false)
 const title = ref('')
 const subtitle = ref('')
 const text = ref('')
 const leader = ref()
+const formSchema = ref()
 const leaders = ref([
   {leaderName: 'Даниил Шатров', leaderTitle: 'DaDm'},
   {leaderName: 'Дмитрий Шатров', leaderTitle: 'DmDm'},
@@ -58,4 +69,6 @@ const leaders = ref([
 //   {leaderName: 'Дмитрий Шатров', leaderTitle: 'Епископ', leaderUrl: 'https://firebasestorage.googleapis.com/v0/b/telegraf-e4d87.appspot.com/o/https://firebasestorage.googleapis.com/v0/b/telegraf-e4d87.appspot.com/o/leaders%2FDD.png?alt=media&token=7b1cf06a-7af4-4dc2-86ee-bd06f432d392'},
 //   {leaderName: 'Александр Холеменко', leaderTitle: 'Пастор', leaderUrl: 'https://firebasestorage.googleapis.com/v0/b/telegraf-e4d87.appspot.com/o/leaders%2FAH.jpg?alt=media&token=99ac13aa-ab4a-41d9-a791-e1d06165aec2'},
 //   ])
+
+const openCard = ref(false)
 </script>

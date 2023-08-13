@@ -1,9 +1,10 @@
 <template>
-  <v-card elevation="0" rounded="0" variant="text" class="mx-auto">
+  <v-card rounded="0" variant="text">
     <StoryCreationCard/>
     <NewsCreationCard/>
     <UpdateSundayCard/>
     <CreateEvent/>
+    <v-btn class="mt-6" block size="large" to="/admin/formReview">Заполненные формы</v-btn>
   </v-card>
 </template>
 
