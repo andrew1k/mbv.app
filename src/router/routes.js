@@ -3,7 +3,6 @@ import HomePage from '@/views/home/HomePage.vue'
 import DiscoverPage from '@/views/discover/DiscoverPage.vue'
 import CalendarPage from '@/views/calendar/CalendarPage.vue'
 import AdminPage from '@/views/admin/AdminPage.vue'
-import ProfilePage from '@/views/profile/ProfilePage.vue'
 import SundayPage from '@/views/sunday/SundayPage.vue'
 import GivingPage from '@/views/giving/GivingPage.vue'
 import NewsPage from '@/components/home/news/NewsPage.vue'
@@ -44,54 +43,6 @@ export default [
         component: AdminPage,
         meta: {
           title: 'Admin',
-        },
-      }, {
-        path: '/purposes/worship',
-        name: 'worship',
-        component: () => import('@/views/purposes/worship/PurposeWorship.vue'),
-        meta: {
-          title: 'Поклонение',
-          color: 'worship', // error
-        },
-      }, {
-        path: '/purposes/fellowship',
-        name: 'fellowship',
-        component: () => import('@/views/purposes/fellowship/PurposeFellowship.vue'),
-        meta: {
-          title: 'Общение',
-          color: 'fellowship', // warning
-        },
-      }, {
-        path: '/purposes/discipleship',
-        name: 'discepleship',
-        component: () => import('@/views/purposes/discipleship/PurposeDiscipleship.vue'),
-        meta: {
-          title: 'Ученичество',
-          color: 'discepleship', // success
-        },
-      }, {
-        path: '/purposes/ministry',
-        name: 'ministry',
-        component: () => import('@/views/purposes/ministry/PurposeMinistry.vue'),
-        meta: {
-          title: 'Служение',
-          color: 'ministry', // secondary
-        },
-      }, {
-        path: '/purposes/evangelism',
-        name: 'evangelism',
-        component: () => import('@/views/purposes/evangelism/PurposeEvangelism.vue'),
-        meta: {
-          title: 'Благовестие',
-          color: 'evangelism', // info
-        },
-      }, {
-        path: '/purposes/youth',
-        name: 'youth',
-        component: () => import('@/views/purposes/youth/purposeYouth.vue'),
-        meta: {
-          title: 'MBVYouth',
-          color: 'secondary',
         },
       }, {
         path: '/purposes/fellowship/baptism',
@@ -264,7 +215,7 @@ export default [
       }, {
         path: '/profile',
         name: 'Profile',
-        component: ProfilePage,
+        component: () => import('@/views/profile/ProfilePage.vue'),
         meta: {
           title: 'Мой профиль',
         }
@@ -309,3 +260,54 @@ export default [
     }
   },
 ]
+
+
+// {
+//   path: '/purposes/worship',
+//     name: 'worship',
+//   component: () => import('@/views/purposes/worship/PurposeWorship.vue'),
+//   meta: {
+//   title: 'Поклонение',
+//     color: 'worship', // error
+// },
+// }, {
+//   path: '/purposes/fellowship',
+//     name: 'fellowship',
+//     component: () => import('@/views/purposes/fellowship/PurposeFellowship.vue'),
+//     meta: {
+//     title: 'Общение',
+//       color: 'fellowship', // warning
+//   },
+// }, {
+//   path: '/purposes/discipleship',
+//     name: 'discepleship',
+//     component: () => import('@/views/purposes/discipleship/PurposeDiscipleship.vue'),
+//     meta: {
+//     title: 'Ученичество',
+//       color: 'discepleship', // success
+//   },
+// }, {
+//   path: '/purposes/ministry',
+//     name: 'ministry',
+//     component: () => import('@/views/purposes/ministry/PurposeMinistry.vue'),
+//     meta: {
+//     title: 'Служение',
+//       color: 'ministry', // secondary
+//   },
+// }, {
+//   path: '/purposes/evangelism',
+//     name: 'evangelism',
+//     component: () => import('@/views/purposes/evangelism/PurposeEvangelism.vue'),
+//     meta: {
+//     title: 'Благовестие',
+//       color: 'evangelism', // info
+//   },
+// }, {
+//   path: '/purposes/youth',
+//     name: 'youth',
+//     component: () => import('@/views/purposes/youth/purposeYouth.vue'),
+//     meta: {
+//     title: 'MBVYouth',
+//       color: 'secondary',
+//   },
+// },

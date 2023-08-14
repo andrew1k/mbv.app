@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedReference
+
 import {defineStore, storeToRefs} from 'pinia'
 import {db, storage} from '@/plugins/firebase.config'
 import {
@@ -114,9 +116,14 @@ export const useContentStore = defineStore('contentStore', () => {
     }
   }
 
-  async function deleteNewsItem(newsId) {
-    await deleteObject(sref(storage, `newsfeed/${newsId}`))
-    await deleteDoc(doc(db, 'newsfeed', newsId))
+  async function deleteNewsItem(newsItem) {
+    await deleteObject(sref(storage, newsItem.filePath))
+    await deleteDoc(doc(db, 'newsfeed', newsItem.id))
+    await alert('all done')
+  }
+  async function deleteStoryItem(storyItem) {
+    await deleteObject(sref(storage, storyItem.filePath))
+    await deleteDoc(doc(db, 'newsfeed', storyItem.id))
     await alert('all done')
   }
 
@@ -138,11 +145,11 @@ export const useContentStore = defineStore('contentStore', () => {
 
       // same as prev, but to group of imgs, and save its path & url to array
       const storyImages = []
-      for (const _storyImg of storyImgs) {
-        const _storyImgPath = `/stories/${storyId}/storyIgms/${_storyImg.name}`
-        await uploadBytes(sref(storage, _storyImgPath), _storyImg)
-        let _storyImgUrl = await getDownloadURL(sref(storage, _storyImgPath))
-        storyImages.push({_storyImgPath, _storyImgUrl})
+      for (const strImg of storyImgs) {
+        const strImgPath = `/stories/${storyId}/storyIgms/${strImg.name}`
+        await uploadBytes(sref(storage, strImgPath), strImg)
+        let strImgUrl = await getDownloadURL(sref(storage, strImgPath))
+        storyImages.push({strImgPath, strImgUrl})
       }
 
       await setDoc(doc(db, 'stories', storyId), {
@@ -180,6 +187,7 @@ export const useContentStore = defineStore('contentStore', () => {
     // -------------------------- admin Funcs
     uploadNews,
     deleteNewsItem,
+    deleteStoryItem,
     uploadStory,
     updateSunday,
   }

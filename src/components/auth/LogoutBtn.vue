@@ -1,7 +1,8 @@
 <template>
   <v-btn
+    block
+    size="large"
     append-icon="mdi-logout"
-    flat
     @click="appLogout"
   >
     Выйти

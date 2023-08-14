@@ -1,3 +1,4 @@
+<!--suppress JSUnresolvedReference -->
 <template>
   <v-card-actions>
     <v-card-title>Создать новостную карточку</v-card-title>
@@ -28,7 +29,6 @@
       <v-switch v-model="form" :label="`Создать форму ${form.toString()}`"/>
       <v-textarea label="form Schema" class="mt-2" v-model="formSchema"/>
       <v-card-actions>
-        <VSpacer/>
         <v-btn
           block
           class="mt-6"
@@ -39,15 +39,23 @@
       </v-card-actions>
     </v-card>
   </v-expand-transition>
+  <v-card class="ma-2" variant="text" v-for="(item, i) in news" :key="i">
+    <v-card-subtitle>
+      <v-btn @click="deleteNewsItem(item)" size="x-small" icon="mdi-delete" />
+      {{ item.title }}
+    </v-card-subtitle>
+    <VDivider/>
+  </v-card>
 </template>
 
 <script setup>
 import {ref} from 'vue'
 import {useContentStore} from '@/store/content.store'
 import {QuillEditor} from '@vueup/vue-quill'
-// import PictureInput from 'vue-picture-input'
+import {storeToRefs} from 'pinia'
 
-const {uploadNews} = useContentStore()
+const {uploadNews, deleteNewsItem} = useContentStore()
+const {news} = storeToRefs(useContentStore())
 const img = ref(null)
 const form = ref(false)
 const title = ref('')
