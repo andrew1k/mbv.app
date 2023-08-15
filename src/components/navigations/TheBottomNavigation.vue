@@ -1,9 +1,10 @@
 <template>
   <v-bottom-navigation
-    density="compact"
+    density="default"
     elevation="0"
     grow
     bg-color="background"
+    class="pb-3"
   >
     <v-btn :to="{name: 'Home'}">
       <v-icon size="25">mdi-home</v-icon>

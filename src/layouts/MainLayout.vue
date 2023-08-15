@@ -1,4 +1,5 @@
 <template>
+  <v-app-bar density="compact" color="background" />
   <TheAppBar :main-screen="mainScreen" :appbar-title="$route.meta.title"/>
   <TheNavDrawer/>
   <v-main>

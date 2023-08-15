@@ -146,7 +146,7 @@ export const useContentStore = defineStore('contentStore', () => {
       // same as prev, but to group of imgs, and save its path & url to array
       const storyImages = []
       for (const strImg of storyImgs) {
-        const strImgPath = `/stories/${storyId}/storyIgms/${strImg.name}`
+        const strImgPath = `/stories/${storyId}/storyImgs/${strImg.name}`
         await uploadBytes(sref(storage, strImgPath), strImg)
         let strImgUrl = await getDownloadURL(sref(storage, strImgPath))
         storyImages.push({strImgPath, strImgUrl})

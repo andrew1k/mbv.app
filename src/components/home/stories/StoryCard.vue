@@ -45,7 +45,7 @@
               :key="i"
               cover
             >
-              <v-img :src="img._storyImgUrl" eager>
+              <v-img :src="img.strImgUrl" eager>
                 <template v-slot:placeholder>
                   <v-row
                     class="fill-height ma-0"
