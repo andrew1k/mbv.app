@@ -1,48 +1,3 @@
-<!--<script setup>-->
-<!--import worship from '@/assets/icons/worship.svg'-->
-<!--import evangelism from '@/assets/icons/evangelism.svg'-->
-<!--import discipleship from '@/assets/icons/discipleship.svg'-->
-<!--import ministry from '@/assets/icons/ministry.svg'-->
-<!--import fellowship from '@/assets/icons/fellowship.svg'-->
-<!--const purposesCards = [-->
-<!--  {-->
-<!--    title: 'ПОКЛОНЕНИЕ',-->
-<!--    subtitle: 'Мы Бога Восхваляем!',-->
-<!--    img: worship,-->
-<!--    text: 'Возлюби Господа Бога твоего всем сердцем твоим. Матфея 22:37',-->
-<!--    routerTo: '/purposes/worship',-->
-<!--    color: '#015366 '-->
-<!--  },{-->
-<!--    title: 'ОБЩЕНИЕ',-->
-<!--    subtitle: 'Можем больше вместе!',-->
-<!--    img: fellowship,-->
-<!--    text: `И они постоянно пребывали ... в общении Деяния 2:42`,-->
-<!--    routerTo: '/purposes/fellowship',-->
-<!--    color: '#0093b7 '-->
-<!--  },{-->
-<!--    title: 'УЧЕНИЧЕСТВО',-->
-<!--    subtitle: 'Мы будем возрастать!',-->
-<!--    img: discipleship,-->
-<!--    text: 'И они постоянно пребывали в учении Апостолов. Деяния 2:42',-->
-<!--    routerTo: '/purposes/discipleship',-->
-<!--    color: '#a0c5cf'-->
-<!--  },{-->
-<!--    title: 'СЛУЖЕНИЕ',-->
-<!--    subtitle: 'Место больших возможностей!',-->
-<!--    img: ministry,-->
-<!--    text: 'Разделяли всем, смотря по нужде каждого. Деяния 2:45',-->
-<!--    routerTo: '/purposes/ministry',-->
-<!--    color: '#e6eceb'-->
-<!--  },{-->
-<!--    title: 'БЛАГОВЕСТИЕ',-->
-<!--    subtitle: 'Мы благовествуем всем!',-->
-<!--    img: evangelism,-->
-<!--    text: 'Господь же ежедневно прилагал спасаемых к Церкви. Деяния 2:47',-->
-<!--    routerTo: '/purposes/evangelism',-->
-<!--    color: '#63cdd7 '-->
-<!--  }-->
-<!--]-->
-<!--</script>-->
 <template>
   <v-card
     elevation="0"
@@ -51,7 +6,7 @@
     max-width="600"
     class="mx-auto"
   >
-    <v-card elevation="0" rounded="xl" :variant="purposes.worship.isOpen? 'text' : 'elevated'" class="mb-4 mt-2 mx-2">
+    <v-card rounded="xl" :variant="purposes.worship.isOpen? 'text' : 'elevated'" class="mb-4 mt-2 mx-2">
       <v-card elevation="0" variant="text" @click="purposes.worship.isOpen = !purposes.worship.isOpen">
         <v-card-actions>
           <VIcon class="ml-4" :color="purposes.worship.color" :icon="purposes.worship.icon"/>
@@ -76,7 +31,7 @@
       </v-expand-transition>
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
-    <v-card elevation="0" rounded="xl" :variant="purposes.fellowship.isOpen? 'text' : 'elevated'"
+    <v-card rounded="xl" :variant="purposes.fellowship.isOpen? 'text' : 'elevated'"
             class="mb-4 mt-2 mx-2">
       <v-card elevation="0" variant="text" @click="purposes.fellowship.isOpen = !purposes.fellowship.isOpen">
         <v-card-actions>
@@ -92,12 +47,20 @@
         </v-card-actions>
       </v-card>
       <v-expand-transition>
-        <v-card v-if="purposes.fellowship.isOpen" elevation="0" rounded="0" variant="text">
+        <v-card v-if="purposes.fellowship.isOpen" rounded="0" variant="text">
           <v-card class="ma-2" height="220" :image="firstMeeting">
             <div class="fill-height bottom-gradient-darker d-flex flex-column align-center justify-end">
               <h3 class="text-white">Встреча-знакомство</h3>
-              <p class="text-mono text-white text-caption">Мы будем рады познакомиться с тобой</p>
-              <v-btn class="ma-2" color="surface" variant="outlined" to="/purposes/fellowship/firstMeeting">Хочу</v-btn>
+              <!--  Добавить обращение на ты для людей, которые младше 35    -->
+              <p class="text-mono text-white text-caption">Мы будем рады познакомиться с вами</p>
+              <v-btn
+                class="ma-2"
+                color="surface"
+                variant="outlined"
+                to="/purposes/fellowship/firstMeeting"
+              >
+                Узнать больше
+              </v-btn>
             </div>
           </v-card>
           <v-slide-group>
@@ -105,11 +68,27 @@
               <PurposeSliderItem :title="pAct.title" :route="pAct.route" :img="pAct.img"/>
             </v-slide-group-item>
           </v-slide-group>
+          <VDivider/>
+          <v-card class="ma-2" height="220" :image="SG">
+            <div class="fill-height bottom-gradient-darker d-flex flex-column align-center justify-end">
+              <h3 class="text-white">Малые Группы</h3>
+              <!--  Добавить обращение на ты для людей, которые младше 35    -->
+              <p class="text-mono text-white text-caption">Станьте частью семьи</p>
+              <v-btn
+                class="ma-2"
+                color="surface"
+                variant="outlined"
+                to="/purposes/fellowship/smallGroups"
+              >
+                Хочу узнать больше
+              </v-btn>
+            </div>
+          </v-card>
         </v-card>
       </v-expand-transition>
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
-    <v-card elevation="0" rounded="xl" class="mb-4 mt-2 mx-2">
+    <v-card rounded="xl" class="mb-4 mt-2 mx-2">
       <v-card elevation="0" @click="purposes.discipleship.isOpen = !purposes.discipleship.isOpen">
         <v-card-actions>
           <VIcon class="ml-4" :color="purposes.discipleship.color" :icon="purposes.discipleship.icon"/>
@@ -165,10 +144,15 @@
         <v-card v-if="purposes.ministry.isOpen" elevation="0" rounded="0" variant="text">
           <v-card class="ma-2" height="220" :image="ministry">
             <div class="fill-height bottom-gradient-darker d-flex flex-column align-center justify-end">
-              <h3 class="text-white">Начни служить</h3>
+              <h3 class="text-white">Найдите своё служение</h3>
               <p class="text-mono text-white text-caption">Раскрой свои дары и таланты</p>
-              <v-btn class="ma-2" color="surface" variant="outlined" to="/purposes/ministry/signToMinistry">Хочу
-                служить
+              <v-btn
+                class="ma-2"
+                color="surface"
+                variant="outlined"
+                to="/purposes/ministry/signToMinistry"
+              >
+                Узнать о служениях в церкви
               </v-btn>
             </div>
           </v-card>
@@ -184,7 +168,7 @@
               <VIcon :icon="purposes.ministry.icon" color="ministry" class="ml-2"/>
               <VCardItem
                 title="Шаг 3"
-                subtitle="Место больших возможностей!"
+                subtitle="Узнавая больше о своей уникальности"
               />
             </v-card-actions>
           </v-card>
@@ -285,6 +269,7 @@ import songs from '@/assets/worshipPics/songs.jpg'
 import firstMeeting from '@/assets/fellowshipPics/firstMeeting.jpg'
 import step from '@/assets/fellowshipPics/step.jpg'
 import SG from '@/assets/fellowshipPics/smallGroups.jpg'
+import openSG from '@/assets/fellowshipPics/openSG.jpg'
 import baptism from '@/assets/fellowshipPics/baptismSq.jpg'
 import ministry from '@/assets/ministryPics/step.jpg'
 
@@ -301,10 +286,11 @@ const purposes = ref({
         title: 'Воскресенье',
         img: sunday,
         route: '/sunday',
-      }, {
+      },
+      {
         title: 'Молитвы',
         img: praying,
-        href: 'https://www.youtube.com/playlist?list=PLjjvxd6WcKV04vM9MkM6Gd69-qdkzpRbj',
+        route: '/purposes/worship/prayer',
       },
       // {
       //   title: 'Конференции',
@@ -334,13 +320,13 @@ const purposes = ref({
         img: step,
         route: `/purposes/fellowship/step`,
       }, {
-        title: 'Малые Группы',
-        img: SG,
-        route: `/purposes/fellowship/smallGroups`,
-      }, {
         title: 'Крещение',
         img: baptism,
         route: `/purposes/fellowship/baptism`,
+      }, {
+        title: 'Хочу открыть Малую Группу',
+        img: openSG,
+        route: `/purposes/fellowship/OpenSmallGroup`,
       },
     ],
   },
@@ -353,20 +339,22 @@ const purposes = ref({
     actions: [
       {
         title: 'Наставничество',
-        subtitle: 'Мы поможем тебе начать',
+        subtitle: 'Мы поможем вам узнать основы',
         icon: 'mdi-account-arrow-up-outline',
         route: '/purposes/discipleship/mentoring',
       }, {
-        title: 'Шаг 2',
-        subtitle: 'Мы будем возрастать!',
+        title: `Шаг 2`,
+        subtitle: 'Узнавая больше о духовном развитии',
         icon: 'mdi-school-outline',
         route: '/purposes/discipleship/step',
-      }, {
-        title: 'Курсы',
-        subtitle: 'Изучай новое вместе с нами',
-        icon: 'mdi-book-outline',
-        route: '',
-      }, {
+      },
+      // {
+      //   title: 'Курсы',
+      //   subtitle: 'Изучай новое вместе с нами',
+      //   icon: 'mdi-book-outline',
+      //   route: '',
+      // },
+      {
         title: 'Семейное служение',
         subtitle: 'Твои корни',
         icon: 'mdi-human-male-female-child',
@@ -430,7 +418,7 @@ const purposes = ref({
           window.scrollBy({
             top: 500,
             left: 0,
-            behavior: "smooth",
+            behavior: 'smooth',
           })
         }, 300)
     },
@@ -439,11 +427,13 @@ const purposes = ref({
         title: 'Молитвенная поддержка',
         icon: 'mdi-hands-pray',
         route: '/purposes/help/prayerSupport',
-      }, {
-        title: 'Молитвенный сад',
-        icon: 'mdi-tree-outline',
-        route: '/purposes/help/prayerGarden',
-      }, {
+      },
+      // {
+      //   title: 'Молитвенный сад',
+      //   icon: 'mdi-tree-outline',
+      //   route: '/purposes/help/prayerGarden',
+      // },
+      {
         title: 'Духовная консультация',
         icon: 'mdi-account-question-outline',
         route: '/purposes/help/spiritualCounselling',

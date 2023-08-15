@@ -1,7 +1,7 @@
 <template>
-  <v-card elevation="0" rounded="0" variant="text">
-    <v-card elevation="0" rounded="xl" v-for="(question, i) in questionList" :key="i" class="mb-4 mt-2 mx-1">
-      <v-card elevation="0" rounded="0"
+  <v-card rounded="0" variant="text">
+    <v-card rounded="xl" v-for="(question, i) in questionList" :key="i" class="mb-4 mt-2 mx-2">
+      <v-card  rounded="0"
               @click="question.isOpen = !question.isOpen">
         <v-card-actions>
           <v-avatar variant="outlined" :color="question.color">
@@ -19,9 +19,7 @@
       </v-card>
       <v-expand-transition>
         <v-card v-if="question.isOpen" elevation="0" rounded="0" variant="text">
-          <v-card-text>
-            {{ question.text }}
-          </v-card-text>
+          <VCardText v-html="question.text"/>
           <component v-if="question.component" :is="question.component"/>
         </v-card>
       </v-expand-transition>
@@ -35,6 +33,10 @@ import SignToBaptism from '@/components/purposes/fellowship/forms/SignToBaptism.
 import StepBtn from '@/components/connect/StepBtn.vue'
 import MentoringBtn from '@/components/connect/MentoringBtn.vue'
 import SignToSG from '@/components/purposes/fellowship/forms/SignToSG.vue'
+import FirstPrayBtn from '@/components/connect/FirstPrayBtn.vue'
+import SignToMinistry from '@/components/purposes/ministry/forms/SignToMinistry.vue'
+import PrayerSupport from '@/components/purposes/help/forms/PrayerSupport.vue'
+import OtherForm from '@/components/connect/OtherForm.vue'
 
 
 const questionList = ref([
@@ -43,23 +45,26 @@ const questionList = ref([
     subtitle: 'Я произнес молитву покаяния, что это значит?',
     color: 'worship',
     icon: 'mdi-hands-pray',
-    text: 'Lorem ipsum dolor sit amet.',
-    component: false,
+    text: `Молитва покаяния - это молитва, которая открывает нашу жизнь для Бога. Это обращение к Богу, когда мы признаём свою нужду в Нём, что мы были не идеальны и раскаиваемся в том, что было неправильно, и просим Его стать частью нашей жизни, принимая Его спасение. <br><br>
+Если вы произнесли её осознанно, с верой в сердце, что Иисус Христос умер за ваши грехи и воскрес, чтобы вы были оправданы, то это означает, что с этого момента у вас есть гарантия в спасении - то есть вечная жизнь в раю с Богом. А также Его любовь и помощь вам на земле. Так написано в Библии. <br><br>
+Покаяние - это первый шаг новой жизни с Богом. Мы получаем спасение даром, и нам нужно делать дальнейшие шаги духовного роста, чтобы жить в этом спасении всю жизнь.<br><br>
+Мы будем рады помочь вам в этих шагах, если вы помолились впервые, нажмите кнопку ниже`,
+    component: FirstPrayBtn,
     isOpen: false,
   },{
     title: 'Водное Крещение',
     subtitle: 'Хочу принять водное крещение?',
     color: 'evangelism',
     icon: 'mdi-waves',
-    text: 'Lorem ipsum dolor sit amet.',
+    text: `Заполните небольшую анкету, и мы свяжемся с вами, чтобы записать вас`,
     component: SignToBaptism,
     isOpen: false,
   },{
     title: 'Стать частью семьи',
-    subtitle: 'Что делать если я хочу стать членом церкви?',
+    subtitle: 'Что делать, если я хочу стать частью церкви?',
     color: 'fellowship',
     icon: 'mdi-account-multiple-outline',
-    text: 'Lorem ipsum dolor sit amet.',
+    text: 'Чтобы стать частью церкви, вам нужно пройти семинар - Шаг 1 «Общение»',
     component: StepBtn,
     isOpen: false,
   },{
@@ -67,19 +72,19 @@ const questionList = ref([
     subtitle: 'Кто поможет мне сделать первые шаги?',
     color: 'discipleship',
     icon: 'mdi-account-arrow-up-outline',
-    text: 'Lorem ipsum dolor sit amet.',
+    text: 'Вы можете пройти бесплатную Программу наставничества или в групповом формате онлайн, просматривая видео-уроки и получая обратную связь от наставников в групповом чате, или с индивидуальным наставником, встречаясь с ним раз в неделю.',
     component: MentoringBtn,
     isOpen: false,
   },{
     title: 'Присоединиться к Малой Группе',
-    subtitle: 'Здесь люди, которые',
+    subtitle: 'Малая Группа - это малая Церковь',
     color: 'fellowship',
-    icon: 'mdi-home-outline',
-    text: 'Lorem ipsum dolor sit amet.',
+    icon: 'mdi-home-city-outline',
+    text: ``,
     component: SignToSG,
     isOpen: false,
   },{
-    title: 'Душепопечение',
+    title: 'Духовное консультирование',
     subtitle: 'Забота о вашей душе',
     color: 'worship',
     icon: 'mdi-account-heart-outline',
@@ -91,8 +96,8 @@ const questionList = ref([
     subtitle: 'Я хочу помогать моей церкви',
     color: 'ministry',
     icon: 'mdi-hand-heart-outline',
-    text: 'Lorem ipsum dolor sit amet.',
-    component: false,
+    text: `Если вы хотите, чтобы с вами связались по вопросам служения, заполните форму`,
+    component: SignToMinistry,
     isOpen: false,
   },{
     title: 'Записаться к пастору',
@@ -107,16 +112,16 @@ const questionList = ref([
     subtitle: 'Мне нужно, чтобы за меня помолились',
     color: 'worshipSec',
     icon: 'mdi-human-handsup',
-    text: 'Lorem ipsum dolor sit amet.',
-    component: false,
+    text: '',
+    component: PrayerSupport,
     isOpen: false,
   },{
     title: 'Другое',
-    subtitle: 'Есть нерешенные вопросы',
+    subtitle: 'Напишите нам',
     color: '',
     icon: 'mdi-chat-question-outline',
-    text: 'Lorem ipsum dolor sit amet.',
-    component: false,
+    text: 'Здесь вы можете написать ваш вопрос, обратную связь, идеи, предложения, свидетельства и тд...',
+    component: OtherForm,
     isOpen: false,
   },
 ])

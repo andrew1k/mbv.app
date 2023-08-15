@@ -45,6 +45,14 @@ export default [
           title: 'Admin',
         },
       }, {
+        path: '/purposes/worship/prayer',
+        name: 'PrayerWorship',
+        component: () => import('@/views/purposes/worship/views/PrayerPage.vue'),
+        meta: {
+          title: 'Молитвы',
+          color: 'worship',
+        },
+      }, {
         path: '/purposes/fellowship/baptism',
         name: 'baptism',
         component: () => import('@/views/purposes/fellowship/views/BaptismPage.vue'),
@@ -74,6 +82,14 @@ export default [
         component: () => import('@/views/purposes/fellowship/views/SmallGroupsPage.vue'),
         meta: {
           title: 'Малые группы',
+          color: 'fellowship',
+        },
+      }, {
+        path: '/purposes/fellowship/OpenSmallGroup',
+        name: 'OpenSmallGroup',
+        component: () => import('@/views/purposes/fellowship/views/OpenSmallGroupPage.vue'),
+        meta: {
+          title: 'Открыть Малую Группу',
           color: 'fellowship',
         },
       }, {

@@ -1,13 +1,21 @@
 <template>
   <v-card elevation="0" rounded="0" variant="text">
     <v-card class=" ma-2">
-      <PCard
-        title="Программа «Наставничество»"
-        btn="Найти мне наставника"
-        :img="onePlusOne"
-        :text="textOnePlusOne"
-        @toggler-btn="signToggle"
-      />
+<!--      <PCard-->
+<!--        title="Программа «Наставничество»"-->
+<!--        btn="Найти мне наставника"-->
+<!--        :img="onePlusOne"-->
+<!--        :text="textOnePlusOne"-->
+<!--        @toggler-btn="signToggle"-->
+<!--      />-->
+      <v-img :src="onePlusOne" :options="{threshold: 0}" eager>
+        <div class="fill-height bottom-gradient d-flex align-end">
+          <VCardTitle class="text-white">Программа «Наставничество» </VCardTitle>
+        </div>
+      </v-img>
+      <VCardText v-html="textOnePlusOne"/>
+        <v-btn block variant="elevated" @click="signToggle">с индивидуальным наставником</v-btn>
+        <v-btn class="text-mono ma-2" block variant="text" href="https://t.me/mbvprogramma">Присоединиться к группе</v-btn>
     </v-card>
     <v-expand-transition>
       <v-card v-show="sign" variant="text" elevation="0" rounded="0" class="ma-2">
@@ -29,18 +37,19 @@
 <script setup>
 import {ref} from 'vue'
 import onePlusOne from '@/assets/fellowshipPics/onePlusOne.jpg'
-import PCard from '@/components/purposes/PurposesCards.vue'
+// import PCard from '@/components/purposes/PurposesCards.vue'
 import {useFormsStore} from '@/store/form.store'
 
 const answer = ref('')
 const {sendForm} = useFormsStore()
 
-const textOnePlusOne = ref([
-  `- это индивидуальное наставничество для людей, недавно принявших Иисуса Христа.<br /><br />
-  На первых этапах христианской жизни у новообращенных христиан возникают множество вопросов, страхов, сомнений и искушений. Это абсолютно нормально.<br /><br />
-  Программа «1+1» — это 3-х месячная программа, которая предполагает еженедельные встречи с наставником, где с помощью учебного пособия с примерами, иллюстрациями и домашними заданиями, раскрываются основы христианской жизни и подробно рассматриваются насущные вопросы и страхи, возникающие у большинства недавно уверовавших людей.<br /><br />
-  Индивидуальный подход к каждому человеку позволяет достичь высоких результатов в том, чтобы человек утвердился в Божьей любви, укоренился в церкви и достигал духовной зрелости.`,
-])
+const textOnePlusOne = ref(`Программа наставничества в нашей церкви существует для того, чтобы у каждого, кто недавно уверовал в Иисуса Христа, была возможность разобраться в возникающих в вопросах, а также, чтобы справиться с сомнениями, с которыми сталкиваются многие в начале своего христианского пути.
+<br><br>
+В это время очень важно укрепляться в вере и иметь общение с другими верующими, чтобы Ваше решение пригласить Бога в свою жизнь стало твердым и поменяло Вашу жизнь к лучшему.
+<br><br>
+Вы можете пройти бесплатную Программу наставничества или в групповом формате онлайн, просматривая видео-уроки и получая обратную связь от наставников в групповом чате, или с индивидуальным наставником, встречаясь с ним раз в неделю.
+<br><br>
+Индивидуальный подход к каждому человеку позволяет достичь высоких результатов в том, чтобы человек утвердился в Божьей любви, укоренился в церкви и достигал духовной зрелости. `)
 
 const sign = ref(false)
 const signToggle = () => {
@@ -55,3 +64,13 @@ const signToggle = () => {
     }, 300)
 }
 </script>
+
+<style scoped>
+.bottom-gradient {
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    transparent 90px
+  );
+}
+</style>

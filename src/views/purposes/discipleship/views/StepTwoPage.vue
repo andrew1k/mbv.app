@@ -2,7 +2,7 @@
   <v-card elevation="0" rounded="0" variant="text">
     <v-card class="ma-2">
       <PCard
-        title="Семинар - шаг 2 «Ученичество»"
+        title="Семинар - Шаг 2 «Ученичество»"
         btn="Записаться на Шаг 2"
         :img="step"
         :text="stepText"

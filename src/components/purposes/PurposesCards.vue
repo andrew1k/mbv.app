@@ -6,7 +6,6 @@
   </v-img>
   <VCardText v-html="text"/>
   <v-card-actions v-if="btn">
-    <VSpacer/>
     <VBtn :color="color" block variant="outlined" @click="$emit('togglerBtn')">{{ btn }}</VBtn>
   </v-card-actions>
 </template>

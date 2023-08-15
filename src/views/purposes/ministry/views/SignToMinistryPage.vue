@@ -1,10 +1,16 @@
 <template>
   <v-card elevation="0" rounded="0" variant="text">
     <v-card class="ma-2">
+        <v-img :src="img" :options="{threshold: 0}" eager>
+          <div class="fill-height bottom-gradient d-flex align-end">
+            <h3 class="ma-2 text-white">Присоединяйтесь к большой работе, которую церковь ведет ежедневно!</h3>
+          </div>
+        </v-img>
       <v-card-text>
-        Здесь наши служения, вы можете выбрать и откликнуться, но есть еще много чего,
-        что не закрыто и мы будем рады вашим дарам и талантам
+        Ниже вы можете узнать о служениях, к которым можно присоединиться. Так же вы можете открыть новое служение если не нашли подходящее вам в списке. Мы очень хотим развивать ваши дары и таланты
       </v-card-text>
+    </v-card>
+    <v-card class="ma-2">
       <v-card-title>Служения</v-card-title>
       <v-expansion-panels variant="accordion">
         <v-expansion-panel v-for="(panel, i) in ourServs" :key="i">
@@ -34,6 +40,7 @@
 <script setup>
 import {ref} from 'vue'
 import SignToMinistry from '@/components/purposes/ministry/forms/SignToMinistry.vue'
+import img from '@/assets/ministryPics/step.jpg'
 
 const ourServs = ref([
   {
@@ -118,3 +125,13 @@ const signToggle = () => {
     }, 300)
 }
 </script>
+
+<style scoped>
+.bottom-gradient {
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    transparent 90px
+  );
+}
+</style>

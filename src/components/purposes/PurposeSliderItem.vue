@@ -36,7 +36,7 @@ defineProps({
 .bottom-gradient {
   background-image: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.5) 0%,
     transparent 250px
   );
 }

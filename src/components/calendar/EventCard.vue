@@ -3,8 +3,7 @@
   <v-card
     :ripple="false"
     class="mx-1 my-2"
-    elevation="0"
-    rounded="pill"
+    rounded="xl"
     :color="show ? 'background' : 'surface'"
     @click="show = !show"
   >

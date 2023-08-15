@@ -1,4 +1,4 @@
-import { Capacitor } from '@capacitor/core'
+import {Capacitor} from '@capacitor/core'
 import {initializeApp} from 'firebase/app'
 import {getAuth, initializeAuth, indexedDBLocalPersistence} from 'firebase/auth'
 import {getFirestore} from 'firebase/firestore'
@@ -21,18 +21,17 @@ const app = initializeApp(firebaseConfig)
 let auth
 if (Capacitor.isNativePlatform()) {
   auth = initializeAuth(app, {
-    persistence: indexedDBLocalPersistence
+    persistence: indexedDBLocalPersistence,
   })
 } else {
   auth = getAuth()
-} 
+  // облегчение зависимости
+  // auth = initializeAuth(app, {
+  //   persistence: browserLocalPersistence,
+  // })
+}
 auth.languageCode = 'ru'
 
-//const app = initializeApp({/** Your app config */});
-//const auth = initializeAuth(app, {
-//persistence: browserLocalPersistence,
-//});
-// облегчение зависимости
 
 const db = getFirestore()
 
