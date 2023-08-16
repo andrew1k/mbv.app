@@ -1,4 +1,5 @@
 <template>
+  <VAppBar density="compact" color="background" /> 
   <v-main>
     <RouterView/>
   </v-main>

@@ -85,8 +85,7 @@
             </template>
           </v-checkbox>
           <v-card-actions>
-            <vSpacer/>
-            <v-btn type="submit" :disabled="!acceptCheckbox">Создать Аккаунт</v-btn>
+            <v-btn block size="large" type="submit" :disabled="!acceptCheckbox">Создать Аккаунт</v-btn>
           </v-card-actions>
         </v-form>
       </v-card>
