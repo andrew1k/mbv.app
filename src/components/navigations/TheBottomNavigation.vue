@@ -4,7 +4,7 @@
     elevation="0"
     grow
     bg-color="background"
-    class="pb-3"
+    :class="platform === 'ios' ? 'pb-3' : 'pb-0'"
   >
     <v-btn :to="{name: 'Home'}">
       <v-icon size="25">mdi-home</v-icon>
@@ -17,3 +17,11 @@
     </v-btn>
   </v-bottom-navigation>
 </template>
+
+<script setup>
+defineProps({
+  platform: {
+    type: String
+  }
+})
+</script>

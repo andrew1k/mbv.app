@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar density="compact" color="background"/>
+  <v-app-bar v-if="platform === 'ios'" density="compact" color="background"/>
   <TheAppBar :main-screen="mainScreen" :appbar-title="$route.meta.title"/>
   <TheNavDrawer/>
   <v-main>
@@ -11,7 +11,7 @@
       </v-card>
     </router-view>
   </v-main>
-  <TheBottomNavigation/>
+  <TheBottomNavigation :platform="platform"/>
 </template>
 
 <script setup>
@@ -20,12 +20,17 @@ import TheNavDrawer from '@/components/navigations/TheNavDrawer.vue'
 import TheBottomNavigation from '@/components/navigations/TheBottomNavigation.vue'
 import {computed, ref, watch} from 'vue'
 import {useRoute} from 'vue-router'
+import {Device} from'@capacitor/device'
 
 const mainScreen = ref(true)
 const route = useRoute()
 const path = computed(() => route.path)
 watch(path, () => {
   mainScreen.value = path.value === '/home' || path.value === '/calendar' || path.value === '/discover'
+})
+const platform = ref('')
+Device.getInfo().then(i => {
+  platform.value = i.platform
 })
 </script>
 
