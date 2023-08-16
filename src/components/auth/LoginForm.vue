@@ -1,11 +1,6 @@
 <template>
-  <v-toolbar color="background" density="compact">
-    <VSpacer/>
-    <v-btn to="/auth/signup">Зарегистрироваться</v-btn>
-  </v-toolbar>
-  <v-card variant="text" elevation="0" rounded="0" max-width="600" class="mx-auto">
-    <v-fade-transition>
-      <v-card class="ma-2 pa-2" v-if="card">
+  <v-card variant="text" rounded="0" max-width="600" class="mx-auto">
+      <v-card class="ma-2 pa-2">
         <VProgressLinear indeterminate v-if="isSubmitting"/>
         <v-card-title>Войти</v-card-title>
         <v-form @submit.prevent="submit">
@@ -26,15 +21,15 @@
             @click:append-inner="passwordEye = !passwordEye"
           />
           <v-btn class="my-2" size="x-large" :disabled="!!eError || !!pError" block type="submit">Войти</v-btn>
+          <v-btn block variant="outlined" size="large" to="/auth/signup">Зарегистрироваться</v-btn>
           <VBtn to="/auth/restorePassword" variant="text" block text="забыли пароль?" class="mt-5"/>
         </v-form>
       </v-card>
-    </v-fade-transition>
   </v-card>
 </template>
 
 <script setup>
-import {onMounted, ref} from 'vue'
+import {ref} from 'vue'
 import {useField, useForm} from 'vee-validate'
 import * as yup from 'yup'
 import {useAuthStore} from '@/store/auth.store'
@@ -60,13 +55,5 @@ const {value: password, errorMessage: pError, handleBlur: pBlur} = useField('pas
 
 const submit = handleSubmit(async values => {
   await appLogin({...values})
-})
-
-const card = ref(false)
-
-onMounted(() => {
-  setTimeout(() => {
-    card.value = true
-  }, 1000)
 })
 </script>

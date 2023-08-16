@@ -1,11 +1,10 @@
 <template>
-  <v-card elevation="0" rounded="0" variant="text" class="mx-auto" max-width="500">
+  <v-card rounded="0" variant="text" class="mx-auto" max-width="500">
     <v-card class="ma-2">
       <VProgressLinear indeterminate v-if="isSubmitting"/>
       <v-card-text>
-        Введите ваш email, который вы использовали при регистрации, и мы на вашу почту отправим ссылку для
-        восстановления
-        пароля
+        Введите ваш email, который вы использовали при регистрации,
+        и мы на вашу почту отправим ссылку для восстановления пароля
         <v-form @submit.prevent="submit">
           <vTextField
             label="Email"
@@ -15,7 +14,7 @@
             @blur="eBlur"
           />
           <v-card-actions>
-            <VListItem to="/auth" subtitle="Войти"/>
+            <VListItem to="/auth/login" subtitle="Войти"/>
             <vSpacer/>
             <v-btn type="submit" :disabled="eError">Восстановить пароль</v-btn>
           </v-card-actions>

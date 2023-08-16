@@ -1,11 +1,6 @@
 <template>
-  <v-toolbar color="background" density="compact">
-    <VSpacer/>
-    <v-btn to="/auth/login">Войти</v-btn>
-  </v-toolbar>
-  <v-card variant="text" elevation="0" rounded="0" max-width="600" class="mx-auto">
-    <v-fade-transition>
-      <v-card class="ma-2 pa-2" v-if="card">
+  <v-card variant="text" rounded="0" max-width="600" class="mx-auto">
+      <v-card class="ma-2 pa-2">
         <VProgressLinear indeterminate v-if="isSubmitting"/>
         <v-card-title>Зарегистрироваться</v-card-title>
         <v-form @submit.prevent="submit">
@@ -84,17 +79,15 @@
               </div>
             </template>
           </v-checkbox>
-          <v-card-actions>
-            <v-btn block size="large" type="submit" :disabled="!acceptCheckbox">Создать Аккаунт</v-btn>
-          </v-card-actions>
+            <v-btn class="my-2" block size="x-large" type="submit" :disabled="!acceptCheckbox">Создать Аккаунт</v-btn>
+            <v-btn class="mt-4" block size="large" variant="outlined" to="/auth/login">Войти</v-btn>
         </v-form>
       </v-card>
-    </v-fade-transition>
   </v-card>
 </template>
 
 <script setup>
-import {onMounted, ref} from 'vue'
+import {ref} from 'vue'
 import {useAuthStore} from '@/store/auth.store'
 import {useField, useForm} from 'vee-validate'
 import * as yup from 'yup'
@@ -145,19 +138,12 @@ const {value: password, errorMessage: pError, handleBlur: pBlur} = useField('pas
     .min(6, 'Это поле должно иметь не менее 6 символов')
     .max(32, 'Не должно иметь более 32 символов'),
 )
+
 const {value: personGender, errorMessage: personGenderError, handleBlur: personGenderBlur} = useField('personGender',
   yup.string().required('Это поле обязательно'),
 )
 
-
 const submit = handleSubmit(async values => {
   await appSignup({...values})
-})
-
-const card = ref(false)
-onMounted(() => {
-  setTimeout(() => {
-    card.value = true
-  }, 1000)
 })
 </script>
