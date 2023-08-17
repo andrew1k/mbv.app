@@ -21,8 +21,9 @@
         </div>
       </v-card>
     </template>
-    <v-card rounded="0" class="bg-transparent" elevation="0">
-
+    <v-card rounded="0" class="bg-transparent" v-touch="{
+        up: () => dialog = false
+      }">
       <v-card-text class="mt-9">
         <v-card class="mx-auto" max-width="600">
           <v-toolbar color="surface" density="compact">

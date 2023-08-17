@@ -6,14 +6,14 @@
     bg-color="background"
     :class="platform === 'ios' ? 'pb-3' : 'pb-0'"
   >
-    <v-btn :active="false" :to="{name: 'Home'}">
-      <v-icon size="25">mdi-home</v-icon>
+    <v-btn :active="false" variant="plain" :to="{name: 'Home'}">
+      <v-icon size="25">{{ $route.name === 'Home' ? 'mdi-home' : 'mdi-home-outline' }}</v-icon>
     </v-btn>
-    <v-btn :active="false" :to="{name: 'Calendar'}">
-      <v-icon size="25">mdi-calendar</v-icon>
+    <v-btn :active="false" :to="{name: 'Calendar'}" variant="plain">
+      <v-icon size="25">{{ $route.name === 'Calendar' ? 'mdi-calendar-month' : 'mdi-calendar-blank' }}</v-icon>
     </v-btn>
-    <v-btn :active="false" :to="{name: 'Discover'}">
-      <v-icon size="25">mdi-compass</v-icon>
+    <v-btn :active="false" :to="{name: 'Discover'}" variant="plain">
+      <v-icon size="25">{{ $route.name === 'Discover' ? 'mdi-compass' : 'mdi-compass-outline'}}</v-icon>
     </v-btn>
   </v-bottom-navigation>
 </template>
@@ -21,7 +21,7 @@
 <script setup>
 defineProps({
   platform: {
-    type: String
-  }
+    type: String,
+  },
 })
 </script>

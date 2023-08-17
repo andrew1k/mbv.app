@@ -1,11 +1,8 @@
-<!-- eslint-disable vue/no-mutating-props -->
 <template>
   <v-card
-    :ripple="false"
-    class="mx-1 my-2"
-    rounded="xl"
-    :color="show ? 'background' : 'surface'"
+    class="mx-1 my-4"
     @click="show = !show"
+    :variant="show ? 'text' : 'elevated'"
   >
     <v-card-actions>
       <VIcon :icon="eventIcon" :color="eventColor" class="ml-2"/>
@@ -21,22 +18,36 @@
   </v-card>
   <v-expand-transition>
     <v-card
-      v-show="show"
+      v-if="show"
       variant="text"
-      elevation="0"
       class="mx-2"
     >
-      <v-card-title class="text-mono">{{ show ? `${eventTime.slice(0,10)}  в ${eventTime.slice(11)}`  : null }}</v-card-title>
+      <v-card-title class="text-mono">
+        {{ show ? `${eventTime.slice(0, 10)}  в ${eventTime.slice(11)}` : '' }}
+      </v-card-title>
       <VCardText v-html="eventText"/>
-      <v-card-actions class="mx-2">
+      <v-card-actions>
+        <VSpacer/>
         <v-chip v-if="signedEventsIds.includes(eventId)" rounded="pill" color="success">вы записаны</v-chip>
+      </v-card-actions>
+      <v-card-actions class="mx-2">
         <VSpacer/>
         <slot name="deleteBtnSpace"/>
-        <v-btn :color="eventColor" v-if="!signedEventsIds.includes(eventId)" variant="outlined"
-               @click="$emit('signBtn')">Записаться
+        <v-btn
+          :color="eventColor"
+          v-if="!signedEventsIds.includes(eventId)"
+          variant="outlined"
+          @click="$emit('signBtn')"
+        >
+          Записаться
         </v-btn>
-        <v-btn color="error" v-if="signedEventsIds.includes(eventId)" variant="outlined"
-               @click="$emit('unsignBtn')">Отменить запись
+        <v-btn
+          color="error"
+          v-if="signedEventsIds.includes(eventId)"
+          variant="outlined"
+          @click="$emit('unsignBtn')"
+        >
+          Отменить запись
         </v-btn>
       </v-card-actions>
     </v-card>

@@ -15,6 +15,7 @@ export default createVuetify({
       VCard: {
         elevation: 0,
         rounded: 'xl',
+        ripple: false,
       },
       VCardActions: {
         VBtn: {

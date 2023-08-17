@@ -29,7 +29,7 @@
     <!--      </template>-->
     <!--      <VListItem title="Встреча знакомство" />-->
     <!--    </v-list-group>-->
-    <v-card class="mx-2 mt-2 mb-4" rounded="lg" elevation="0">
+    <v-card class="mx-2 mt-2 mb-4" rounded="lg">
       <VCardItem
         title="С чего начать"
         subtitle="здесь впервые?"
@@ -65,7 +65,7 @@
       </v-expand-transition>
     </v-card>
     <!--  ----------------------------------------------------------------------------------------------------------------  -->
-    <v-card class="mx-2 mt-2 mb-4" rounded="lg" elevation="0">
+    <v-card class="mx-2 mt-2 mb-4" rounded="lg">
       <VCardItem
         title="Рост и обучение"
         subtitle="начни расти"
@@ -117,7 +117,7 @@
       </v-expand-transition>
     </v-card>
     <!--   ----------------------------------------------------------------------------------------------------------------- -->
-    <v-card class="mx-2 mt-2 mb-4" rounded="lg" elevation="0">
+    <v-card class="mx-2 mt-2 mb-4" rounded="lg">
       <VCardItem
         title="Начать служить"
         subtitle="и развиваться"
@@ -153,7 +153,7 @@
       </v-expand-transition>
     </v-card>
     <!--   ----------------------------------------------------------------------------------------------------------------- -->
-    <v-card class="mx-2 mt-2 mb-4" rounded="lg" elevation="0">
+    <v-card class="mx-2 mt-2 mb-4" rounded="lg">
       <VCardItem
         title="Расскажи об Иисусе"
         subtitle="Научим благовествовать"
@@ -189,7 +189,7 @@
       </v-expand-transition>
     </v-card>
     <!--  ----------------------------------------------------------------------------------------------------------------  -->
-    <v-card class="mx-2 mt-2 mb-4" rounded="lg" elevation="0">
+    <v-card class="mx-2 mt-2 mb-4" rounded="lg">
       <VCardItem
         title="Помощь"
         :append-icon="help ? 'mdi-chevron-up': 'mdi-chevron-down'"
@@ -222,28 +222,18 @@
             </template>
           </v-list-item>
           <VDivider/>
-<!--          <v-list-item-->
-<!--            title="Связь с церковью"-->
-<!--            to="/connect"-->
-<!--          >-->
-<!--            <template #prepend>-->
-<!--              <v-avatar size="small" variant="outlined">-->
-<!--                <VIcon icon="mdi-list-box-outline"/>-->
-<!--              </v-avatar>-->
-<!--            </template>-->
-<!--          </v-list-item>-->
         </v-card>
       </v-expand-transition>
     </v-card>
     <!-- ----------------------------------------------------------------- -->
-    <v-card class="mx-2 mt-2 mb-4" rounded="lg" elevation="0" to="/connect">
+    <v-card class="mx-2 mt-2 mb-4" rounded="lg" to="/connect">
       <VCardItem
         title="Связь с церковью"
         append-icon="mdi-chevron-right"
       />
     </v-card>
     <!-- ----------------------------------------------------------------- -->
-    <v-card class="mx-2 mt-2 mb-4" rounded="lg" elevation="0" to="/aboutChurch">
+    <v-card class="mx-2 mt-2 mb-4" rounded="lg" to="/aboutChurch">
       <VCardItem
         title="Контакты"
         append-icon="mdi-chevron-right"
@@ -283,63 +273,4 @@ const grows = ref(false)
 const serv = ref(false)
 const eva = ref(false)
 const help = ref(false)
-
-// const navList = ref([
-//   {
-//     icon: 'mdi-home',
-//     color: 'black',
-//     title: 'Главная',
-//     routeTo: {name: 'Home'},
-//   }, {
-//     icon: 'mdi-calendar',
-//     color: 'pink',
-//     title: 'Календарь',
-//     routeTo: {name: 'Calendar'},
-//   }, {
-//     icon: 'mdi-compass',
-//     color: 'indigo',
-//     title: 'Открой для себя церковь',
-//     routeTo: {name: 'Discover'},
-//   },
-//   // {
-//   //   icon: 'mdi-clock',
-//   //   color: 'cyan',
-//   //   title: 'В это воскресенье',
-//   //   routeTo: '/sunday',
-//   // },
-// ])
-//
-// const purposeNavList = ref([
-//   {
-//     icon: 'mdi-heart',
-//     color: 'red',
-//     title: 'Поклонение',
-//     routeTo: '/purposes/worship',
-//   }, {
-//     icon: 'mdi-account-multiple',
-//     color: 'orange',
-//     title: 'Общение',
-//     routeTo: '/purposes/fellowship',
-//   }, {
-//     icon: 'mdi-school',
-//     color: 'green',
-//     title: 'Ученичество',
-//     routeTo: '/purposes/discipleship',
-//   }, {
-//     icon: 'mdi-hand-heart',
-//     color: 'brown',
-//     title: 'Служение',
-//     routeTo: '/purposes/ministry',
-//   }, {
-//     icon: 'mdi-torch',
-//     color: 'blue',
-//     title: 'Благовестие',
-//     routeTo: '/purposes/evangelism',
-//   }, {
-//     icon: 'mdi-run',
-//     color: 'purple',
-//     title: 'МБВ.Youth',
-//     routeTo: '/purposes/youth',
-//   },
-// ])
 </script>
