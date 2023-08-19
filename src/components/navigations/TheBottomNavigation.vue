@@ -7,7 +7,7 @@
     :class="platform === 'ios' ? 'pb-3' : 'pb-0'"
   >
     <v-btn :active="false" variant="plain" :to="{name: 'Home'}">
-      <v-icon size="25">{{ $route.name === 'Home' ? 'mdi-home' : 'mdi-home-outline' }}</v-icon>
+      <v-icon size="25">{{ $route.name === 'Home' ? 'mdi-home-variant' : 'mdi-home-variant-outline' }}</v-icon>
     </v-btn>
     <v-btn :active="false" :to="{name: 'Calendar'}" variant="plain">
       <v-icon size="25">{{ $route.name === 'Calendar' ? 'mdi-calendar-month' : 'mdi-calendar-blank' }}</v-icon>

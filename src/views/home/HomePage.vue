@@ -1,6 +1,13 @@
 <template>
-  <v-card elevation="0" rounded="0" variant="text" max-width="600" class="mx-auto">
+  <v-card rounded="0" variant="text" max-width="600" class="mx-auto">
     <StoriesFeed/>
+    <v-card class="mx-2 mt-6 mb-4" to="/connect">
+      <VCardItem
+        prepend-icon="mdi-list-box-outline"
+        title="Связь с церковью"
+        append-icon="mdi-chevron-right"
+      />
+    </v-card>
     <SundayCard/>
     <WeekEvents/>
     <NewsFeed/>

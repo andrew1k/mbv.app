@@ -32,7 +32,7 @@
     <v-card class="mx-2 mt-2 mb-4" rounded="lg">
       <VCardItem
         title="С чего начать"
-        subtitle="здесь впервые?"
+        subtitle="Если здесь впервые"
         :append-icon="start ? 'mdi-chevron-up': 'mdi-chevron-down'"
         @click="start = !start"
       />
@@ -68,7 +68,7 @@
     <v-card class="mx-2 mt-2 mb-4" rounded="lg">
       <VCardItem
         title="Рост и обучение"
-        subtitle="начни расти"
+        subtitle="Начать духовно расти"
         :append-icon="grows ? 'mdi-chevron-up': 'mdi-chevron-down'"
         @click="grows = !grows"
       />
@@ -91,7 +91,7 @@
           <v-list-item
             class="py-2"
             title="Наставничество"
-            subtitle="Мы поможем))"
+            subtitle="Мы поможем разобраться"
             to="/purposes/discipleship/mentoring"
           >
             <template #prepend>
@@ -120,7 +120,7 @@
     <v-card class="mx-2 mt-2 mb-4" rounded="lg">
       <VCardItem
         title="Начать служить"
-        subtitle="и развиваться"
+        subtitle="и развивать дары"
         :append-icon="serv ? 'mdi-chevron-up': 'mdi-chevron-down'"
         @click="serv = !serv"
       />
@@ -155,8 +155,8 @@
     <!--   ----------------------------------------------------------------------------------------------------------------- -->
     <v-card class="mx-2 mt-2 mb-4" rounded="lg">
       <VCardItem
-        title="Расскажи об Иисусе"
-        subtitle="Научим благовествовать"
+        title="Благая Весть"
+        subtitle="Начать нести благую весть"
         :append-icon="eva ? 'mdi-chevron-up': 'mdi-chevron-down'"
         @click="eva = !eva"
       />
@@ -241,10 +241,14 @@
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------------- -->
     <template v-slot:append>
-      <v-btn block size="large" to="/giving">Пожертвовать</v-btn>
+      <v-card-actions>
+        <v-btn block size="large" rounded="lg" to="/giving">Пожертвовать</v-btn>
+      </v-card-actions>
       <v-card-actions>
         <VSpacer/>
         <VBtn density="compact" icon="mdi-youtube" color="error" href="https://www.youtube.com/@120SPD"/>
+        <VSpacer/>
+        <VBtn density="compact" icon="mdi-alpha-v-circle-outline" color="evangelism" href="vk.com/mbvspb"/>
         <VSpacer/>
         <VBtn density="compact" icon="mdi-send-outline" color="evangelism" href="t.me/mbv"/>
         <VSpacer/>

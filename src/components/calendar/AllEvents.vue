@@ -70,16 +70,15 @@ const eventsChips = ref([
     value: 'worship',
     title: 'поклонение',
     color: 'red',
+  }, {
+    value: 'youth',
+    title: 'молодежное',
+    color: 'indigo',
+  }, {
+    value: 'baptism',
+    title: 'крещение',
+    color: 'teal',
   },
-  // {
-  //   value: 'youth',
-  //   title: 'молодежное',
-  //   color: 'indigo',
-  // }, {
-  //   value: 'baptism',
-  //   title: 'крещение',
-  //   color: 'teal',
-  // },
 ])
 
 const selectedChip = ref([])

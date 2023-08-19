@@ -126,8 +126,8 @@
       </v-expand-transition>
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
-    <v-card elevation="0" rounded="xl" :variant="purposes.ministry.isOpen? 'text' : 'elevated'" class="mb-4 mt-2 mx-2">
-      <v-card variant="text" elevation="0" @click="purposes.ministry.isOpen = !purposes.ministry.isOpen">
+    <v-card rounded="xl" :variant="purposes.ministry.isOpen? 'text' : 'elevated'" class="mb-4 mt-2 mx-2">
+      <v-card variant="text" @click="purposes.ministry.isOpen = !purposes.ministry.isOpen">
         <v-card-actions>
           <VIcon class="ml-4" :color="purposes.ministry.color" :icon="purposes.ministry.icon"/>
           <v-card-title>
@@ -141,7 +141,7 @@
         </v-card-actions>
       </v-card>
       <v-expand-transition>
-        <v-card v-if="purposes.ministry.isOpen" elevation="0" rounded="0" variant="text">
+        <v-card v-if="purposes.ministry.isOpen" rounded="0" variant="text">
           <v-card class="ma-2" height="220" :image="ministry">
             <div class="fill-height bottom-gradient-darker d-flex flex-column align-center justify-end">
               <h3 class="text-white">Найдите своё служение</h3>
@@ -157,7 +157,6 @@
             </div>
           </v-card>
           <v-card
-            elevation="0"
             rounded="0"
             variant="text"
             class="ma-0"
@@ -176,9 +175,11 @@
       </v-expand-transition>
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
-    <v-card elevation="0" :variant="purposes.evangelism.isOpen ? 'text' : 'elevated'" rounded="xl"
-            class="mb-4 mt-2 mx-2">
-      <v-card variant="text" elevation="0" @click="purposes.evangelism.isOpen = !purposes.evangelism.isOpen">
+    <v-card
+      :variant="purposes.evangelism.isOpen ? 'text' : 'elevated'"
+      class="mb-4 mt-2 mx-2"
+    >
+      <v-card variant="text" @click="purposes.evangelism.isOpen = !purposes.evangelism.isOpen">
         <v-card-actions>
           <VIcon class="ml-4" :color="purposes.evangelism.color" :icon="purposes.evangelism.icon"/>
           <v-card-title>
@@ -192,7 +193,7 @@
         </v-card-actions>
       </v-card>
       <v-expand-transition>
-        <v-card v-if="purposes.evangelism.isOpen" elevation="0" rounded="0" variant="text">
+        <v-card v-if="purposes.evangelism.isOpen" rounded="0" variant="text">
           <v-slide-group>
             <v-slide-group-item v-for="(pAct, i) in purposes.evangelism.actions" :key="i">
               <PurposeSliderItem :title="pAct.title" :route="pAct.route" :img="pAct.img" :href="pAct.href"/>
@@ -202,8 +203,8 @@
       </v-expand-transition>
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
-    <v-card elevation="0" rounded="xl" class="mb-4 mt-2 mx-2">
-      <v-card elevation="0" rounded="0" to="/aboutChurch">
+    <v-card rounded="xl" class="mb-4 mt-2 mx-2">
+      <v-card rounded="0" to="/aboutChurch">
         <v-card-actions>
           <VIcon class="ml-4" icon="mdi-church-outline"/>
           <v-card-title>О церкви</v-card-title>
@@ -212,8 +213,8 @@
       </v-card>
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
-    <v-card elevation="0" rounded="xl" class="mb-4 mt-2 mx-2">
-      <v-card elevation="0" :color="purposes.help.color" rounded="0" @click="purposes.help.toggleOpen()">
+    <v-card rounded="xl" class="mb-4 mt-2 mx-2">
+      <v-card :color="purposes.help.color" rounded="0" @click="purposes.help.toggleOpen()">
         <v-card-actions>
           <VIcon class="ml-4" :icon="purposes.help.icon"/>
           <v-card-title>
@@ -227,7 +228,7 @@
         </v-card-actions>
       </v-card>
       <v-expand-transition>
-        <v-card v-if="purposes.help.isOpen" elevation="0" rounded="0" variant="text">
+        <v-card v-if="purposes.help.isOpen" rounded="0" variant="text">
           <v-card
             elevation="0"
             rounded="0"

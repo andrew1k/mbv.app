@@ -4,6 +4,7 @@
       v-model="snackbarMessage"
       multi-line
       location="top"
+      rounded="xl"
     >
       {{ snackbarMessage }}
     </v-snackbar>

@@ -17,17 +17,20 @@ import {useAppState} from '@/store/app.store'
 import {useSnackbarMessages} from '@/store/snackbarmessages.store'
 
 export const useCalendarEventsStore = defineStore('calendarEventsStore', () => {
+  // ------------------------------ set snackbar message
   const {setMessage} = useSnackbarMessages()
+  // ------------------------------ find out users signed events
   const authStore = useAuthStore()
   const {signedEventsIds} = storeToRefs(authStore)
-
+  // ------------------------------ events
   const allCalendarEvents = ref([])
   const weekCalendarEvents = ref([])
   const docIds = ref([])
-  const {scheduleNotifications} = useNotificationsStore()
-
+  // ------------------------------ app state
   const appState = useAppState()
   const {isPending} = storeToRefs(appState)
+  // ------------------------------ Notifications
+  const {scheduleCalendarNotification} = useNotificationsStore()
 
   async function getCalendarEvents() {
     isPending.value = true
@@ -84,6 +87,7 @@ export const useCalendarEventsStore = defineStore('calendarEventsStore', () => {
     const docRef = doc(db, 'calendar', eventDay)
     const eventId = evnt.id
     const userLink = `users/${auth.currentUser.uid}`
+    const d = new Date(evnt.start)
 
     // Проверка на существование записи
     if (!signedEventsIds.value.includes(eventId)) {
@@ -93,14 +97,15 @@ export const useCalendarEventsStore = defineStore('calendarEventsStore', () => {
       await updateDoc(doc(db, 'users', auth.currentUser.uid), {
         signedEvents: arrayUnion({eventDay, eventId}),
       })
-      await scheduleNotifications({
+      await scheduleCalendarNotification({
         title: evnt.title,
         body: evnt.text,
-        id: +eventId.slice(0, 5),
-        schedule: { at: new Date(evnt.start) },
+        id: +eventId.slice(5),
+        schedule: { at: d.setDate(d.getDate() - 1) },
       })
       await setMessage(`Отлично, теперь вы записаны на ${evnt.title}`)
     }
+    console.log(d.setDate(d.getDate() - 1))
   }
 
   async function unsignToEvent(evnt) {

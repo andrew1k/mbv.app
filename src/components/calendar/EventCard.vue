@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="mx-1 my-4"
+    class="mx-2 my-4"
     @click="show = !show"
     :variant="show ? 'text' : 'elevated'"
   >
