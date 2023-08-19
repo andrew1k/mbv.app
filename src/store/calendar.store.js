@@ -101,7 +101,7 @@ export const useCalendarEventsStore = defineStore('calendarEventsStore', () => {
         title: evnt.title,
         body: evnt.text,
         id: +eventId.slice(5),
-        schedule: { at: d.setDate(d.getDate() - 1) },
+        schedule: { at: new Date(d.setDate(d.getDate() - 1)) },
       })
       await setMessage(`Отлично, теперь вы записаны на ${evnt.title}`)
     }

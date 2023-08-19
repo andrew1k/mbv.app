@@ -12,8 +12,8 @@ export const useNotificationsStore = defineStore('notificationsStore', () => {
           notifications: [{...event}],
         }).then(() => {
           setMessage(`Отлично, вы записались на ${event.title}`)
-        }).catch(() => {
-          setMessage('Что-то пошло не так, обновите настройки уведомлений')
+        }).catch((e) => {
+          setMessage('Что-то пошло не так, обновите настройки уведомлений: ' + e)
           LocalNotifications.requestPermissions()
             .catch(() => {
               setMessage('Что-то не так, проверьте настройки вручную')

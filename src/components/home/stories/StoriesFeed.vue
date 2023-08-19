@@ -2,10 +2,13 @@
   <v-card min-height="140" variant="text" elevation="0" rounded="0" class="mx-1">
     <v-slide-group v-if="isPending">
       <v-slide-group-item>
-        <v-card height="130" width="110" class="my-2 mx-1">
+        <v-card height="120" width="100" class="my-2 mx-1">
           <VSkeletonLoader/>
         </v-card>
-        <v-card height="130" width="110" class="my-2 mx-1">
+        <v-card height="120" width="100" class="my-2 mx-1">
+          <VSkeletonLoader/>
+        </v-card>
+        <v-card height="120" width="100" class="my-2 mx-1">
           <VSkeletonLoader/>
         </v-card>
       </v-slide-group-item>
