@@ -1,3 +1,4 @@
+<!--suppress JSUnresolvedReference -->
 <template>
   <h2 class="mt-6 ml-4 font-weight-medium">В это воскресенье</h2>
   <v-card class="ma-2" v-if="isPending" variant="tonal">
@@ -6,7 +7,7 @@
   <v-card v-if="!isPending" to="/sunday" class="ma-2 bottom-gradient">
     <VImg cover :aspect-ratio="16/9" :src="`https://img.youtube.com/vi/${sunday?.id}/0.jpg`">
       <div class=" fill-height bottom-gradient d-flex flex-column align-center justify-end">
-        <h3 class="text-white text-mono">{{ sunday.title }}</h3>
+        <h3 class="text-white text-center text-mono">{{ sunday.title }}</h3>
         <v-btn
           class="my-3"
           color="surface"

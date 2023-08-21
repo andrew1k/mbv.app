@@ -3,6 +3,8 @@
     <v-textarea
       rows="2" label="Напишите нам здесь"
       v-model="text"
+      counter
+      maxlength="250"
     />
     <v-card-actions>
       <VSpacer/>

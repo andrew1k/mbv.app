@@ -2,7 +2,6 @@
   <VSelect
     v-model="from"
     :items="selectForm"
-    multiple
     :item-value="value"
     :item-title="title"
     label="Откуда вы узнали о малых группах?"
@@ -14,6 +13,8 @@
     v-model="metro"
     variant="outlined"
     class="ma-2"
+    counter
+    maxlength="30"
   />
   <VDivider/>
   <v-card-text>
@@ -28,6 +29,7 @@
     class="ma-2"
   />
   <VDataTableVirtual
+    select-strategy="single"
     v-model="leader"
     show-select
     fixed-header

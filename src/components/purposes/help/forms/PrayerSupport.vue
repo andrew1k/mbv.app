@@ -1,6 +1,12 @@
 <template>
   <v-form class="px-2">
-    <v-textarea rows="2" label="Напишите, о чем мы можем помолиться" hide-details v-model="prayer"/>
+    <v-textarea
+      rows="2"
+      label="Напишите, о чем мы можем помолиться"
+      v-model="prayer"
+      counter
+      maxlength="250"
+    />
     <VCheckbox
       color="worship"
       label="Отправить анонимно (Ваши данные не будут видны молитвенному служителю)"

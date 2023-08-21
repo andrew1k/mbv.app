@@ -5,12 +5,18 @@
       v-model="action"
       variant="outlined"
       class="ma-2"
+      counter
+      maxlength="50"
+      :rules="[rules.counter]"
     />
     <VTextField
       label="Предпочтения по служению"
       v-model="choice"
       variant="outlined"
       class="ma-2"
+      counter
+      maxlength="50"
+      :rules="[rules.counter]"
     />
     <v-radio-group v-model="answer" class="my-1" label="Как ответить Вам на заполненную анкету?" density="comfortable"
                    color="success" hide-details>
@@ -37,4 +43,9 @@ const action = ref('')
 const choice = ref('')
 const answer = ref('')
 const {sendForm} = useFormsStore()
+
+const rules = ref({
+  required: value => !!value || 'Обязательно.',
+  counter: value => value.length <= 50 || 'Максимум 50 символов'
+})
 </script>

@@ -359,6 +359,11 @@
   resolved "https://registry.yarnpkg.com/@capacitor/local-notifications/-/local-notifications-5.0.6.tgz#9684dbd7086e325e61b9297569ee9c06e5b8d8f9"
   integrity sha512-DB+ZBjv3Ri/0mtSzjMxLMHNGfg5m615ewDfQxp++mu7pYUM1RkxfSiigw73+PlZXDow1YNQJRlzTkwEKs6Pf+g==
 
+"@capacitor/network@^5.0.6":
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/@capacitor/network/-/network-5.0.6.tgz#6c109f053bcf6eefbae0337426e8b9e7c2334a3b"
+  integrity sha512-E//cq9NEvFFiLyptK0ha4B8OytdWpSqvtUo5L2uiqcoADWUnl5d7aK45M09eyd347HchICeEdIkO31n6CNxyYA==
+
 "@esbuild-kit/cjs-loader@^2.4.2":
   version "2.4.2"
   resolved "https://registry.npmjs.org/@esbuild-kit/cjs-loader/-/cjs-loader-2.4.2.tgz"

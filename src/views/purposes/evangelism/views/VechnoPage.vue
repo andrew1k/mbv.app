@@ -10,8 +10,21 @@
     </v-card>
     <v-expand-transition>
       <v-card v-show="vechnoBtn" variant="text" elevation="0" rounded="0" class="ma-2">
-        <v-textarea rows="2" class="mt-2" label="Расскажите о себе" v-model="tell_About_Yourself"/>
-        <v-textarea rows="2" label="Опишите ваш опыт в организации мероприятий" v-model="tell_About_Experience"/>
+        <v-textarea
+          rows="2"
+          class="mt-2"
+          label="Расскажите о себе"
+          v-model="tell_About_Yourself"
+          counter
+          maxlength="200"
+        />
+        <v-textarea
+          rows="2"
+          label="Опишите ваш опыт в организации мероприятий"
+          v-model="tell_About_Experience"
+          counter
+          maxlength="200"
+        />
         <v-card-actions>
           <VSpacer/>
           <v-btn variant="outlined" block
@@ -37,4 +50,5 @@ const textVechno = ref(`Мы хотим, чтобы благовестие ст�
 const {sendForm} = useFormsStore()
 const tell_About_Yourself = ref('')
 const tell_About_Experience = ref('')
+
 </script>

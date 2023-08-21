@@ -1,7 +1,7 @@
 {
   "name": "mbv.app",
   "author": "AndyKo",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -19,6 +19,7 @@
     "@capacitor/device": "^5.0.6",
     "@capacitor/ios": "5.2.3",
     "@capacitor/local-notifications": "^5.0.6",
+    "@capacitor/network": "^5.0.6",
     "@formkit/addons": "^0.18.3",
     "@formkit/i18n": "^0.18.3",
     "@formkit/themes": "^0.18.3",

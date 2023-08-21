@@ -1,22 +1,26 @@
 <template>
   <v-card rounded="0" variant="text">
     <v-card rounded="xl" v-for="(question, i) in questionList" :key="i" class="mb-4 mt-2 mx-2">
-      <v-card  rounded="0"
-              @click="question.isOpen = !question.isOpen">
-        <v-card-actions>
+      <v-card-item
+        @click="question.isOpen = !question.isOpen"
+        :subtitle="question.subtitle"
+      >
+        <template #prepend>
           <v-avatar variant="outlined" :color="question.color">
             <VIcon size="large" :color="question.color" :icon="question.icon"/>
           </v-avatar>
-          <v-card-item class="ml-n2">
-            <v-card-title>
-              {{ question.title }}
-            </v-card-title>
-            <h6 class="text-caption text-medium-emphasis">
-              {{ question.subtitle }}
-            </h6>
-          </v-card-item>
-        </v-card-actions>
-      </v-card>
+        </template>
+        <template #title>
+          <v-card-title>
+            {{ question.title }}
+          </v-card-title>
+        </template>
+        <template #subtitle>
+          <h6 class="text-caption text-medium-emphasis">
+            {{ question.subtitle }}
+          </h6>
+        </template>
+      </v-card-item>
       <v-expand-transition>
         <v-card v-if="question.isOpen" elevation="0" rounded="0" variant="text">
           <VCardText v-html="question.text"/>
@@ -51,7 +55,7 @@ const questionList = ref([
 Мы будем рады помочь вам в этих шагах, если вы помолились впервые, нажмите кнопку ниже`,
     component: FirstPrayBtn,
     isOpen: false,
-  },{
+  }, {
     title: 'Водное Крещение',
     subtitle: 'Хочу принять водное крещение?',
     color: 'evangelism',
@@ -59,7 +63,7 @@ const questionList = ref([
     text: `Заполните небольшую анкету, и мы свяжемся с вами, чтобы записать вас`,
     component: SignToBaptism,
     isOpen: false,
-  },{
+  }, {
     title: 'Стать частью семьи',
     subtitle: 'Что делать, если я хочу стать частью церкви?',
     color: 'fellowship',
@@ -67,7 +71,7 @@ const questionList = ref([
     text: 'Чтобы стать частью церкви, вам нужно пройти семинар - Шаг 1 «Общение»',
     component: StepBtn,
     isOpen: false,
-  },{
+  }, {
     title: 'Мне нужен наставник',
     subtitle: 'Кто поможет мне сделать первые шаги?',
     color: 'discipleship',
@@ -75,15 +79,15 @@ const questionList = ref([
     text: 'Вы можете пройти бесплатную Программу наставничества или в групповом формате онлайн, просматривая видео-уроки и получая обратную связь от наставников в групповом чате, или с индивидуальным наставником, встречаясь с ним раз в неделю.',
     component: MentoringBtn,
     isOpen: false,
-  },{
-    title: 'Присоединиться к Малой Группе',
+  }, {
+    title: 'Найти Малую Группу',
     subtitle: 'Малая Группа - это малая Церковь',
     color: 'fellowship',
     icon: 'mdi-home-city-outline',
     text: ``,
     component: SignToSG,
     isOpen: false,
-  },{
+  }, {
     title: 'Духовное консультирование',
     subtitle: 'Забота о вашей душе',
     color: 'worship',
@@ -91,7 +95,7 @@ const questionList = ref([
     text: 'Lorem ipsum dolor sit amet.',
     component: false,
     isOpen: false,
-  },{
+  }, {
     title: 'Найти служение',
     subtitle: 'Я хочу помогать моей церкви',
     color: 'ministry',
@@ -99,7 +103,7 @@ const questionList = ref([
     text: `Если вы хотите, чтобы с вами связались по вопросам служения, заполните форму`,
     component: SignToMinistry,
     isOpen: false,
-  },{
+  }, {
     title: 'Записаться к пастору',
     subtitle: 'Я хочу лично поговорить с пастором',
     color: 'primary',
@@ -107,7 +111,7 @@ const questionList = ref([
     text: 'Lorem ipsum dolor sit amet.',
     component: false,
     isOpen: false,
-  },{
+  }, {
     title: 'Молитвенная поддержка',
     subtitle: 'Мне нужно, чтобы за меня помолились',
     color: 'worshipSec',
@@ -115,7 +119,7 @@ const questionList = ref([
     text: '',
     component: PrayerSupport,
     isOpen: false,
-  },{
+  }, {
     title: 'Другое',
     subtitle: 'Напишите нам',
     color: '',

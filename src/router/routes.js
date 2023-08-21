@@ -258,6 +258,13 @@ export default [
         meta: {
           title: 'профиль',
         },
+      }, {
+        path: '/404',
+        name: '404',
+        component: () => import('@/views/404/404Page.vue'),
+        meta: {
+          title: '404',
+        },
       },
     ],
   }, {

@@ -1,57 +1,60 @@
 <template>
   <v-card
-    class="mx-2 my-4"
-    @click="show = !show"
+    class="mx-2 my-4 py-1"
     :variant="show ? 'text' : 'elevated'"
   >
-    <v-card-actions>
-      <VIcon :icon="eventIcon" :color="eventColor" class="ml-2"/>
-      <VCardItem
-        :title="eventTitle"
-      />
-      <VSpacer/>
-      <v-chip v-if="signedEventsIds.includes(eventId)" rounded="pill" color="success">
-        <VIcon icon="mdi-check"/>
-      </v-chip>
-      <VIcon class="mx-2" :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"/>
-    </v-card-actions>
-  </v-card>
-  <v-expand-transition>
-    <v-card
-      v-if="show"
-      variant="text"
-      class="mx-2"
+    <VCardItem
+      @click="show = !show"
     >
-      <v-card-title class="text-mono">
-        {{ show ? `${eventTime.slice(0, 10)}  в ${eventTime.slice(11)}` : '' }}
-      </v-card-title>
-      <VCardText v-html="eventText"/>
-      <v-card-actions>
-        <VSpacer/>
-        <v-chip v-if="signedEventsIds.includes(eventId)" rounded="pill" color="success">вы записаны</v-chip>
-      </v-card-actions>
-      <v-card-actions class="mx-2">
-        <VSpacer/>
-        <slot name="deleteBtnSpace"/>
-        <v-btn
-          :color="eventColor"
-          v-if="!signedEventsIds.includes(eventId)"
-          variant="outlined"
-          @click="$emit('signBtn')"
-        >
-          Записаться
-        </v-btn>
-        <v-btn
-          color="error"
-          v-if="signedEventsIds.includes(eventId)"
-          variant="outlined"
-          @click="$emit('unsignBtn')"
-        >
-          Отменить запись
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-expand-transition>
+      <template #prepend>
+        <VIcon :icon="eventIcon" :color="eventColor"/>
+      </template>
+      <template #append>
+        <VIcon :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"/>
+      </template>
+      <template #title>
+        <h4 class="font-weight-medium">{{eventTitle}}</h4>
+      </template>
+    </VCardItem>
+    <v-expand-transition>
+      <v-card
+        v-if="show"
+        variant="text"
+        class="mx-2"
+        rounded="0"
+      >
+        <h4 class="text-mono ml-2 font-weight-thin">
+          {{ show ? `${eventTime.slice(0, 10)}  в ${eventTime.slice(11)}` : '' }}
+        </h4>
+        <VCardText class="ma-2 pa-0" v-html="eventText"/>
+        <v-card-actions>
+          <VSpacer/>
+          <v-chip v-if="signedEventsIds.includes(eventId)" rounded="pill" color="success">вы записаны</v-chip>
+        </v-card-actions>
+        <v-card-actions class="mx-2">
+          <VSpacer/>
+          <slot name="deleteBtnSpace"/>
+          <v-btn
+            :color="eventColor"
+            v-if="!signedEventsIds.includes(eventId)"
+            variant="outlined"
+            @click="$emit('signBtn')"
+          >
+            Записаться
+          </v-btn>
+          <v-btn
+            color="error"
+            v-if="signedEventsIds.includes(eventId)"
+            variant="outlined"
+            @click="$emit('unsignBtn')"
+          >
+            Отменить запись
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-expand-transition>
+  </v-card>
+
 </template>
 
 <script setup>

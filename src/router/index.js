@@ -1,8 +1,11 @@
+// noinspection JSUnresolvedReference,JSIgnoredPromiseFromCall
+
 import {createRouter, createWebHistory} from 'vue-router'
 import routes from '@/router/routes'
 import {App} from '@capacitor/app'
 import {storeToRefs} from 'pinia'
 import {useAuthStore} from '@/store/auth.store'
+import {Network} from '@capacitor/network'
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
@@ -15,6 +18,10 @@ const router = createRouter({
 App.addListener('backButton', () => {
   router.back()
 }) // для Android слушает кнопку назад
+
+Network.getStatus().then(e => {
+  if (!e.connected) router.push('/404')
+})
 
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()

@@ -7,19 +7,15 @@
     class="mx-auto"
   >
     <v-card rounded="xl" :variant="purposes.worship.isOpen? 'text' : 'elevated'" class="mb-4 mt-2 mx-2">
-      <v-card elevation="0" variant="text" @click="purposes.worship.isOpen = !purposes.worship.isOpen">
-        <v-card-actions>
-          <VIcon class="ml-4" :color="purposes.worship.color" :icon="purposes.worship.icon"/>
-          <v-card-title>
-            {{ purposes.worship.title }}
-          </v-card-title>
-          <VSpacer/>
-          <VIcon
-            class="mx-4"
-            :icon="purposes.worship.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-          />
-        </v-card-actions>
-      </v-card>
+      <v-card-item
+        :title="purposes.worship.title"
+        @click="purposes.worship.isOpen = !purposes.worship.isOpen"
+        :append-icon="purposes.worship.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+      >
+        <template #prepend>
+          <VIcon :color="purposes.worship.color" :icon="purposes.worship.icon"/>
+        </template>
+      </v-card-item>
       <v-expand-transition>
         <v-card v-if="purposes.worship.isOpen" elevation="0" rounded="0" variant="text">
           <v-slide-group>
@@ -31,21 +27,19 @@
       </v-expand-transition>
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
-    <v-card rounded="xl" :variant="purposes.fellowship.isOpen? 'text' : 'elevated'"
-            class="mb-4 mt-2 mx-2">
-      <v-card elevation="0" variant="text" @click="purposes.fellowship.isOpen = !purposes.fellowship.isOpen">
-        <v-card-actions>
-          <VIcon class="ml-4" :color="purposes.fellowship.color" :icon="purposes.fellowship.icon"/>
-          <v-card-title>
-            {{ purposes.fellowship.title }}
-          </v-card-title>
-          <VSpacer/>
-          <VIcon
-            class="mx-4"
-            :icon="purposes.fellowship.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-          />
-        </v-card-actions>
-      </v-card>
+    <v-card
+      rounded="xl"
+      :variant="purposes.fellowship.isOpen? 'text' : 'elevated'"
+      class="mb-4 mt-2 mx-2">
+      <v-card-item
+        @click="purposes.fellowship.isOpen = !purposes.fellowship.isOpen"
+        :append-icon="purposes.fellowship.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+        :title="purposes.fellowship.title"
+      >
+        <template #prepend>
+          <VIcon :color="purposes.fellowship.color" :icon="purposes.fellowship.icon"/>
+        </template>
+      </v-card-item>
       <v-expand-transition>
         <v-card v-if="purposes.fellowship.isOpen" rounded="0" variant="text">
           <v-card class="ma-2" height="220" :image="firstMeeting">
@@ -89,19 +83,15 @@
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
     <v-card rounded="xl" class="mb-4 mt-2 mx-2">
-      <v-card elevation="0" @click="purposes.discipleship.isOpen = !purposes.discipleship.isOpen">
-        <v-card-actions>
-          <VIcon class="ml-4" :color="purposes.discipleship.color" :icon="purposes.discipleship.icon"/>
-          <v-card-title>
-            {{ purposes.discipleship.title }}
-          </v-card-title>
-          <VSpacer/>
-          <VIcon
-            class="mx-4"
-            :icon="purposes.discipleship.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-          />
-        </v-card-actions>
-      </v-card>
+      <v-card-item
+        @click="purposes.discipleship.isOpen = !purposes.discipleship.isOpen"
+        :title="purposes.discipleship.title"
+        :append-icon="purposes.discipleship.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+      >
+        <template #prepend>
+          <VIcon :color="purposes.discipleship.color" :icon="purposes.discipleship.icon"/>
+        </template>
+      </v-card-item>
       <v-expand-transition>
         <v-card v-if="purposes.discipleship.isOpen" elevation="0" rounded="0" variant="text">
           <v-card
@@ -127,19 +117,16 @@
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
     <v-card rounded="xl" :variant="purposes.ministry.isOpen? 'text' : 'elevated'" class="mb-4 mt-2 mx-2">
-      <v-card variant="text" @click="purposes.ministry.isOpen = !purposes.ministry.isOpen">
-        <v-card-actions>
-          <VIcon class="ml-4" :color="purposes.ministry.color" :icon="purposes.ministry.icon"/>
-          <v-card-title>
-            {{ purposes.ministry.title }}
-          </v-card-title>
-          <VSpacer/>
-          <VIcon
-            class="mx-4"
-            :icon="purposes.ministry.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-          />
-        </v-card-actions>
-      </v-card>
+
+      <v-card-item
+        @click="purposes.ministry.isOpen = !purposes.ministry.isOpen"
+        :title="purposes.ministry.title"
+        :append-icon="purposes.ministry.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+      >
+        <template #prepend>
+          <VIcon :color="purposes.ministry.color" :icon="purposes.ministry.icon"/>
+        </template>
+      </v-card-item>
       <v-expand-transition>
         <v-card v-if="purposes.ministry.isOpen" rounded="0" variant="text">
           <v-card class="ma-2" height="220" :image="ministry">
@@ -179,19 +166,15 @@
       :variant="purposes.evangelism.isOpen ? 'text' : 'elevated'"
       class="mb-4 mt-2 mx-2"
     >
-      <v-card variant="text" @click="purposes.evangelism.isOpen = !purposes.evangelism.isOpen">
-        <v-card-actions>
-          <VIcon class="ml-4" :color="purposes.evangelism.color" :icon="purposes.evangelism.icon"/>
-          <v-card-title>
-            {{ purposes.evangelism.title }}
-          </v-card-title>
-          <VSpacer/>
-          <VIcon
-            class="mx-4"
-            :icon="purposes.evangelism.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-          />
-        </v-card-actions>
-      </v-card>
+      <v-card-item
+        @click="purposes.evangelism.isOpen = !purposes.evangelism.isOpen"
+        :title="purposes.evangelism.title"
+        :append-icon="purposes.evangelism.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+      >
+        <template #prepend>
+          <VIcon :color="purposes.evangelism.color" :icon="purposes.evangelism.icon"/>
+        </template>
+      </v-card-item>
       <v-expand-transition>
         <v-card v-if="purposes.evangelism.isOpen" rounded="0" variant="text">
           <v-slide-group>
@@ -203,29 +186,27 @@
       </v-expand-transition>
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
-    <v-card rounded="xl" class="mb-4 mt-2 mx-2">
-      <v-card rounded="0" to="/aboutChurch">
-        <v-card-actions>
-          <VIcon class="ml-4" icon="mdi-church-outline"/>
-          <v-card-title>О церкви</v-card-title>
-          <VSpacer/>
-        </v-card-actions>
-      </v-card>
+    <v-card rounded="xl" class="mb-4 mt-2 mx-2" to="/aboutChurch">
+      <v-card-item title="О церкви" append-icon="mdi-chevron-right">
+        <template #prepend>
+          <VIcon icon="mdi-church-outline"/>
+        </template>
+      </v-card-item>
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
     <v-card rounded="xl" class="mb-4 mt-2 mx-2">
-      <v-card :color="purposes.help.color" rounded="0" @click="purposes.help.toggleOpen()">
-        <v-card-actions>
-          <VIcon class="ml-4" :icon="purposes.help.icon"/>
-          <v-card-title>
-            {{ purposes.help.title }}
-          </v-card-title>
-          <VSpacer/>
-          <VIcon
-            class="mx-4"
-            :icon="purposes.help.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-          />
-        </v-card-actions>
+      <v-card :color="purposes.help.color" rounded="0">
+        <v-card-item
+          @click="purposes.help.toggleOpen()"
+          :title="purposes.help.title"
+        >
+          <template #prepend>
+            <VIcon :icon="purposes.help.icon"/>
+          </template>
+          <template #append>
+            <VIcon :icon="purposes.help.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'" />
+          </template>
+        </v-card-item>
       </v-card>
       <v-expand-transition>
         <v-card v-if="purposes.help.isOpen" rounded="0" variant="text">
