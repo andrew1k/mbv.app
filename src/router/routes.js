@@ -234,15 +234,30 @@ export default [
         component: () => import('@/views/profile/ProfilePage.vue'),
         meta: {
           title: 'Мой профиль',
-        }
-      },{
+        },
+      }, {
+        path: '/profile/notes',
+        name: 'ProfileNotes',
+        component: () => import('@/views/notes/ProfileNotes.vue'),
+        meta: {
+          title: 'Мои сохранения',
+        },
+      }, {
+        path: '/profile/SundayNote/:id',
+        name: 'ProfileSundayNote',
+        props: true,
+        component: () => import('@/views/notes/ProfileSundayNote.vue'),
+        meta: {
+          title: 'Мои сохранения',
+        },
+      }, {
         path: '/user/:id',
         name: 'User',
         props: true,
         component: () => import('@/views/profile/UserPage.vue'),
         meta: {
           title: 'профиль',
-        }
+        },
       },
     ],
   }, {
@@ -273,7 +288,7 @@ export default [
     meta: {
       title: 'Admin',
       auth: true,
-    }
+    },
   },
 ]
 

@@ -32,6 +32,7 @@ export const useAuthStore = defineStore('authStore', () => {
       (today.getMonth() < birthdate.getMonth() ||
         (today.getMonth() === birthdate.getMonth() && today.getDate() < birthdate.getDate()))
   })
+  const savedNotes = computed(() => dbUser.value.sundayNotes)
   // calendar part
   const signedEventsIds = ref(computed(() => dbUser.value.signedEvents?.map(e => e.eventId)))
 
@@ -192,6 +193,7 @@ export const useAuthStore = defineStore('authStore', () => {
     isAdmin,
     userAge,
     signedEventsIds,
+    savedNotes,
     appLogin,
     appSignup,
     appLogout,

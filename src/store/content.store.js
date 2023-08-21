@@ -11,11 +11,13 @@ import {
   orderBy,
   limit,
   getDocs,
-  getDoc,
+  getDoc, updateDoc, arrayUnion, arrayRemove,
 } from 'firebase/firestore'
 import {uploadBytes, ref as sref, getDownloadURL, deleteObject} from 'firebase/storage'
 import {ref} from 'vue'
 import {useAppState} from '@/store/app.store'
+import {useAuthStore} from '@/store/auth.store'
+import {useSnackbarMessages} from '@/store/snackbarmessages.store'
 
 export const useContentStore = defineStore('contentStore', () => {
   const news = ref([])
@@ -26,6 +28,8 @@ export const useContentStore = defineStore('contentStore', () => {
   const sunday = ref({docId: '0'})
   const appState = useAppState()
   const {isPending} = storeToRefs(appState)
+  const {uid} = storeToRefs(useAuthStore())
+  const {setMessage} = useSnackbarMessages()
 
   async function getSunday() {
     isPending.value = true
@@ -36,6 +40,49 @@ export const useContentStore = defineStore('contentStore', () => {
       sunday.value = {...doc.data(), docId}
       isPending.value = false
     })
+  }
+
+  async function saveSundayNotes(note) {
+    const docRef = doc(db, 'users', uid.value)
+    const res = await getDoc(docRef)
+    const data = res.data()
+    const noteInDB = data.sundayNotes.find(item => item.timeId === note.timeId)
+    if (!!noteInDB) {
+      await updateDoc(docRef, {
+        sundayNotes: arrayRemove({
+          text: noteInDB.text,
+          title: noteInDB.title,
+          id: noteInDB.id,
+          timeId: noteInDB.timeId,
+        }),
+      }).then(() => {
+        updateDoc(docRef, {
+          sundayNotes: arrayUnion({
+            text: note.text,
+            title: note.title,
+            id: note.id,
+            timeId: note.timeId,
+          }),
+        }).then(() => {
+          setMessage('Успешно сохранено')
+        }).catch(e => {
+          setMessage('Ошибка: ' + e)
+        })
+      })
+    } else {
+      await updateDoc(docRef, {
+        sundayNotes: arrayUnion({
+          text: note.text,
+          title: note.title,
+          id: note.id,
+          timeId: note.timeId,
+        }),
+      }).then(() => {
+        setMessage('Успешно сохранено')
+      }).catch(e => {
+        setMessage('Ошибка: ' + e)
+      })
+    }
   }
 
   async function getNews() {
@@ -73,6 +120,7 @@ export const useContentStore = defineStore('contentStore', () => {
   }
 
   const sgLeadersData = ref([])
+
   async function getSGLeaders() {
     const leadersSnapshoot = await getDocs(collection(db, 'sgLeaders'))
     leadersSnapshoot.forEach(doc => {
@@ -121,6 +169,7 @@ export const useContentStore = defineStore('contentStore', () => {
     await deleteDoc(doc(db, 'newsfeed', newsItem.id))
     await alert('all done')
   }
+
   async function deleteStoryItem(storyItem) {
     await deleteObject(sref(storage, storyItem.filePath))
     await deleteDoc(doc(db, 'newsfeed', storyItem.id))
@@ -175,6 +224,7 @@ export const useContentStore = defineStore('contentStore', () => {
 
   return {
     getSunday,
+    saveSundayNotes,
     getStories,
     getNews,
     getNewsItem,

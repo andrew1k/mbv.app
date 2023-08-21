@@ -1,17 +1,19 @@
+<!--suppress JSUnresolvedReference -->
 <template>
-  <v-card variant="text" elevation="0" rounded="0">
+  <v-card variant="text" rounded="0">
     <v-card class="ma-2">
       <LiteYouTubeEmbed :id="sunday.id" :title="sunday.title"/>
     </v-card>
+    <h3 class="text-center my-3">{{ sunday.title }}</h3>
     <v-card class="ma-2 pa-2">
-      <v-card-title>Конспект проповеди</v-card-title>
+      <h4 class="ma-2">Конспект проповеди</h4>
       <QuillEditor v-model:content="sunday.text" content-type="html" toolbar="minimal"/>
       <v-card-actions>
         <vSpacer/>
         <v-btn
-          @click="saveNotes(sunday.text, sunday.id)"
-          variant="text"
-          append-icon="mdi-bookmark-outline"
+          @click="saveSundayNotes(sunday)"
+          variant="outlined"
+          prepend-icon="mdi-bookmark-outline"
         >
           Сохранить
         </v-btn>
@@ -30,9 +32,6 @@ import '@vueup/vue-quill/dist/vue-quill.snow.css'
 
 const contentStore = useContentStore()
 const {sunday} = storeToRefs(contentStore)
-
-const saveNotes = (txt, id) => {
-  console.log(txt, id)
-}
+const {saveSundayNotes} = contentStore
 
 </script>
