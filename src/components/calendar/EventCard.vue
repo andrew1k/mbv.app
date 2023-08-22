@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="mx-2 my-4 py-1"
+    class="mx-2 my-4 py-2"
     :variant="show ? 'text' : 'elevated'"
   >
     <VCardItem

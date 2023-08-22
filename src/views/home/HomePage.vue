@@ -3,12 +3,18 @@
     <StoriesFeed/>
     <SundayCard/>
     <WeekEvents/>
-    <v-card class="mx-2 mt-10 mb-4" to="/connect">
-      <VCardItem
-        prepend-icon="mdi-list-box-outline"
-        title="Связь с церковью"
-        append-icon="mdi-chevron-right"
-      />
+    <v-card class="mx-2 mt-10 py-2 mb-4" to="/connect">
+      <VCardItem>
+        <template #prepend>
+          <VIcon icon="mdi-list-box-outline" />
+        </template>
+        <template #append>
+          <VIcon icon="mdi-chevron-right" />
+        </template>
+        <template #title>
+          <h4 class="font-weight-medium">Связь с церковью</h4>
+        </template>
+      </VCardItem>
     </v-card>
     <NewsFeed/>
   </v-card>

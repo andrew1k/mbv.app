@@ -195,7 +195,7 @@
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
     <v-card rounded="xl" class="mb-4 mt-2 mx-2">
-      <v-card :color="purposes.help.color" rounded="0">
+      <v-card class="py-1" :color="purposes.help.color" rounded="0">
         <v-card-item
           @click="purposes.help.toggleOpen()"
           :title="purposes.help.title"
@@ -204,31 +204,28 @@
             <VIcon :icon="purposes.help.icon"/>
           </template>
           <template #append>
-            <VIcon :icon="purposes.help.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'" />
+            <VIcon class="mr-2" :icon="purposes.help.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'" />
           </template>
         </v-card-item>
       </v-card>
       <v-expand-transition>
         <v-card v-if="purposes.help.isOpen" rounded="0" variant="text">
           <v-card
-            elevation="0"
-            rounded="0"
-            variant="text"
-            class="ma-0"
             v-for="(pAct, i) in purposes.help.actions"
             :key="i"
             :to="pAct.route"
           >
             <VDivider/>
-            <v-card-actions>
-              <v-avatar variant="outlined" class="ml-2">
-                <VIcon :icon="pAct.icon" size="large" color="primary"/>
-              </v-avatar>
-              <VCardItem
-                :title="pAct.title"
-                :subtitle="pAct.subtitle"
-              />
-            </v-card-actions>
+            <v-card-item
+              :title="pAct.title"
+              :subtitle="pAct.subtitle"
+            >
+              <template #prepend>
+                <v-avatar variant="outlined">
+                  <VIcon :icon="pAct.icon" size="large" color="primary"/>
+                </v-avatar>
+              </template>
+            </v-card-item>
           </v-card>
         </v-card>
       </v-expand-transition>
