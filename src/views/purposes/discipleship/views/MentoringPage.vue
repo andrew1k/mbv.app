@@ -1,21 +1,14 @@
 <template>
   <v-card elevation="0" rounded="0" variant="text">
     <v-card class=" ma-2">
-<!--      <PCard-->
-<!--        title="Программа «Наставничество»"-->
-<!--        btn="Найти мне наставника"-->
-<!--        :img="onePlusOne"-->
-<!--        :text="textOnePlusOne"-->
-<!--        @toggler-btn="signToggle"-->
-<!--      />-->
       <v-img :src="onePlusOne" :options="{threshold: 0}" eager>
         <div class="fill-height bottom-gradient d-flex align-end">
           <VCardTitle class="text-white">Программа «Наставничество» </VCardTitle>
         </div>
       </v-img>
       <VCardText v-html="textOnePlusOne"/>
-        <v-btn block variant="elevated" @click="signToggle">с индивидуальным наставником</v-btn>
-        <v-btn class="text-mono ma-2" block variant="text" href="https://t.me/mbvprogramma">Присоединиться к группе</v-btn>
+        <v-btn block variant="outlined" size="large" @click="signToggle">с индивидуальным наставником</v-btn>
+        <v-btn class="text-mono my-2" block variant="text" href="https://t.me/mbvprogramma">Присоединиться к группе</v-btn>
     </v-card>
     <v-expand-transition>
       <v-card v-show="sign" variant="text" elevation="0" rounded="0" class="ma-2">
@@ -37,7 +30,6 @@
 <script setup>
 import {ref} from 'vue'
 import onePlusOne from '@/assets/fellowshipPics/onePlusOne.jpg'
-// import PCard from '@/components/purposes/PurposesCards.vue'
 import {useFormsStore} from '@/store/form.store'
 
 const answer = ref('')

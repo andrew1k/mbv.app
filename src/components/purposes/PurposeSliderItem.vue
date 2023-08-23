@@ -8,7 +8,7 @@
     :href="href ? href : false"
   >
     <div class="fill-height bottom-gradient d-flex align-end">
-      <h3 class="text-white ma-2">{{title}}</h3>
+      <h3 class="text-white mx-3 my-2">{{title}}</h3>
     </div>
   </v-card>
 </template>

@@ -59,7 +59,7 @@ export default createVuetify({
         mbvLight: {
           dark: false,
           colors: {
-            background: '#ECEFF1', // efefef
+            background: '#e4e6e8', // eceff1
             surface: '#ffffff',
             contrast: '#1C1B1F',
             primary: '#37474F', // 9C27B0

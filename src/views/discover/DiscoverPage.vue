@@ -117,7 +117,6 @@
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
     <v-card rounded="xl" :variant="purposes.ministry.isOpen? 'text' : 'elevated'" class="mb-4 mt-2 mx-2">
-
       <v-card-item
         @click="purposes.ministry.isOpen = !purposes.ministry.isOpen"
         :title="purposes.ministry.title"
@@ -204,7 +203,7 @@
             <VIcon :icon="purposes.help.icon"/>
           </template>
           <template #append>
-            <VIcon class="mr-2" :icon="purposes.help.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'" />
+            <VIcon class="mr-2" :icon="purposes.help.isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down'"/>
           </template>
         </v-card-item>
       </v-card>

@@ -35,7 +35,21 @@
             </a>
           </v-card-text>
           <v-card-subtitle>Соц.Сети</v-card-subtitle>
-          <v-card-text></v-card-text>
+          <v-card-actions>
+            <VSpacer/>
+            <a href="https://www.youtube.com/@120SPD">
+              <VAvatar rounded="0" :image="yt" />
+            </a>
+            <VSpacer/>
+            <a href="https://t.me/mbv">
+              <VAvatar rounded="0" :image="tg" />
+            </a>
+            <VSpacer/>
+            <a href="https://vk.com/mbvspb">
+              <VAvatar rounded="0" :image="vk"/>
+            </a>
+            <VSpacer/>
+          </v-card-actions>
           <v-card-subtitle>Режим работы офиса</v-card-subtitle>
           <v-card-text>Пн-Пт, 10:00-18:00</v-card-text>
         </v-card>
@@ -133,6 +147,9 @@ import OlSh from '@/assets/pastors/OlSh.jpg'
 import EKo from '@/assets/pastors/EKo.jpg'
 import VGo from '@/assets/pastors/VGo.jpg'
 import {ref} from 'vue'
+import yt from '@/assets/socialMediaIcons/youtube-outlinesvg.svg'
+import tg from '@/assets/socialMediaIcons/tg-outline.svg'
+import vk from '@/assets/socialMediaIcons/vk-outlinesvg.svg'
 
 const tab = ref('Contacts')
 

@@ -4,7 +4,7 @@
     <v-card class="ma-2">
       <LiteYouTubeEmbed :id="sunday.id" :title="sunday.title"/>
     </v-card>
-    <h3 class="text-center my-3">{{ sunday.title }}</h3>
+<!--    <h3 class="text-center my-3">{{ sunday.title }}</h3>-->
     <v-card class="ma-2 pa-2">
       <h4 class="ma-2">Конспект проповеди</h4>
       <QuillEditor v-model:content="sunday.text" content-type="html" toolbar="minimal"/>

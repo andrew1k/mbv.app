@@ -3,7 +3,7 @@
     <StoriesFeed/>
     <SundayCard/>
     <WeekEvents/>
-    <v-card class="mx-2 mt-10 py-2 mb-4" to="/connect">
+    <v-card class="mx-2 mt-10 py-1 mb-4" color="primary" to="/connect">
       <VCardItem>
         <template #prepend>
           <VIcon icon="mdi-list-box-outline" />

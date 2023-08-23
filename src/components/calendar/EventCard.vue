@@ -7,7 +7,10 @@
       @click="show = !show"
     >
       <template #prepend>
-        <VIcon :icon="eventIcon" :color="eventColor"/>
+        <VIcon
+          :icon="signedEventsIds.includes(eventId) ? 'mdi-check-outline' : eventIcon"
+          :color="signedEventsIds.includes(eventId) ? 'green' : eventColor"
+        />
       </template>
       <template #append>
         <VIcon :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"/>
@@ -27,10 +30,10 @@
           {{ show ? `${eventTime.slice(0, 10)}  в ${eventTime.slice(11)}` : '' }}
         </h4>
         <VCardText class="ma-2 pa-0" v-html="eventText"/>
-        <v-card-actions>
-          <VSpacer/>
-          <v-chip v-if="signedEventsIds.includes(eventId)" rounded="pill" color="success">вы записаны</v-chip>
-        </v-card-actions>
+<!--        <v-card-actions>-->
+<!--          <VSpacer/>-->
+<!--          <v-chip v-if="signedEventsIds.includes(eventId)" rounded="pill" color="success">вы записаны</v-chip>-->
+<!--        </v-card-actions>-->
         <v-card-actions class="mx-2">
           <VSpacer/>
           <slot name="deleteBtnSpace"/>

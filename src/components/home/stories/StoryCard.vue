@@ -8,8 +8,8 @@
     <template v-slot:activator="{ props }">
       <v-card
         class="my-2 mx-1"
-        height="120"
-        width="100"
+        height="90"
+        width="90"
         v-bind="props"
         :image="prevImg"
         :color="color"
@@ -17,7 +17,7 @@
         elevation="3"
       >
         <div class="fill-height bottom-gradient d-flex align-end">
-          <h5 class="text-white ma-2">{{title}}</h5>
+          <h6 class="text-white mx-2 my-1 font-weight-medium">{{title}}</h6>
         </div>
       </v-card>
     </template>

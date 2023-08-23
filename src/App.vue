@@ -1,13 +1,16 @@
 <template>
   <v-app :theme="theme">
-    <v-snackbar
-      v-model="snackbarMessage"
-      multi-line
-      location="top"
-      rounded="xl"
-    >
-      {{ snackbarMessage }}
-    </v-snackbar>
+    <v-scroll-y-transition>
+      <v-snackbar
+        v-model="snackbarMessage"
+        multi-line
+        location="top"
+        rounded="xl"
+        class="mt-6"
+      >
+        {{ snackbarMessage }}
+      </v-snackbar>
+    </v-scroll-y-transition>
     <RouterView/>
   </v-app>
 </template>

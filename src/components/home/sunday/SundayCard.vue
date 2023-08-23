@@ -7,7 +7,8 @@
   <v-card v-if="!isPending" to="/sunday" class="ma-2 bottom-gradient">
     <VImg cover :aspect-ratio="16/9" :src="`https://img.youtube.com/vi/${sunday?.id}/0.jpg`">
       <div class=" fill-height bottom-gradient d-flex flex-column align-center justify-end">
-        <h3 class="text-white text-center text-mono">{{ sunday.title }}</h3>
+        <h3 class="text-white text-center text-mono"></h3>
+        <p class="text-mono text-white text-center px-2">{{ sunday.title }}</p>
         <v-btn
           class="my-3"
           color="surface"

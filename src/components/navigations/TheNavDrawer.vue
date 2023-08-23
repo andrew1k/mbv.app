@@ -246,11 +246,17 @@
       </v-card-actions>
       <v-card-actions>
         <VSpacer/>
-        <VBtn density="compact" icon="mdi-youtube" color="error" href="https://www.youtube.com/@120SPD"/>
+        <a href="https://www.youtube.com/@120SPD">
+          <VAvatar rounded="0" :image="yt" />
+        </a>
         <VSpacer/>
-        <VBtn density="compact" icon="mdi-alpha-v-circle-outline" color="evangelism" href="vk.com/mbvspb"/>
+        <a href="https://t.me/mbv">
+          <VAvatar rounded="0" :image="tg" />
+        </a>
         <VSpacer/>
-        <VBtn density="compact" icon="mdi-send-outline" color="evangelism" href="t.me/mbv"/>
+        <a href="https://vk.com/mbvspb">
+          <VAvatar rounded="0" :image="vk"/>
+        </a>
         <VSpacer/>
       </v-card-actions>
     </template>
@@ -265,6 +271,9 @@ import {useAuthStore} from '@/store/auth.store'
 import firstMeeting from '@/assets/fellowshipPics/firstMeeting.jpg'
 import ministry from '@/assets/ministryPics/step.jpg'
 import outreach from '@/assets/evangelismPics/steiger.jpg'
+import yt from '@/assets/socialMediaIcons/youtube-outlinesvg.svg'
+import tg from '@/assets/socialMediaIcons/tg-outline.svg'
+import vk from '@/assets/socialMediaIcons/vk-outlinesvg.svg'
 
 const appState = useAppState()
 const {drawer} = storeToRefs(appState)
