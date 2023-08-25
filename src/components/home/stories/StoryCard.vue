@@ -8,7 +8,7 @@
     <template v-slot:activator="{ props }">
       <v-card
         class="my-2 mx-1"
-        height="90"
+        height="100"
         width="90"
         v-bind="props"
         :image="prevImg"

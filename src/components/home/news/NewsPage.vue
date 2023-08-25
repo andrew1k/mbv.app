@@ -5,7 +5,7 @@
     </v-card>
     <v-card class="ma-2">
       <h3 class="font-weight-bold mx-4 my-2">{{newsItem?.title}}</h3>
-      <VCardText class="text-mono py-0">{{newsItem?.subtitle}}</VCardText>
+<!--      <VCardText class="text-mono py-0">{{newsItem?.subtitle}}</VCardText>-->
       <component :is="leader"/>
       <VCardText v-html="newsItem?.text"></VCardText>
     </v-card>

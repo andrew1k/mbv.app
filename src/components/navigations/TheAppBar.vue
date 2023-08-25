@@ -6,20 +6,21 @@
     elevation="0"
     flat
   >
-    <VBtn v-if="mainScreen" icon="mdi-menu" @click="drawer = !drawer"/>
+    <VBtn class="font-weight-light" v-if="mainScreen" @click="drawer = !drawer">
+      <VIcon icon="mdi-menu" size="20"/>
+      {{ appbarTitle }}
+    </VBtn>
     <VBtn
       v-if="!mainScreen"
       @click="$router.back()"
       prepend-icon="mdi-chevron-left"
-      class="font-weight-medium"
+      class="font-weight-light"
     >
       {{ appbarTitle }}
     </VBtn>
-    <VSpacer />
-    {{ mainScreen ? appbarTitle : null }}
+
     <VSpacer/>
     <VBtn v-if="mainScreen" icon="mdi-gift" to="/giving" color="primary"/>
-
   </v-app-bar>
 </template>
 
@@ -32,10 +33,10 @@ defineProps({
     type: String,
     default: 'МБВ',
   },
-  mainScreen : {
+  mainScreen: {
     type: Boolean,
     required: true,
-  }
+  },
 })
 
 const appState = useAppState()

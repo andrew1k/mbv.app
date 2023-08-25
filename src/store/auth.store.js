@@ -15,6 +15,7 @@ import {auth, db} from '@/plugins/firebase.config'
 import {doc, setDoc, updateDoc, onSnapshot, getDoc, deleteDoc} from 'firebase/firestore'
 import router from '@/router'
 import {useSnackbarMessages} from '@/store/snackbarmessages.store'
+import {LocalNotifications} from '@capacitor/local-notifications'
 
 export const useAuthStore = defineStore('authStore', () => {
   const {setMessage} = useSnackbarMessages() // messages for errors to user
@@ -65,9 +66,10 @@ export const useAuthStore = defineStore('authStore', () => {
         // },
       }
       await setDoc(doc(db, 'users', res.user.uid), dbData)
-      await onSnapshot(doc(db, 'users', res.user.uid), (snapshot) => {
-        dbUser.value = snapshot.data()
-      })
+      // await onSnapshot(doc(db, 'users', res.user.uid), (snapshot) => {
+      //   dbUser.value = snapshot.data()
+      // })
+      await LocalNotifications.requestPermissions()
       await router.push({name: 'Home'})
     } catch (e) {
       setMessage(e.message)
@@ -77,6 +79,7 @@ export const useAuthStore = defineStore('authStore', () => {
     try {
       const res = await signInWithEmailAndPassword(auth, payload.email, payload.password)
       if (!res) new Error('Ошибка входа, нет ответа с сервера')
+      await LocalNotifications.requestPermissions()
       await router.push({name: 'Home'})
     } catch (e) {
       setMessage(e.message)
