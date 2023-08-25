@@ -238,7 +238,7 @@ import PurposeSliderItem from '@/components/purposes/PurposeSliderItem.vue'
 
 // import pics
 import steiger from '@/assets/evangelismPics/steiger.jpg'
-import vechno from '@/assets/evangelismPics/vechnoSq.jpg'
+import vechno from '@/assets/evangelismPics/vechnoSq.png'
 import step4 from '@/assets/evangelismPics/step.jpg'
 import oneSq from '@/assets/evangelismPics/OneSq.jpg'
 import sunday from '@/assets/worshipPics/sunday.jpg'
@@ -269,17 +269,7 @@ const purposes = ref({
         title: 'Молитвы',
         img: praying,
         route: '/purposes/worship/prayer',
-      },
-      // {
-      //   title: 'Конференции',
-      //   img: '',
-      //   route: '',
-      // }, {
-      //   title: 'Вечер Хвалы',
-      //   img: '',
-      //   route: '',
-      // },
-      {
+      }, {
         title: 'Песни',
         img: songs,
         href: 'https://www.youtube.com/playlist?list=PLjjvxd6WcKV0iJGU4PM6DR4EZ4ideQrR9',
@@ -325,14 +315,7 @@ const purposes = ref({
         subtitle: 'Узнавая больше о духовном развитии',
         icon: 'mdi-school-outline',
         route: '/purposes/discipleship/step',
-      },
-      // {
-      //   title: 'Курсы',
-      //   subtitle: 'Изучай новое вместе с нами',
-      //   icon: 'mdi-book-outline',
-      //   route: '',
-      // },
-      {
+      }, {
         title: 'Семейное служение',
         subtitle: 'Твои корни',
         icon: 'mdi-human-male-female-child',
