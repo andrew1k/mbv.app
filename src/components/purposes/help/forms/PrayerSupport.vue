@@ -13,7 +13,6 @@
       v-model="anon"
     />
     <v-card-actions>
-      <VSpacer/>
       <v-btn variant="outlined" block
              @click="sendForm('prayer', {prayer, anon}, 'Молитвенная нужда')">
         Отправить

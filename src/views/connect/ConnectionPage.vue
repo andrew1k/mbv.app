@@ -41,6 +41,8 @@ import FirstPrayBtn from '@/components/connect/FirstPrayBtn.vue'
 import SignToMinistry from '@/components/purposes/ministry/forms/SignToMinistry.vue'
 import PrayerSupport from '@/components/purposes/help/forms/PrayerSupport.vue'
 import OtherForm from '@/components/connect/OtherForm.vue'
+import SpiritualCounsellingForm from '@/components/purposes/help/forms/SpiritualCounsellingForm.vue'
+import SignToPastorsForm from '@/components/connect/SignToPastorsForm.vue'
 
 
 const questionList = ref([
@@ -88,12 +90,12 @@ const questionList = ref([
     component: SignToSG,
     isOpen: false,
   }, {
-    title: 'Духовное консультирование',
+    title: 'Духовное консультация',
     subtitle: 'Забота о вашей душе',
     color: 'worship',
     icon: 'mdi-account-heart-outline',
-    text: 'Lorem ipsum dolor sit amet.',
-    component: false,
+    text: 'Если у вас есть что-то, что вас беспокоит и вы хотите помощи, сообщите нам об этом',
+    component: SpiritualCounsellingForm,
     isOpen: false,
   }, {
     title: 'Найти служение',
@@ -108,8 +110,8 @@ const questionList = ref([
     subtitle: 'Я хочу лично поговорить с пастором',
     color: 'primary',
     icon: 'mdi-account-question-outline',
-    text: 'Lorem ipsum dolor sit amet.',
-    component: false,
+    text: 'Встречи с пасторами проходят в будние дни, дайте нам знать, если хотите записаться',
+    component: SignToPastorsForm,
     isOpen: false,
   }, {
     title: 'Молитвенная поддержка',

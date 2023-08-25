@@ -7,7 +7,7 @@
       <v-tab value="Contacts">Контакты</v-tab>
       <v-tab value="Pastors">Пастора</v-tab>
       <v-tab value="Filial">Филиалы</v-tab>
-<!--      <v-tab value="Vision">Видение</v-tab>-->
+      <!--      <v-tab value="Vision">Видение</v-tab>-->
     </v-tabs>
     <VDivider/>
     <v-window v-model="tab">
@@ -37,12 +37,12 @@
           <v-card-subtitle>Соц.Сети</v-card-subtitle>
           <v-card-actions>
             <VSpacer/>
-            <a href="https://www.youtube.com/@120SPD">
-              <VAvatar rounded="0" :image="yt" />
+            <a href="https://www.youtube.com/@mbv1916">
+              <VAvatar rounded="0" :image="yt"/>
             </a>
             <VSpacer/>
-            <a href="https://t.me/mbv">
-              <VAvatar rounded="0" :image="tg" />
+            <a href="https://t.me/mbvspb">
+              <VAvatar rounded="0" :image="tg"/>
             </a>
             <VSpacer/>
             <a href="https://vk.com/mbvspb">

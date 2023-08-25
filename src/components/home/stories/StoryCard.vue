@@ -1,3 +1,4 @@
+<!--suppress VueUnrecognizedDirective -->
 <template>
   <v-dialog
     v-model="dialog"
@@ -27,7 +28,7 @@
       <v-card-text class="mt-9">
         <v-card class="mx-auto" max-width="600">
           <v-toolbar color="surface" density="compact">
-            <v-btn @click="dialog = false" :color="linkColor" prepend-icon="mdi-close">Закрыть</v-btn>
+            <v-btn @click="dialog = false" :color="linkColor" icon="mdi-close"/>
             <VSpacer/>
             <v-btn :color="linkColor" variant="tonal" v-if="linkLabel" :to="link">{{ linkLabel }}</v-btn>
           </v-toolbar>

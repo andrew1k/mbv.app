@@ -246,11 +246,11 @@
       </v-card-actions>
       <v-card-actions>
         <VSpacer/>
-        <a href="https://www.youtube.com/@120SPD">
+        <a href="https://www.youtube.com/@mbv1916">
           <VAvatar rounded="0" :image="yt" />
         </a>
         <VSpacer/>
-        <a href="https://t.me/mbv">
+        <a href="https://t.me/mbvspb">
           <VAvatar rounded="0" :image="tg" />
         </a>
         <VSpacer/>
