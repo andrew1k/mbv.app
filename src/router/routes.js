@@ -165,14 +165,6 @@ export default [
           color: 'worship',
         },
       }, {
-        path: '/purposes/help/prayerGarden',
-        name: 'prayerGarden',
-        component: () => import('@/views/purposes/help/views/PrayerGardenPage.vue'),
-        meta: {
-          title: 'Молитвенный сад',
-          color: 'worship',
-        },
-      }, {
         path: '/purposes/help/spiritualCounselling',
         name: 'spiritualCounselling',
         component: () => import('@/views/purposes/help/views/SpiritualCounsellingPage.vue'),

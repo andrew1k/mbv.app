@@ -355,7 +355,7 @@ const purposes = ref({
     isOpen: true,
     actions: [
       {
-        title: 'VECHNO',
+        title: 'Вечно',
         img: vechno,
         route: '/purposes/evangelism/vechno',
       }, {
@@ -366,18 +366,8 @@ const purposes = ref({
         title: 'Кто твой один?',
         img: oneSq,
         route: '/purposes/evangelism/one',
-      },
-      // {
-      //   title: 'Семинар',
-      //   img: '',
-      //   route: '',
-      // }, {
-      //   title: 'Спектакли',
-      //   img: '',
-      //   route: '',
-      // },
-      {
-        title: 'OutReach',
+      }, {
+        title: 'Деяния',
         img: steiger,
         route: '/purposes/evangelism/outreach',
       },
@@ -405,13 +395,7 @@ const purposes = ref({
         title: 'Молитвенная поддержка',
         icon: 'mdi-hands-pray',
         route: '/purposes/help/prayerSupport',
-      },
-      // {
-      //   title: 'Молитвенный сад',
-      //   icon: 'mdi-tree-outline',
-      //   route: '/purposes/help/prayerGarden',
-      // },
-      {
+      }, {
         title: 'Духовная консультация',
         icon: 'mdi-account-question-outline',
         route: '/purposes/help/spiritualCounselling',
