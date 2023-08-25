@@ -129,7 +129,7 @@ export default [
         name: 'vechno',
         component: () => import('@/views/purposes/evangelism/views/VechnoPage.vue'),
         meta: {
-          title: 'Vechno',
+          title: 'Вечно',
           color: 'ministry',
         },
       }, {
@@ -290,54 +290,3 @@ export default [
     },
   },
 ]
-
-
-// {
-//   path: '/purposes/worship',
-//     name: 'worship',
-//   component: () => import('@/views/purposes/worship/PurposeWorship.vue'),
-//   meta: {
-//   title: 'Поклонение',
-//     color: 'worship', // error
-// },
-// }, {
-//   path: '/purposes/fellowship',
-//     name: 'fellowship',
-//     component: () => import('@/views/purposes/fellowship/PurposeFellowship.vue'),
-//     meta: {
-//     title: 'Общение',
-//       color: 'fellowship', // warning
-//   },
-// }, {
-//   path: '/purposes/discipleship',
-//     name: 'discepleship',
-//     component: () => import('@/views/purposes/discipleship/PurposeDiscipleship.vue'),
-//     meta: {
-//     title: 'Ученичество',
-//       color: 'discepleship', // success
-//   },
-// }, {
-//   path: '/purposes/ministry',
-//     name: 'ministry',
-//     component: () => import('@/views/purposes/ministry/PurposeMinistry.vue'),
-//     meta: {
-//     title: 'Служение',
-//       color: 'ministry', // secondary
-//   },
-// }, {
-//   path: '/purposes/evangelism',
-//     name: 'evangelism',
-//     component: () => import('@/views/purposes/evangelism/PurposeEvangelism.vue'),
-//     meta: {
-//     title: 'Благовестие',
-//       color: 'evangelism', // info
-//   },
-// }, {
-//   path: '/purposes/youth',
-//     name: 'youth',
-//     component: () => import('@/views/purposes/youth/purposeYouth.vue'),
-//     meta: {
-//     title: 'MBVYouth',
-//       color: 'secondary',
-//   },
-// },

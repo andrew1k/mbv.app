@@ -20,15 +20,6 @@
       </v-list-item>
     </template>
     <VDivider/>
-    <!--    <v-list-group value="start">-->
-    <!--      <template v-slot:activator="{ props }">-->
-    <!--        <VListItem-->
-    <!--          v-bind="props"-->
-    <!--          title="С чего начать"-->
-    <!--        />-->
-    <!--      </template>-->
-    <!--      <VListItem title="Встреча знакомство" />-->
-    <!--    </v-list-group>-->
     <v-card class="mx-2 mt-2 mb-4" rounded="lg">
       <VCardItem
         title="С чего начать"
@@ -167,8 +158,8 @@
             <div class="fill-height bottom-gradient-darker d-flex flex-column align-center justify-end">
               <h3 class="text-white">Начни благовествовать</h3>
               <p class="text-mono text-white text-caption">И люди спасутся</p>
-              <v-btn class="ma-2" color="surface" variant="outlined" to="/purposes/evangelism/outreach">
-                Хочу
+              <v-btn class="ma-2" color="surface" variant="outlined" href="https://t.me/silchuuk">
+                Написать лидеру
               </v-btn>
             </div>
           </v-card>

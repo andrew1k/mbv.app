@@ -1,8 +1,8 @@
 <template>
-  <v-card elevation="0" rounded="0" variant="text">
+  <v-card rounded="0" variant="text">
     <v-card class="ma-2">
       <PCard
-        btn="Присоединиться"
+        btn="Написать лидеру"
         :img="vechno"
         :text="textVechno"
         @togglerBtn="vechnoBtn = !vechnoBtn"
@@ -13,7 +13,7 @@
         <v-textarea
           rows="2"
           class="mt-2"
-          label="Расскажите о себе"
+          label="Ваш вопрос"
           v-model="tell_About_Yourself"
           counter
           maxlength="200"
@@ -45,10 +45,10 @@ import {useFormsStore} from '@/store/form.store'
 
 const vechnoBtn = ref(false)
 const textVechno = ref(`Мы хотим, чтобы благовестие стало доступным каждому человеку нашей церкви. <br /><br />
-Проект «Вечно» - это мероприятия со смыслом, через которых ваш друг может познакомиться с церковной семьей в неформальной обстановке`)
+Проект «Вечно» - это мероприятия со смыслом, через которых ваш друг может познакомиться с церковной семьей в неформальной обстановке. <br><br>
+Если вы хотите узнать больше о проекте или помогать в организации мероприятий, напишите нам`)
 
 const {sendForm} = useFormsStore()
 const tell_About_Yourself = ref('')
 const tell_About_Experience = ref('')
-
 </script>
