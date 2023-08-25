@@ -16,7 +16,7 @@
         <VIcon :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"/>
       </template>
       <template #title>
-        <h4 class="font-weight-medium">{{eventTitle}}</h4>
+        <h4 class="font-weight-medium">{{ eventTitle }}</h4>
       </template>
     </VCardItem>
     <v-expand-transition>
@@ -30,10 +30,6 @@
           {{ show ? `${eventTime.slice(0, 10)}  в ${eventTime.slice(11)}` : '' }}
         </h4>
         <VCardText class="ma-2 pa-0" v-html="eventText"/>
-<!--        <v-card-actions>-->
-<!--          <VSpacer/>-->
-<!--          <v-chip v-if="signedEventsIds.includes(eventId)" rounded="pill" color="success">вы записаны</v-chip>-->
-<!--        </v-card-actions>-->
         <v-card-actions class="mx-2">
           <VSpacer/>
           <slot name="deleteBtnSpace"/>
@@ -54,6 +50,7 @@
             Отменить запись
           </v-btn>
         </v-card-actions>
+        <slot name="signedUsers"/>
       </v-card>
     </v-expand-transition>
   </v-card>

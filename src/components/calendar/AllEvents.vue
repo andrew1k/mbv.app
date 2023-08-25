@@ -33,6 +33,18 @@
         Delete
       </v-btn>
     </template>
+    <template #signedUsers>
+      <v-chip-group variant="text" v-if="isAdmin">
+        <v-chip
+          :to="{ name: 'User', params: { id: user.id }}"
+          variant="outlined"
+          v-for="(user, i) in evnt.signedAccounts"
+          :key="i"
+        >
+          {{ user.userLink }}
+        </v-chip>
+      </v-chip-group>
+    </template>
   </calendar-event-card>
 </template>
 
@@ -74,11 +86,12 @@ const eventsChips = ref([
     value: 'youth',
     title: 'молодежное',
     color: 'indigo',
-  }, {
-    value: 'baptism',
-    title: 'крещение',
-    color: 'teal',
   },
+  // {
+  //   value: 'baptism',
+  //   title: 'крещение',
+  //   color: 'teal',
+  // },
 ])
 
 const selectedChip = ref([])

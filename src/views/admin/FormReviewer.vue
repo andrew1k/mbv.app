@@ -13,7 +13,7 @@
         <v-tab value="counseling" variant="text" rounded="0">Консультация</v-tab>
         <v-tab value="prayer" variant="text" rounded="0">Молитва</v-tab>
       </v-tabs>
-      <v-window v-model="tab">
+      <v-window v-model="tab" :touch="false">
         <v-window-item value="start">
           <v-card-title>Таблицы заполненных форм</v-card-title>
         </v-window-item>

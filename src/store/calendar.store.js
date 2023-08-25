@@ -21,7 +21,7 @@ export const useCalendarEventsStore = defineStore('calendarEventsStore', () => {
   const {setMessage} = useSnackbarMessages()
   // ------------------------------ find out users signed events
   const authStore = useAuthStore()
-  const {signedEventsIds} = storeToRefs(authStore)
+  const {signedEventsIds, dbUser} = storeToRefs(authStore)
   // ------------------------------ events
   const allCalendarEvents = ref([])
   const weekCalendarEvents = ref([])
@@ -86,7 +86,7 @@ export const useCalendarEventsStore = defineStore('calendarEventsStore', () => {
     const eventDay = evnt.start.slice(0, 10)
     const docRef = doc(db, 'calendar', eventDay)
     const eventId = evnt.id
-    const userLink = `users/${auth.currentUser.uid}`
+    const userLink = `${dbUser.value.firstName} ${dbUser.value.secondName}`
     const d = new Date(evnt.start)
 
     // Проверка на существование записи
@@ -112,7 +112,7 @@ export const useCalendarEventsStore = defineStore('calendarEventsStore', () => {
     const eventDay = evnt.start.slice(0, 10)
     const docRef = doc(db, 'calendar', eventDay)
     const eventId = evnt.id
-    const userLink = `users/${auth.currentUser.uid}`
+    const userLink = `${dbUser.value.firstName} ${dbUser.value.secondName}`
 
     await updateDoc(docRef, {
       [eventId + '.signedAccounts']: arrayRemove({id: auth.currentUser.uid, userLink}),
