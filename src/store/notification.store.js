@@ -5,6 +5,8 @@ import {useSnackbarMessages} from '@/store/snackbarmessages.store'
 export const useNotificationsStore = defineStore('notificationsStore', () => {
   const {setMessage} = useSnackbarMessages()
 
+
+  // TODO: https://capawesome.io/blog/the-push-notifications-guide-for-capacitor/
   const scheduleCalendarNotification = (event) => {
     LocalNotifications.checkPermissions()
       .then(() => {

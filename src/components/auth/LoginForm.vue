@@ -1,30 +1,30 @@
 <template>
   <v-card variant="text" rounded="0" max-width="600" class="mx-auto">
-      <v-card class="ma-2 pa-2">
-        <VProgressLinear indeterminate v-if="isSubmitting"/>
-        <v-card-title>Войти</v-card-title>
-        <v-form @submit.prevent="submit">
-          <vTextField
-            label="Email"
-            type="email"
-            v-model="email"
-            :error-messages="eError"
-            @blur="eBlur"
-          />
-          <vTextField
-            label="Пароль"
-            :type="passwordEye ? 'text' : 'password'"
-            v-model="password"
-            :error-messages="pError"
-            @blur="pBlur"
-            :append-inner-icon="passwordEye ?'mdi-eye-off' : 'mdi-eye'"
-            @click:append-inner="passwordEye = !passwordEye"
-          />
-          <v-btn class="my-2" size="x-large" :disabled="!!eError || !!pError" block type="submit">Войти</v-btn>
-          <v-btn block variant="outlined" size="large" to="/auth/signup">Зарегистрироваться</v-btn>
-          <VBtn to="/auth/restorePassword" variant="text" block text="забыли пароль?" class="mt-5"/>
-        </v-form>
-      </v-card>
+    <v-card class="ma-2 pa-2">
+      <VProgressLinear indeterminate v-if="isSubmitting"/>
+      <v-card-title>Войти</v-card-title>
+      <v-form @submit.prevent="submit">
+        <vTextField
+          label="Email"
+          type="email"
+          v-model="email"
+          :error-messages="eError"
+          @blur="eBlur"
+        />
+        <vTextField
+          label="Пароль"
+          :type="passwordEye ? 'text' : 'password'"
+          v-model="password"
+          :error-messages="pError"
+          @blur="pBlur"
+          :append-inner-icon="passwordEye ?'mdi-eye-off' : 'mdi-eye'"
+          @click:append-inner="passwordEye = !passwordEye"
+        />
+        <v-btn class="my-2" size="x-large" :disabled="!!eError || !!pError" block type="submit">Войти</v-btn>
+        <v-btn block variant="outlined" size="large" to="/auth/signup">Зарегистрироваться</v-btn>
+        <VBtn to="/auth/restorePassword" variant="text" block text="забыли пароль?" class="mt-5"/>
+      </v-form>
+    </v-card>
   </v-card>
 </template>
 

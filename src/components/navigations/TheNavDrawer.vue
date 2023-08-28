@@ -11,6 +11,7 @@
         :title="`${dbUser.firstName} ${dbUser.secondName}`"
         :subtitle="email"
         to="/profile"
+        append-icon="mdi-chevron-right"
       >
         <template v-slot:prepend>
           <v-avatar variant="outlined">
@@ -231,6 +232,7 @@
       />
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------------- -->
+<!--    TODO: yarn add @capacitor/app-launcher to open app directly from app -->
     <template v-slot:append>
       <v-card-actions>
         <v-btn block size="large" rounded="lg" to="/giving">Пожертвовать</v-btn>
@@ -238,11 +240,11 @@
       <v-card-actions>
         <VSpacer/>
         <a href="https://www.youtube.com/@mbv1916">
-          <VAvatar rounded="0" :image="yt" />
+          <VAvatar rounded="0" :image="yt"/>
         </a>
         <VSpacer/>
         <a href="https://t.me/mbvspb">
-          <VAvatar rounded="0" :image="tg" />
+          <VAvatar rounded="0" :image="tg"/>
         </a>
         <VSpacer/>
         <a href="https://vk.com/mbvspb">

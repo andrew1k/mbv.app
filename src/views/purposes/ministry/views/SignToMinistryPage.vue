@@ -45,7 +45,8 @@
 import {ref} from 'vue'
 import SignToMinistry from '@/components/purposes/ministry/forms/SignToMinistry.vue'
 import img from '@/assets/ministryPics/step.jpg'
-
+// TODO: add some ministries
+// TODO: Поговорить с Даниилом о фондах
 const ourServs = ref([
   {
     title: 'Приветствие',

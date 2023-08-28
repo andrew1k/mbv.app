@@ -10,11 +10,12 @@
     Евангелие от Иоанна 4:36
   </h4>
 <!--  <form-->
-<!--    class="form-donate header__form-donate"-->
-<!--    method="post"-->
-<!--    action="https://oos.pscb.ru/pay/simple?marketPlace=44217984"-->
-<!--  >-->
-      <VTextField
+  <!--    class="form-donate header__form-donate"-->
+  <!--    method="post"-->
+  <!--    action="https://oos.pscb.ru/pay/simple?marketPlace=44217984"-->
+  <!--  >-->
+  <!-- TODO: yarn add @capacitor/browser and integrate with payments -->
+  <VTextField
         type="number"
         name="amount"
         label="Введите сумму пожертвования"
