@@ -1,9 +1,9 @@
 <template>
   <VAppBar v-if="platform === 'ios'" density="compact" color="background" />
-  <v-img :src="logo" class="ma-4" />
   <v-main>
     <router-view v-slot="{ Component }">
       <v-card variant="text" elevation="0" rounded="0" max-width="600" class="mx-auto">
+        <v-img :src="logo" class="ma-4" />
         <transition name="fade" mode="out-in">
           <component :is="Component"/>
         </transition>
