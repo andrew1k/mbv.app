@@ -27,7 +27,7 @@
         rounded="0"
       >
         <h4 class="text-mono ml-2 font-weight-thin">
-          {{ show ? `${eventTime.slice(0, 10)}  в ${eventTime.slice(11)}` : '' }}
+          {{ `${new Date(eventTime.slice(0, 10)).toLocaleDateString()} в ${eventTime.slice(11)}` }}
         </h4>
         <VCardText class="ma-2 pa-0" v-html="eventText"/>
         <v-card-actions class="mx-2">

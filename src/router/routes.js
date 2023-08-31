@@ -201,7 +201,7 @@ export default [
         name: 'Sunday',
         component: SundayPage,
         meta: {
-          title: 'В это воскресение',
+          title: 'Свежая проповедь',
           color: 'worship',
         },
       }, {
@@ -218,7 +218,7 @@ export default [
         props: true,
         component: NewsPage,
         meta: {
-          title: 'Для вас',
+          title: 'Это интересно',
         },
       }, {
         path: '/profile',

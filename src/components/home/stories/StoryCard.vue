@@ -17,8 +17,8 @@
         :variant="color ? 'outlined' : 'elevated'"
         elevation="3"
       >
-        <div class="fill-height bottom-gradient d-flex align-end">
-          <h6 class="text-white mx-2 my-1 font-weight-medium">{{title}}</h6>
+        <div class="fill-height  d-flex align-end" :class="title ? 'bottom-gradient' : ''">
+          <p class="text-white text-caption mx-2 my-1 font-weight-regular">{{ title }}</p>
         </div>
       </v-card>
     </template>

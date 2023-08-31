@@ -218,7 +218,11 @@ export const useContentStore = defineStore('contentStore', () => {
 
   async function updateSunday(payload) {
     const timeId = Date.now().toString()
-    await setDoc(doc(db, 'sunday', timeId), {...payload, timeId})
+    await setDoc(doc(db, 'sunday', timeId), {
+      text: payload.text,
+      title: payload.title,
+      id: payload.id,
+      timeId})
     await alert('Обновлено')
   }
 

@@ -2,7 +2,7 @@
   <v-card class="mx-2 mt-2 mb-8" :to="{ name: 'NewsPage', params: { id }}">
     <v-img :src="img" eager />
     <VCardText><h2>{{title}}</h2></VCardText>
-    <v-card-text class="py-0 text-subtitle-2 text-mono">{{subtitle}}</v-card-text>
+    <v-card-text class="py-0">{{subtitle}}</v-card-text>
     <v-card-actions class="mx-0 px-0">
       <v-card-subtitle>{{ new Date(+id).toLocaleDateString() }}</v-card-subtitle>
       <v-spacer/>

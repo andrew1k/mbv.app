@@ -1,21 +1,20 @@
 <!--suppress JSUnresolvedReference -->
 <template>
-  <h2 class="mt-6 ml-4 font-weight-medium">В это воскресенье</h2>
+  <h2 class="mt-6 ml-4 font-weight-medium">Свежая проповедь</h2>
   <v-card class="ma-2" v-if="isPending" variant="tonal">
     <VResponsive :aspect-ratio="16 / 9"/>
   </v-card>
   <v-card v-if="!isPending" to="/sunday" class="ma-2 bottom-gradient">
     <VImg cover :aspect-ratio="16/9" :src="`https://img.youtube.com/vi/${sunday?.id}/0.jpg`">
-      <div class=" fill-height bottom-gradient d-flex flex-column align-center justify-end">
-        <h3 class="text-white text-center text-mono"></h3>
-        <p class="text-mono text-white text-center px-2">{{ sunday.title }}</p>
+      <div class="fill-height bottom-gradient d-flex flex-column align-center justify-end">
+        <p class="text-white px-2 text-center">{{ sunday.title }}</p>
         <v-btn
           class="my-3"
           color="surface"
           variant="outlined"
           to="/sunday"
         >
-          К проповеди
+          Перейти
         </v-btn>
       </div>
     </VImg>

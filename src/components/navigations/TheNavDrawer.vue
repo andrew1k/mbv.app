@@ -34,7 +34,7 @@
           <v-card class="ma-2" height="120" :image="firstMeeting">
             <div class="fill-height bottom-gradient-darker d-flex flex-column align-center justify-end">
               <h3 class="text-white">Встреча-знакомство</h3>
-              <p class="text-mono text-white text-caption">Мы будем рады познакомиться с тобой</p>
+              <p class="text-mono text-white text-caption">Мы будем рады познакомиться</p>
               <v-btn class="ma-2" color="surface" variant="outlined" to="/purposes/fellowship/firstMeeting">Узнать
                 больше
               </v-btn>
@@ -59,8 +59,8 @@
     <!--  ----------------------------------------------------------------------------------------------------------------  -->
     <v-card class="mx-2 mt-2 mb-4" rounded="lg">
       <VCardItem
-        title="Рост и обучение"
-        subtitle="Начать духовно расти"
+        title="Духовно возрастать"
+        subtitle="Узнавать больше о Боге"
         :append-icon="grows ? 'mdi-chevron-up': 'mdi-chevron-down'"
         @click="grows = !grows"
       />
@@ -147,7 +147,7 @@
     <!--   ----------------------------------------------------------------------------------------------------------------- -->
     <v-card class="mx-2 mt-2 mb-4" rounded="lg">
       <VCardItem
-        title="Благая Весть"
+        title="Благовестие"
         subtitle="Начать нести благую весть"
         :append-icon="eva ? 'mdi-chevron-up': 'mdi-chevron-down'"
         @click="eva = !eva"
@@ -220,7 +220,7 @@
     <!-- ----------------------------------------------------------------- -->
     <v-card class="mx-2 mt-2 mb-4" rounded="lg" to="/connect">
       <VCardItem
-        title="Связь с церковью"
+        title="Есть вопрос?"
         append-icon="mdi-chevron-right"
       />
     </v-card>
@@ -232,7 +232,7 @@
       />
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------------- -->
-<!--    TODO: yarn add @capacitor/app-launcher to open app directly from app -->
+    <!--    TODO: yarn add @capacitor/app-launcher to open app directly from app -->
     <template v-slot:append>
       <v-card-actions>
         <v-btn block size="large" rounded="lg" to="/giving">Пожертвовать</v-btn>

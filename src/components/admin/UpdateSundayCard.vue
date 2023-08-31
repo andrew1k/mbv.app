@@ -20,7 +20,7 @@
         hide-details
       />
 <!--      <FormKit type="textarea" placeholder="Проповедь в формате html" class="mx-2" v-model="text"/>-->
-      <QuillEditor class="ma-2" v-model="text" />
+      <QuillEditor class="ma-2" v-model:content="text" content-type="html" />
       <v-card-actions>
         <VSpacer/>
         <v-btn @click="updateSunday({text, title, id})">Обновить</v-btn>

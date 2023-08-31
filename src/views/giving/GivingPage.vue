@@ -49,7 +49,7 @@
 <!--      />-->
     <v-card-actions>
       <v-btn variant="outlined" block :href="`https://oos.pscb.ru/pay/simple?marketPlace=44217984&account=${+new Date()}&amount=${amount}&customerComment=\u041f\u043e\u0436\u0435\u0440\u0442\u0432\u043e\u0432\u0430\u043d\u0438\u0435\u000a`">
-        Внести
+        Пожертвовать
       </v-btn>
     </v-card-actions>
 <!--  </form>-->

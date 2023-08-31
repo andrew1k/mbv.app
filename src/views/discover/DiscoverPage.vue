@@ -387,7 +387,7 @@ const purposes = ref({
         icon: 'mdi-account-supervisor-outline',
         route: '/purposes/help/retreat',
       }, {
-        title: 'Связь с церковью',
+        title: 'Есть вопрос?',
         icon: 'mdi-list-box-outline',
         route: '/connect',
       },

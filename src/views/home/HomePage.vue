@@ -12,7 +12,7 @@
           <VIcon icon="mdi-chevron-right" />
         </template>
         <template #title>
-          <h4 class="font-weight-medium">Связь с церковью</h4>
+          <h4 class="font-weight-medium">Есть вопрос?</h4>
         </template>
       </VCardItem>
     </v-card>
