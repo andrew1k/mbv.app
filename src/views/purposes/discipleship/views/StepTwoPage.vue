@@ -11,7 +11,7 @@
     </v-card>
     <v-expand-transition>
       <v-card v-show="signToStep" variant="text" elevation="0" rounded="0" class="ma-2">
-        <VCardText>Запишитесь на ближайший шаг в календаре и вам придет уведомление за день до семинара</VCardText>
+        <VCardText>Запишитесь на ближайший шаг в календаре и Вам придет уведомление за день до семинара</VCardText>
         <EventCard
           v-for="evnt in filteredEvents"
           :key="evnt.id"

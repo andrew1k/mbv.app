@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar v-if="platform === 'ios'" density="compact" color="background"/>
+  <v-app-bar v-if="platform === 'ios'" height="35" color="background"/>
   <TheAppBar :main-screen="mainScreen" :appbar-title="$route.meta.title"/>
   <TheNavDrawer/>
   <v-main>

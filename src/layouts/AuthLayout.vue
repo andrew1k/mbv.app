@@ -3,7 +3,7 @@
   <v-main>
     <router-view v-slot="{ Component }">
       <v-card variant="text" elevation="0" rounded="0" max-width="600" class="mx-auto">
-        <v-img :src="logo" class="ma-4" />
+        <v-img :src="logo" class="ma-10" />
         <transition name="fade" mode="out-in">
           <component :is="Component"/>
         </transition>

@@ -23,8 +23,8 @@
     <VDivider/>
     <v-card class="mx-2 mt-2 mb-4" rounded="lg">
       <VCardItem
-        title="С чего начать"
-        subtitle="Если здесь впервые"
+        title="Первые шаги в Боге"
+        subtitle="Кто недавно с Богом"
         :append-icon="start ? 'mdi-chevron-up': 'mdi-chevron-down'"
         @click="start = !start"
       />
@@ -59,8 +59,8 @@
     <!--  ----------------------------------------------------------------------------------------------------------------  -->
     <v-card class="mx-2 mt-2 mb-4" rounded="lg">
       <VCardItem
-        title="Духовно возрастать"
-        subtitle="Узнавать больше о Боге"
+        title="Духовное Возрастание"
+        subtitle="Узнать больше о Боге"
         :append-icon="grows ? 'mdi-chevron-up': 'mdi-chevron-down'"
         @click="grows = !grows"
       />
@@ -111,8 +111,8 @@
     <!--   ----------------------------------------------------------------------------------------------------------------- -->
     <v-card class="mx-2 mt-2 mb-4" rounded="lg">
       <VCardItem
-        title="Начать служить"
-        subtitle="и развивать дары"
+        title="Служение"
+        subtitle="Служение и волонтерство"
         :append-icon="serv ? 'mdi-chevron-up': 'mdi-chevron-down'"
         @click="serv = !serv"
       />
@@ -148,7 +148,7 @@
     <v-card class="mx-2 mt-2 mb-4" rounded="lg">
       <VCardItem
         title="Благовестие"
-        subtitle="Начать нести благую весть"
+        subtitle="Рассказывать о Боге"
         :append-icon="eva ? 'mdi-chevron-up': 'mdi-chevron-down'"
         @click="eva = !eva"
       />
@@ -157,8 +157,7 @@
         <v-card elevation="0" rounded="0" v-if="eva">
           <v-card class="ma-2" height="120" :image="outreach">
             <div class="fill-height bottom-gradient-darker d-flex flex-column align-center justify-end">
-              <h3 class="text-white">Начни благовествовать</h3>
-              <p class="text-mono text-white text-caption">И люди спасутся</p>
+              <h3 class="text-white">Как начать благовествовать</h3>
               <v-btn class="ma-2" color="surface" variant="outlined" href="https://t.me/silchuuk">
                 Написать лидеру
               </v-btn>
@@ -227,7 +226,7 @@
     <!-- ----------------------------------------------------------------- -->
     <v-card class="mx-2 mt-2 mb-4" rounded="lg" to="/aboutChurch">
       <VCardItem
-        title="Контакты"
+        title="О нас"
         append-icon="mdi-chevron-right"
       />
     </v-card>

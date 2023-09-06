@@ -46,7 +46,7 @@
             <div class="fill-height bottom-gradient-darker d-flex flex-column align-center justify-end">
               <h3 class="text-white">Встреча-знакомство</h3>
               <!--  Добавить обращение на ты для людей, которые младше 35    -->
-              <p class="text-mono text-white text-caption">Мы будем рады познакомиться с вами</p>
+              <p class="text-mono text-white text-caption">Мы будем рады познакомиться с Вами</p>
               <v-btn
                 class="ma-2"
                 color="surface"
@@ -66,7 +66,6 @@
           <v-card class="ma-2" height="220" :image="SG">
             <div class="fill-height bottom-gradient-darker d-flex flex-column align-center justify-end">
               <h3 class="text-white">Малые Группы</h3>
-              <!--  Добавить обращение на ты для людей, которые младше 35    -->
               <p class="text-mono text-white text-caption">Станьте частью семьи</p>
               <v-btn
                 class="ma-2"
@@ -131,7 +130,7 @@
           <v-card class="ma-2" height="220" :image="ministry">
             <div class="fill-height bottom-gradient-darker d-flex flex-column align-center justify-end">
               <h3 class="text-white">Найдите своё служение</h3>
-              <p class="text-mono text-white text-caption">Раскрой свои дары и таланты</p>
+              <p class="text-mono text-white text-caption">Раскрывая свои дары и таланты</p>
               <v-btn
                 class="ma-2"
                 color="surface"
@@ -307,7 +306,7 @@ const purposes = ref({
     actions: [
       {
         title: 'Наставничество',
-        subtitle: 'Мы поможем вам узнать основы',
+        subtitle: 'Мы поможем Вам узнать основы',
         icon: 'mdi-account-arrow-up-outline',
         route: '/purposes/discipleship/mentoring',
       }, {

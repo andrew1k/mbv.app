@@ -90,50 +90,6 @@
             </div>
           </template>
         </v-checkbox>
-        <VCheckbox
-          color="primary"
-          v-model="showAll"
-          density="compact"
-          hide-details
-          label="Согласен передавать данные для улучшения и обучения"
-        />
-        <v-card v-if="!showAll">
-          <VCheckbox
-            v-model="additionalCheckbox"
-            label="семейное положение"
-            density="compact"
-            hide-details
-            value="familyStatus"
-          />
-          <VCheckbox
-            v-model="additionalCheckbox"
-            label="информация о крещении"
-            density="compact"
-            hide-details
-            value="baptism"
-          />
-          <VCheckbox
-            v-model="additionalCheckbox"
-            label="членство церкви"
-            density="compact"
-            hide-details
-            value="churchMembership"
-          />
-          <VCheckbox
-            v-model="additionalCheckbox"
-            label="пройденные церковные шаги"
-            density="compact"
-            hide-details
-            value="churchSteps"
-          />
-          <VCheckbox
-            v-model="additionalCheckbox"
-            label="ваши служения в церкви"
-            density="compact"
-            hide-details
-            value="churchServs"
-          />
-        </v-card>
         <v-btn class="my-2" block size="x-large" type="submit" :disabled="!acceptCheckbox">Создать Аккаунт</v-btn>
         <v-btn class="mt-4" block size="large" variant="outlined" to="/auth/login">Войти</v-btn>
       </v-form>
@@ -142,7 +98,6 @@
 </template>
 
 <script setup>
-// TODO: добавить правовую инфу и политику обработки данных
 import {ref} from 'vue'
 import {useAuthStore} from '@/store/auth.store'
 import {useField, useForm} from 'vee-validate'

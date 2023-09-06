@@ -7,6 +7,7 @@
       <v-tab value="Contacts">Контакты</v-tab>
       <v-tab value="Pastors">Пастора</v-tab>
       <v-tab value="Filial">Филиалы</v-tab>
+      <v-tab value="Docs">Документы</v-tab>
       <!--      <v-tab value="Vision">Видение</v-tab>-->
     </v-tabs>
     <VDivider/>
@@ -72,24 +73,6 @@
       <v-window-item value="Filial">
         <v-card class="ma-2">
           <v-card-text>
-            <h4>Церковь «Миссия Благая Весть» </h4>
-            Шатров Дмитрий Дмитриевич <br><br>
-
-            <v-card-subtitle>Адрес церкви</v-card-subtitle>
-            Санкт-Петербург, Невский пр., д. 100 <br>
-            КЗ «Колизей» <br>
-            Ближайшие ст. м. «Маяковская», «Площадь Восстания» <br><br>
-
-            <v-card-subtitle>Время</v-card-subtitle>
-            Каждое воскресенье 11:00, 13:00, 15:30 <br><br>
-
-            <v-card-subtitle>Телефон</v-card-subtitle>
-            8-800-555-25-15 <br><br>
-
-            <v-card-subtitle>Режим работы офиса</v-card-subtitle>
-            Пн-Пт, 10:00-18:00
-          </v-card-text>
-          <v-card-text>
             <h4>Филиал «Балканы»</h4>
             Шатров Олег Васильевич <br><br>
             <v-card-subtitle>Адрес церкви</v-card-subtitle>
@@ -133,8 +116,20 @@
 
         </v-card>
       </v-window-item>
+      <v-window-item value="Docs">
+        <v-card class="ma-2">
+          <ChurchDocs />
+        </v-card>
+      </v-window-item>
     </v-window>
   </v-card>
+  <v-footer color="background" class="text-center text-caption">
+    Местная религиозная организация христиан веры евангельской (пятидесятников) «Церковь евангельских христиан в духе апостолов «Миссия «Благая весть»
+    <br>
+    ОГРН 1037858004964 30 января 2003 г.
+    <br>
+    ИНН 7802073302
+  </v-footer>
 </template>
 
 <script setup>
@@ -150,6 +145,7 @@ import {ref} from 'vue'
 import yt from '@/assets/socialMediaIcons/youtube-outlinesvg.svg'
 import tg from '@/assets/socialMediaIcons/tg-outline.svg'
 import vk from '@/assets/socialMediaIcons/vk-outlinesvg.svg'
+import ChurchDocs from '@/components/about/ChurchDocs.vue'
 
 const tab = ref('Contacts')
 

@@ -11,7 +11,7 @@
     </v-card>
     <v-expand-transition>
       <v-card v-show="signToStep" variant="text" elevation="0" rounded="0" class="ma-2">
-        <VCardText>Запишитесь на ближайший шаг в календаре и вам придет уведомление за день до семинара</VCardText>
+        <VCardText>Запишитесь на ближайший шаг в календаре и Вам придет уведомление за день до семинара</VCardText>
         <EventCard
           v-for="evnt in filteredEvents"
           :key="evnt.id"
@@ -38,7 +38,7 @@ import {useCalendarEventsStore} from '@/store/calendar.store'
 import {storeToRefs} from 'pinia'
 
 const signToStep = ref(false)
-const stepText = ref(`Это 4-х часовой семинар, на котором вы узнаете о том, как привлекать людей к Иисусу Христу, способствуя изменению их жизни, а также узнаете о том, как рассказывать о вере, надежде и Божьей любви так, чтобы Божье спасение достигало как можно большего числа людей.`)
+const stepText = ref(`Это 4-х часовой семинар, на котором Вы узнаете о том, как привлекать людей к Иисусу Христу, способствуя изменению их жизни, а также узнаете о том, как рассказывать о вере, надежде и Божьей любви так, чтобы Божье спасение достигало как можно большего числа людей.`)
 
 const calendarEventsStore = useCalendarEventsStore()
 const {allCalendarEvents} = storeToRefs(calendarEventsStore)
