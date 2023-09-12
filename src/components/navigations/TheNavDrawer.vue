@@ -43,7 +43,7 @@
           <VDivider/>
           <v-list-item
             class="py-2"
-            title="Шаг 1"
+            title="Семинар - «ШАГ 1»"
             subtitle="Узнай больше о церкви"
             to="/purposes/fellowship/step"
           >
@@ -69,7 +69,7 @@
         <v-card elevation="0" rounded="0" v-if="grows">
           <v-list-item
             class="py-2"
-            title="Шаг 2"
+            title="Семинар - «ШАГ 2»"
             subtitle="в учении Апостолов"
             to="/purposes/discipleship/step"
           >
@@ -131,7 +131,7 @@
           <VDivider/>
           <v-list-item
             class="py-2"
-            title="Шаг 3"
+            title="Семинар - «ШАГ 3»"
             subtitle="Узнай больше о своей уникальности"
             to="/purposes/ministry/step"
           >
@@ -166,8 +166,8 @@
           <VDivider/>
           <v-list-item
             class="py-2"
-            title="Шаг 4"
-            subtitle="Научись благовествовать"
+            title="Семинар - «ШАГ 4»"
+            subtitle="Научитесь благовествовать"
             to="/purposes/evangelism/step"
           >
             <template #prepend>

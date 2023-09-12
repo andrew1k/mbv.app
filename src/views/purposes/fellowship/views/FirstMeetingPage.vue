@@ -6,52 +6,23 @@
         btn="Записаться"
         :img="firstMeeting"
         :text="textFirstMeeting"
-        @toggler-btn="signToFirstMeeting = !signToFirstMeeting"
+        @toggler-btn="sendForm('fellowship', {'btn': 'Я хочу на встречу-знакомство'}, 'Встреча-Знакомство')"
       />
     </v-card>
-    <v-expand-transition>
-      <v-card v-show="signToFirstMeeting" variant="text" elevation="0" rounded="0" class="ma-2">
-        <VCardSubtitle>Ближайшая встреча-знакомство в календаре</VCardSubtitle>
-        <VDivider/>
-        <EventCard
-          v-for="evnt in firstMeetingEvnt"
-          :key="evnt.id"
-          :event-title="evnt.title"
-          :event-text="evnt.text"
-          :event-time="evnt.start"
-          :event-color="evnt.color"
-          :event-icon="evnt.icon"
-          :event-id="evnt.id"
-          @sign-btn="signToEvent(evnt)"
-          @unsign-btn="unsignToEvent(evnt)"
-          :show="true"
-        />
-      </v-card>
-    </v-expand-transition>
   </v-card>
 </template>
 
 <script setup>
 import firstMeeting from '@/assets/fellowshipPics/firstMeeting.jpg'
 import PCard from '@/components/purposes/PurposesCards.vue'
-import EventCard from '@/components/calendar/EventCard.vue'
 import {ref} from 'vue'
-import {useCalendarEventsStore} from '@/store/calendar.store'
-import {storeToRefs} from 'pinia'
-
-const signToFirstMeeting = ref(false)
 
 const textFirstMeeting = ref([
-  `Если Вы недавно присоединились к нашей церкви (в течение 2 месяцев) или сегодня пришли впервые, приглашаем вас на Встречу-Знакомство.<br /><br />
-  Мы с пасторами, лидерами и служителями церкви будем рады познакомиться с Вами и провести время в дружеском общении за чашечкой чая, рассказать о себе, о церкви, ответить на вопросы и помолиться за Вас.`,
+  `Если Вы недавно присоединились к нашей церкви (в течение 2 месяцев) или сегодня пришли впервые, приглашаем Вас на Встречу-Знакомство.<br /><br />
+  Мы с пасторами, лидерами и служителями церкви будем рады познакомиться с Вами и провести время в дружеском общении за чашечкой чая, рассказать о себе, о церкви, ответить на вопросы и помолиться за Вас. <br><br>
+  Встреча-Знакомство проходит по воскресеньям в 15:00. Служитель встретит вас у стойки информации`,
 ])
 
-const calendarEventsStore = useCalendarEventsStore()
-const {allCalendarEvents} = storeToRefs(calendarEventsStore)
-const firstMeetingEvnt = ref([])
-const {signToEvent, unsignToEvent} = calendarEventsStore
-
-firstMeetingEvnt.value = allCalendarEvents.value.filter(evnt => {
-  if (evnt.chipValues.includes('firstMeeting')) return evnt
-})
+import {useFormsStore} from '@/store/form.store'
+const {sendForm} = useFormsStore()
 </script>

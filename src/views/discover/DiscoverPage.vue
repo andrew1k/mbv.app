@@ -151,7 +151,7 @@
             <v-card-actions>
               <VIcon :icon="purposes.ministry.icon" color="ministry" class="ml-2"/>
               <VCardItem
-                title="Шаг 3"
+                title="Семинар - «ШАГ 3»"
                 subtitle="Узнавая больше о своей уникальности"
               />
             </v-card-actions>
@@ -283,7 +283,7 @@ const purposes = ref({
     isOpen: true,
     actions: [
       {
-        title: 'Шаг 1',
+        title: 'Семинар - «ШАГ 1»',
         img: step,
         route: `/purposes/fellowship/step`,
       }, {
@@ -310,7 +310,7 @@ const purposes = ref({
         icon: 'mdi-account-arrow-up-outline',
         route: '/purposes/discipleship/mentoring',
       }, {
-        title: `Шаг 2`,
+        title: `Семинар - «ШАГ 2»`,
         subtitle: 'Узнавая больше о духовном развитии',
         icon: 'mdi-school-outline',
         route: '/purposes/discipleship/step',
@@ -341,7 +341,7 @@ const purposes = ref({
         img: vechno,
         route: '/purposes/evangelism/vechno',
       }, {
-        title: 'Шаг 4',
+        title: 'Семинар - «ШАГ 4»',
         img: step4,
         route: '/purposes/evangelism/step',
       }, {

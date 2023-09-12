@@ -222,8 +222,15 @@ export const useContentStore = defineStore('contentStore', () => {
       text: payload.text,
       title: payload.title,
       id: payload.id,
-      timeId})
+      timeId,
+    })
     await alert('Обновлено')
+  }
+
+  async function setSGLeader(payload) {
+    const id = new Date().toString()
+    await setDoc(doc(db, 'sgLeaders', id), payload)
+    await alert('All done')
   }
 
   return {
@@ -244,5 +251,6 @@ export const useContentStore = defineStore('contentStore', () => {
     deleteStoryItem,
     uploadStory,
     updateSunday,
+    setSGLeader,
   }
 })

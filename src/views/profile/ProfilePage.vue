@@ -68,7 +68,6 @@ import AuthSettings from '@/components/profile/AuthSettings.vue'
 import {ref} from 'vue'
 import ProfileView from '@/components/profile/ProfileView.vue'
 import LogoutBtn from '@/components/auth/LogoutBtn.vue'
-
 const authStore = useAuthStore()
 const {dbUser, email, isAdmin} = storeToRefs(authStore)
 
