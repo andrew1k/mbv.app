@@ -1,135 +1,138 @@
 <template>
-  <v-card rounded="0" variant="text">
-    <v-tabs
-      v-model="tab"
-      align-tabs="center"
-    >
-      <v-tab value="Contacts">Контакты</v-tab>
-      <v-tab value="Pastors">Пастора</v-tab>
-      <v-tab value="Filial">Филиалы</v-tab>
-      <v-tab value="Docs">Документы</v-tab>
-      <!--      <v-tab value="Vision">Видение</v-tab>-->
-    </v-tabs>
-    <VDivider/>
-    <v-window v-model="tab">
-      <!-- ------------------------------------------------------------------------ -->
-      <v-window-item value="Contacts">
-        <v-card class="ma-2">
-          <v-card-title class="text-center">Воскресные богослужения</v-card-title>
-          <v-card-subtitle class="mt-2">Каждое воскресенье</v-card-subtitle>
-          <v-card-text>
-            11:00, 13:00 <br>
-            15:30 (молодежное)<br>
-          </v-card-text>
-          <v-card-subtitle>Адрес</v-card-subtitle>
-          <v-card-text>
-            Санкт-Петербург, Невский пр., д. 100 <br>
-            КЗ «Колизей» <br>
-            Ближайшие ст. м. «Маяковская», «Площадь Восстания»
-            <br><br>
-            Богослужения во всех филиалах проходят по воскресеньям с единой проповедью
-          </v-card-text>
-          <v-card-subtitle>Телефон</v-card-subtitle>
-          <v-card-text>
-            <a class="text-mono text-primary" href="tel:8-800-555-25-15">
-              8-800-555-25-15 - Позвонить >
-            </a>
-          </v-card-text>
-          <v-card-subtitle>Соц.Сети</v-card-subtitle>
-          <v-card-actions>
-            <VSpacer/>
-            <a href="https://www.youtube.com/@mbv1916">
-              <VAvatar rounded="0" :image="yt"/>
-            </a>
-            <VSpacer/>
-            <a href="https://t.me/mbvspb">
-              <VAvatar rounded="0" :image="tg"/>
-            </a>
-            <VSpacer/>
-            <a href="https://vk.com/mbvspb">
-              <VAvatar rounded="0" :image="vk"/>
-            </a>
-            <VSpacer/>
-          </v-card-actions>
-          <v-card-subtitle>Режим работы офиса</v-card-subtitle>
-          <v-card-text>Пн-Пт, 10:00-18:00</v-card-text>
-        </v-card>
-      </v-window-item>
-      <v-window-item value="Pastors">
-        <v-card class="ma-2" v-for="(pastor, i) in pastors" :key="i">
-          <v-img :src="pastor.img" :options="{threshold: 0}" eager>
-            <div class="fill-height bottom-gradient d-flex align-end">
-              <VCardTitle class="text-white">
-                {{ pastor.title }}
-                <v-card-subtitle class="pa-0">
-                  {{ pastor.subtitle }}
-                </v-card-subtitle>
-              </VCardTitle>
-            </div>
-          </v-img>
-          <VCardText v-html="pastor.text"/>
-        </v-card>
-      </v-window-item>
-      <v-window-item value="Filial">
-        <v-card class="ma-2">
-          <v-card-text>
-            <h4>Филиал «Балканы»</h4>
-            Шатров Олег Васильевич <br><br>
-            <v-card-subtitle>Адрес церкви</v-card-subtitle>
-            Санкт-Петербург, ул. Купчинская, д. 32, кор. 1, лит. Д, пом. 15 Н<br>
-            Ближайшая ст. м. «Купчино»<br><br>
-
-            <v-card-subtitle>Время</v-card-subtitle>
-            Каждое воскресенье 11:00<br><br>
+  <v-container>
+    <v-card rounded="0" variant="text">
+      <v-tabs
+        v-model="tab"
+        align-tabs="center"
+      >
+        <v-tab value="Contacts">Контакты</v-tab>
+        <v-tab value="Pastors">Пастора</v-tab>
+        <v-tab value="Filial">Филиалы</v-tab>
+        <v-tab value="Docs">Документы</v-tab>
+        <!--      <v-tab value="Vision">Видение</v-tab>-->
+      </v-tabs>
+      <VDivider/>
+      <v-window v-model="tab">
+        <!-- ------------------------------------------------------------------------ -->
+        <v-window-item value="Contacts">
+          <v-card class="ma-2">
+            <v-card-title class="text-center">Воскресные богослужения</v-card-title>
+            <v-card-subtitle class="mt-2">Каждое воскресенье</v-card-subtitle>
+            <v-card-text>
+              11:00, 13:00 <br>
+              15:30 (молодежное)<br>
+            </v-card-text>
+            <v-card-subtitle>Адрес</v-card-subtitle>
+            <v-card-text>
+              Санкт-Петербург, Невский пр., д. 100 <br>
+              КЗ «Колизей» <br>
+              Ближайшие ст. м. «Маяковская», «Площадь Восстания»
+              <br><br>
+              Богослужения во всех филиалах проходят по воскресеньям с единой проповедью
+            </v-card-text>
             <v-card-subtitle>Телефон</v-card-subtitle>
-            8-800-555-25-15<br><br>
+            <v-card-text>
+              <a class="text-mono text-primary" href="tel:8-800-555-25-15">
+                8-800-555-25-15 - Позвонить >
+              </a>
+            </v-card-text>
+            <v-card-subtitle>Соц.Сети</v-card-subtitle>
+            <v-card-actions>
+              <VSpacer/>
+              <a href="https://www.youtube.com/@mbv1916">
+                <VAvatar rounded="0" :image="yt"/>
+              </a>
+              <VSpacer/>
+              <a href="https://t.me/mbvspb">
+                <VAvatar rounded="0" :image="tg"/>
+              </a>
+              <VSpacer/>
+              <a href="https://vk.com/mbvspb">
+                <VAvatar rounded="0" :image="vk"/>
+              </a>
+              <VSpacer/>
+            </v-card-actions>
             <v-card-subtitle>Режим работы офиса</v-card-subtitle>
-            Вс 11:00-18:00
-          </v-card-text>
-          <v-card-text>
-            <h4>Филиал «Серебристый»</h4>
-            Бойко Сергей Петрович <br> <br>
-            <v-card-subtitle>Адрес церкви</v-card-subtitle>
-            Санкт-Петербург, аллея Поликарпова, д. 6, к. 2 <br>
-            Ближайшая ст. м. «Пионерская» <br> <br>
-            <v-card-subtitle>Время</v-card-subtitle>
-            Каждое воскресенье 11:00 <br><br>
-            <v-card-subtitle>Телефон</v-card-subtitle>
-            8-800-555-25-15
-          </v-card-text>
-          <v-card-text>
-            <h4>Филиал «Колпино»</h4>
-            Коротаев Егор Валерьевич <br><br>
-            <v-card-subtitle>Адрес церкви</v-card-subtitle>
-            г. Колпино, улица Труда, д.4 <br><br>
-            <v-card-subtitle>Время</v-card-subtitle>
+            <v-card-text>Пн-Пт, 10:00-18:00</v-card-text>
+          </v-card>
+        </v-window-item>
+        <v-window-item value="Pastors">
+          <v-card class="ma-2" v-for="(pastor, i) in pastors" :key="i">
+            <v-img :src="pastor.img" :options="{threshold: 0}" eager>
+              <div class="fill-height bottom-gradient d-flex align-end">
+                <VCardTitle class="text-white">
+                  {{ pastor.title }}
+                  <v-card-subtitle class="pa-0">
+                    {{ pastor.subtitle }}
+                  </v-card-subtitle>
+                </VCardTitle>
+              </div>
+            </v-img>
+            <VCardText v-html="pastor.text"/>
+          </v-card>
+        </v-window-item>
+        <v-window-item value="Filial">
+          <v-card class="ma-2">
+            <v-card-text>
+              <h4>Филиал «Балканы»</h4>
+              Шатров Олег Васильевич <br><br>
+              <v-card-subtitle>Адрес церкви</v-card-subtitle>
+              Санкт-Петербург, ул. Купчинская, д. 32, кор. 1, лит. Д, пом. 15 Н<br>
+              Ближайшая ст. м. «Купчино»<br><br>
 
-            Каждое воскресенье 11:00 <br><br>
-            <v-card-subtitle>Телефон</v-card-subtitle>
+              <v-card-subtitle>Время</v-card-subtitle>
+              Каждое воскресенье 11:00<br><br>
+              <v-card-subtitle>Телефон</v-card-subtitle>
+              8-800-555-25-15<br><br>
+              <v-card-subtitle>Режим работы офиса</v-card-subtitle>
+              Вс 11:00-18:00
+            </v-card-text>
+            <v-card-text>
+              <h4>Филиал «Серебристый»</h4>
+              Бойко Сергей Петрович <br> <br>
+              <v-card-subtitle>Адрес церкви</v-card-subtitle>
+              Санкт-Петербург, аллея Поликарпова, д. 6, к. 2 <br>
+              Ближайшая ст. м. «Пионерская» <br> <br>
+              <v-card-subtitle>Время</v-card-subtitle>
+              Каждое воскресенье 11:00 <br><br>
+              <v-card-subtitle>Телефон</v-card-subtitle>
+              8-800-555-25-15
+            </v-card-text>
+            <v-card-text>
+              <h4>Филиал «Колпино»</h4>
+              Коротаев Егор Валерьевич <br><br>
+              <v-card-subtitle>Адрес церкви</v-card-subtitle>
+              г. Колпино, улица Труда, д.4 <br><br>
+              <v-card-subtitle>Время</v-card-subtitle>
 
-            +7 (911) 716-88-38; +7 (952) 370-88-72
-          </v-card-text>
-        </v-card>
-      </v-window-item>
-      <v-window-item value="Vision">
-        <v-card class="ma-2">
+              Каждое воскресенье 11:00 <br><br>
+              <v-card-subtitle>Телефон</v-card-subtitle>
 
-        </v-card>
-      </v-window-item>
-      <v-window-item value="Docs">
-        <v-card class="ma-2">
-          <ChurchDocs />
-        </v-card>
-      </v-window-item>
-    </v-window>
-  </v-card>
-  <v-footer color="background" class="text-center text-caption">
-    Местная религиозная организация христиан веры евангельской (пятидесятников) «Церковь евангельских христиан в духе апостолов «Миссия «Благая весть»
-    <br>
-    ОГРН 1037858004964 30 января 2003 г.
-    <br>
-    ИНН 7802073302
-  </v-footer>
+              +7 (911) 716-88-38; +7 (952) 370-88-72
+            </v-card-text>
+          </v-card>
+        </v-window-item>
+<!--        <v-window-item value="Vision">-->
+<!--          <v-card class="ma-2">-->
+
+<!--          </v-card>-->
+<!--        </v-window-item>-->
+        <v-window-item value="Docs">
+          <v-card class="ma-2">
+            <ChurchDocs/>
+          </v-card>
+        </v-window-item>
+      </v-window>
+    </v-card>
+    <v-footer color="background" class="text-center text-caption">
+      Местная религиозная организация христиан веры евангельской (пятидесятников) «Церковь евангельских христиан в духе
+      апостолов «Миссия «Благая весть»
+      <br>
+      ОГРН 1037858004964 30 января 2003 г.
+      <br>
+      ИНН 7802073302
+    </v-footer>
+  </v-container>
 </template>
 
 <script setup>
