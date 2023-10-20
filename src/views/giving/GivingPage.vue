@@ -9,13 +9,7 @@
     «…и сеющий и жнущий вместе радоваться будут»<br>
     Евангелие от Иоанна 4:36
   </h4>
-<!--  <form-->
-  <!--    class="form-donate header__form-donate"-->
-  <!--    method="post"-->
-  <!--    action="https://oos.pscb.ru/pay/simple?marketPlace=44217984"-->
-  <!--  >-->
-  <!-- TODO: yarn add @capacitor/browser and integrate with payments -->
-  <v-form @submit="submit(amount)">
+  <v-form @submit.prevent="submit()">
     <VTextField
       type="number"
       name="amount"
@@ -30,31 +24,6 @@
       </v-btn>
     </v-card-actions>
   </v-form>
-  <!--      <input-->
-  <!--        type="hidden"-->
-  <!--        name="details"-->
-  <!--        value="Пожертвование с приложения"-->
-  <!--        class="input__input"-->
-  <!--      />-->
-  <!--      <input-->
-  <!--        type="hidden"-->
-  <!--        name="customerComment"-->
-  <!--        value=""-->
-  <!--        class="input__input"-->
-  <!--      />-->
-  <!--      <input-->
-  <!--        type="hidden"-->
-  <!--        name="customerAccount"-->
-  <!--        value="47607"-->
-  <!--        class="input__input"-->
-  <!--      />-->
-  <!--      <input-->
-  <!--        type="hidden"-->
-  <!--        name="account"-->
-  <!--        value="47607"-->
-  <!--        class="input__input"-->
-  <!--      />-->
-<!--  </form>-->
 </v-card>
 </template>
 
@@ -64,10 +33,9 @@ import {ref} from 'vue'
 import {Browser} from '@capacitor/browser'
 
 const amount = ref()
-const submit = async (amount) => {
-  console.log(amount)
+const submit = async () => {
   await Browser.open({
-    url: `https://oos.pscb.ru/pay/simple?marketPlace=44217984&account=${+new Date()}&amount=${amount}&customerComment=\u041f\u043e\u0436\u0435\u0440\u0442\u0432\u043e\u0432\u0430\u043d\u0438\u0435\u000a`
+    url: `https://oos.pscb.ru/pay/simple?marketPlace=44217984&account=${+(new Date())}&amount=${amount.value}`
   })
 }
 </script>
