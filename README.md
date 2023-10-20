@@ -4,7 +4,7 @@ For backend discover  [Firebase Documentation](https://firebase.google.com/docs?
 
 - [Firestore Database](https://firebase.google.com/docs/firestore?hl=en&authuser=0) - for data storage
 - [Firebase Storage](https://firebase.google.com/docs/storage?hl=en&authuser=0) - for files & pics storage
-- [Firebase Authentification](https://firebase.google.com/docs/auth/web/start?hl=en&authuser=0) - for auth service
+- [Firebase Authentication](https://firebase.google.com/docs/auth/web/start?hl=en&authuser=0) - for auth service
 - [Firebase Cloud messaging](https://firebase.google.com/docs/cloud-messaging/js/client?authuser=0&hl=en) - for push notifications
 
 For mobile dev - [Ionic Capacitor Library](https://capacitorjs.com/) & [Capacitor Plugins](https://capacitorjs.com/docs/apis):
@@ -18,6 +18,7 @@ For mobile dev - [Ionic Capacitor Library](https://capacitorjs.com/) & [Capacito
 - [status-bar](https://capacitorjs.com/docs/apis/status-bar)
 - [device](https://capacitorjs.com/docs/apis/device)
 - [network](https://capacitorjs.com/docs/apis/network)
+- [browser](https://capacitorjs.com/docs/apis/browser)
 
 For store - [Pinia](https://pinia.vuejs.org/) in setup api & [composables](https://vuejs.org/guide/reusability/composables.html)
 
