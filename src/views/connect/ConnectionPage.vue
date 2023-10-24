@@ -110,7 +110,6 @@ const questionList = ref([
     subtitle: 'Я хочу лично поговорить с пастором',
     color: 'primary',
     icon: 'mdi-account-question-outline',
-    // TODO:переделать
     text: 'Встречи с пасторами проходят в будние дни, дайте нам знать, если хотите записаться',
     component: SignToPastorsForm,
     isOpen: false,

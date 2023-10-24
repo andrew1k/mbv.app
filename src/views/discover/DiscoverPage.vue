@@ -242,7 +242,8 @@ import step4 from '@/assets/evangelismPics/step.jpg'
 import oneSq from '@/assets/evangelismPics/OneSq.jpg'
 import sunday from '@/assets/worshipPics/sunday.jpg'
 import praying from '@/assets/worshipPics/praying.jpg'
-import songs from '@/assets/worshipPics/songs.jpg'
+import songs from '@/assets/worshipPics/songs.jpeg'
+import daily from '@/assets/worshipPics/Daily.jpg'
 import firstMeeting from '@/assets/fellowshipPics/firstMeeting.jpg'
 import step from '@/assets/fellowshipPics/step.jpg'
 import SG from '@/assets/fellowshipPics/smallGroups.jpg'
@@ -271,7 +272,11 @@ const purposes = ref({
       }, {
         title: 'Песни',
         img: songs,
-        href: 'https://www.youtube.com/playlist?list=PLjjvxd6WcKV0iJGU4PM6DR4EZ4ideQrR9',
+        href: 'https://band.link/mbvsing',
+      },{
+        title: 'Благословение на каждый день',
+        img: daily,
+        href: 'https://youtube.com/playlist?list=PLjjvxd6WcKV04vM9MkM6Gd69-qdkzpRbj&si=Rfh2J4VmqmlqTBrw',
       },
     ],
   },
@@ -314,12 +319,13 @@ const purposes = ref({
         subtitle: 'Узнавая больше о духовном развитии',
         icon: 'mdi-school-outline',
         route: '/purposes/discipleship/step',
-      }, {
-        title: 'Семейное служение',
-        subtitle: 'Твои корни',
-        icon: 'mdi-human-male-female-child',
-        route: '/home',
       },
+      // {
+      //   title: 'Семейное служение',
+      //   subtitle: 'Твои корни',
+      //   icon: 'mdi-human-male-female-child',
+      //   route: '/home',
+      // },
     ],
   },
   ministry: {
@@ -330,17 +336,13 @@ const purposes = ref({
     isOpen: false,
   },
   evangelism: {
-    title: 'Рассказать об Иисусе',
+    title: 'Поделиться верой',
     route: '/purposes/evangelism',
     color: 'evangelism',
     icon: 'mdi-torch',
     isOpen: true,
     actions: [
       {
-        title: 'Вечно',
-        img: vechno,
-        route: '/purposes/evangelism/vechno',
-      }, {
         title: 'Семинар - «ШАГ 4»',
         img: step4,
         route: '/purposes/evangelism/step',
@@ -348,6 +350,10 @@ const purposes = ref({
         title: 'Кто твой один?',
         img: oneSq,
         route: '/purposes/evangelism/one',
+      }, {
+        title: 'Вечно',
+        img: vechno,
+        route: '/purposes/evangelism/vechno',
       }, {
         title: 'Деяния',
         img: steiger,
@@ -396,14 +402,6 @@ const purposes = ref({
 </script>
 
 <style>
-.bottom-gradient {
-  background-image: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.25) 0%,
-    transparent 250px
-  );
-}
-
 .bottom-gradient-darker {
   background-image: linear-gradient(
     to top,

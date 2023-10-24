@@ -32,8 +32,8 @@
       density="comfortable"
       color="fellowship"
     >
-      <VRadio label="Я посещал Малую Группу до этого"
-              value="Я посещал Малую Группу до этого"/>
+      <VRadio label="Я ранее посещал Малую Группу"
+              value="Я ранее посещал Малую Группу"/>
       <VRadio label="Я не посещал Малую Группу"
               value="Я не посещал Малую Группу"/>
     </v-radio-group>

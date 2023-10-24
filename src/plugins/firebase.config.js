@@ -25,10 +25,6 @@ if (Capacitor.isNativePlatform()) {
   })
 } else {
   auth = getAuth()
-  // облегчение зависимости
-  // auth = initializeAuth(app, {
-  //   persistence: browserLocalPersistence,
-  // })
 }
 auth.languageCode = 'ru'
 
