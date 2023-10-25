@@ -228,8 +228,8 @@ export const useContentStore = defineStore('contentStore', () => {
   }
 
   async function setSGLeader(payload) {
-    const id = new Date().toString()
-    await setDoc(doc(db, 'sgLeaders', id), payload)
+    const id = +new Date()
+    await setDoc(doc(db, 'sgLeaders', id.toString()), payload)
     await alert('All done')
   }
 
