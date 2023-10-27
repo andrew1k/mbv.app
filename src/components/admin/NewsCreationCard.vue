@@ -27,7 +27,7 @@
         label="Leader"
       />
       <v-switch v-model="form" :label="`Создать форму ${form.toString()}`"/>
-      <v-textarea label="form Schema" class="mt-2" v-model="formSchema"/>
+      <v-textarea label="form Schema" hint="В форме JSON object, для каждого вопроса, свой object" class="mt-2" v-model="formSchema"/>
       <v-card-actions>
         <v-btn
           block

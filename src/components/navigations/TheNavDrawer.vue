@@ -231,12 +231,11 @@
       />
     </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------------- -->
-    <!--    TODO: yarn add @capacitor/app-launcher to open app directly from app -->
     <template v-slot:append>
       <v-card-actions>
         <v-btn block size="large" rounded="lg" to="/giving">Пожертвовать</v-btn>
       </v-card-actions>
-      <v-card-actions>
+      <v-card-actions class="mb-5">
         <VSpacer/>
         <a href="https://www.youtube.com/@mbv1916">
           <VAvatar rounded="0" :image="yt"/>

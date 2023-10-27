@@ -131,6 +131,7 @@ export const useCalendarEventsStore = defineStore('calendarEventsStore', () => {
       icon: payload.chipIcon,
       text: payload.eventText,
       color: payload.eventColor,
+      btnTitle: payload.btnTitle,
       start: `${payload.eventDate}T${payload.eventTime}`,
       id: id,
       chipValues: payload.chipValues

@@ -14,7 +14,7 @@
         <FormKitSchema :schema="newsItem?.formSchema"/>
         <v-card-actions>
           <VSpacer/>
-          <VBtn type="submit">Отправить</VBtn>
+          <VBtn type="submit" variant="outlined">Отправить</VBtn>
         </v-card-actions>
       </FormKit>
     </v-card>

@@ -57,10 +57,16 @@
         chips
         label="Иконка"
       />
+      <VTextField
+        class="ma-1"
+        v-model="btnTitle"
+        label="Название кнопки записаться"
+        type="string"
+      />
       <v-card-actions>
         <VSpacer/>
         <v-btn block
-               @click="saveEventToDB({eventTitle,eventText,eventDate,eventColor,eventTime, chipValues, chipIcon})">
+               @click="saveEventToDB({eventTitle,eventText,eventDate,eventColor,eventTime, chipValues, chipIcon, btnTitle})">
           Создать
         </v-btn>
       </v-card-actions>
@@ -83,6 +89,7 @@ const eventTime = ref('')
 const eventColor = ref('gray')
 const eventTitle = ref('')
 const eventText = ref('')
+const btnTitle = ref('')
 
 const openCard = ref(false)
 </script>

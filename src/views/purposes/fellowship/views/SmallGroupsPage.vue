@@ -10,7 +10,7 @@
       />
     </v-card>
     <v-expand-transition>
-      <v-card v-show="togglerSG" variant="text" elevation="0" rounded="0" class="ma-2">
+      <v-card v-show="togglerSG" class="ma-2">
         <SignToSG/>
       </v-card>
     </v-expand-transition>

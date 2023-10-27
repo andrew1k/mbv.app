@@ -133,7 +133,7 @@ export const useContentStore = defineStore('contentStore', () => {
 
   // ------------------------------------------------------------------------------------------------------------------------------ admin Funcs
   async function uploadNews(imgs, payload) {
-    const newsId = Date.now().toString()
+    const newsId = `${+new Date()}`
     let filePath
     let url
     let image

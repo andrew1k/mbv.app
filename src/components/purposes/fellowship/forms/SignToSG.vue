@@ -92,15 +92,15 @@ const tableHeader = ref([
     sortable: true,
     key: 'day',
   }, {
-    title: 'Возраст',
-    align: 'start',
-    sortable: true,
-    key: 'ageVal',
-  }, {
     title: 'Тип',
     align: 'start',
     sortable: true,
     key: 'type',
+  }, {
+    title: 'Возраст',
+    align: 'start',
+    sortable: true,
+    key: 'ageVal',
   },
 ])
 

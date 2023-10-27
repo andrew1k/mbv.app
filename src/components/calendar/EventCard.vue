@@ -39,7 +39,7 @@
             variant="outlined"
             @click="$emit('signBtn')"
           >
-            Записаться
+            {{ btnTitle }}
           </v-btn>
           <v-btn
             color="error"
@@ -91,6 +91,10 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  btnTitle: {
+    type: String,
+    default: 'Записаться'
+  }
 })
 
 defineEmits(['signBtn', 'unsignBtn'])
