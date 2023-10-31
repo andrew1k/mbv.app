@@ -30,9 +30,9 @@
           {{ `${new Date(eventTime.slice(0, 10)).toLocaleDateString()} в ${eventTime.slice(11)}` }}
         </h4>
         <VCardText class="ma-2 pa-0" v-html="eventText"/>
-        <v-card-actions class="mx-2">
+        <slot name="deleteBtnSpace"/>
+        <v-card-actions class="mx-2" v-if="btn">
           <VSpacer/>
-          <slot name="deleteBtnSpace"/>
           <v-btn
             :color="eventColor"
             v-if="!signedEventsIds.includes(eventId)"
@@ -94,6 +94,10 @@ defineProps({
   btnTitle: {
     type: String,
     default: 'Записаться'
+  },
+  btn: {
+    type: Boolean,
+    default: true,
   }
 })
 

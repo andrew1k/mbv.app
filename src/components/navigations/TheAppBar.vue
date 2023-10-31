@@ -6,14 +6,18 @@
     elevation="0"
     flat
   >
-    <VBtn icon="mdi-menu" class="font-weight-regular" v-if="mainScreen" @click="drawer = !drawer"/>
-    <VBtn
-      v-if="!mainScreen"
-      @click="$router.back()"
-      icon="mdi-chevron-left"
-      class="font-weight-regular"
-    />
-    {{ appbarTitle }}
+    <VBtn class="font-weight-regular" variant="text" v-if="mainScreen" @click="drawer = !drawer">
+      <template #prepend>
+        <VIcon size="22" icon="mdi-menu"/>
+      </template>
+      {{ appbarTitle }}
+    </VBtn>
+    <VBtn v-if="!mainScreen" @click="$router.back()" class="font-weight-regular">
+      <template #prepend>
+        <VIcon size="22" icon="mdi-chevron-left"/>
+      </template>
+      {{ appbarTitle }}
+    </VBtn>
     <VSpacer/>
     <VBtn v-if="mainScreen" icon="mdi-hand-heart" to="/giving" color="primary"/>
   </v-app-bar>

@@ -16,6 +16,7 @@ import {doc, setDoc, updateDoc, onSnapshot, getDoc, deleteDoc} from 'firebase/fi
 import router from '@/router'
 import {useSnackbarMessages} from '@/store/snackbarmessages.store'
 import {LocalNotifications} from '@capacitor/local-notifications'
+import {useNotificationsStore} from '@/store/notification.store'
 
 export const useAuthStore = defineStore('authStore', () => {
   const {setMessage} = useSnackbarMessages() // messages for errors to user
@@ -36,6 +37,9 @@ export const useAuthStore = defineStore('authStore', () => {
   const savedNotes = computed(() => dbUser.value.sundayNotes)
   // calendar part
   const signedEventsIds = ref(computed(() => dbUser.value.signedEvents?.map(e => e.eventId)))
+
+  // register notifications
+  const {registerNotifications} = useNotificationsStore()
 
   const appSignup = async (payload) => {  // ------------------------------------------------------------------------------------------------------------------------------------ Done: tests needed
     try {
@@ -69,7 +73,11 @@ export const useAuthStore = defineStore('authStore', () => {
       // await onSnapshot(doc(db, 'users', res.user.uid), (snapshot) => {
       //   dbUser.value = snapshot.data()
       // })
-      await LocalNotifications.requestPermissions()
+      await LocalNotifications.checkPermissions().then((permStatus) => {
+        if (permStatus.display === 'denied' || permStatus.display === 'prompt') LocalNotifications.requestPermissions()
+        else if (permStatus.display !== 'granted') setMessage('Обновите настройки уведомлений!')
+      })
+      await registerNotifications()
       await router.push({name: 'Home'})
     } catch (e) {
       setMessage(e.message)

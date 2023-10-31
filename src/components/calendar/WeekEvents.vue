@@ -15,6 +15,8 @@
     :event-color="evnt.color"
     :event-id="evnt.id"
     :event-icon="evnt.icon"
+    :btn-title="evnt.btnTitle"
+    :btn="evnt.btn"
     @sign-btn="signToEvent(evnt)"
     @unsign-btn="unsignToEvent(evnt)"
   />
