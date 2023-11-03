@@ -7,7 +7,7 @@
   >
     <template v-slot:prepend>
       <v-list-item
-        class="mb-2 py-2"
+        class=" py-2"
         :title="`${dbUser.firstName} ${dbUser.secondName}`"
         :subtitle="email"
         to="/profile"
@@ -235,7 +235,7 @@
       <v-card-actions>
         <v-btn block size="large" rounded="lg" to="/giving">Пожертвовать</v-btn>
       </v-card-actions>
-      <v-card-actions class="mb-6">
+      <v-card-actions class="mb-2">
         <VSpacer/>
         <a href="https://www.youtube.com/@mbv1916">
           <VAvatar rounded="0" :image="yt"/>

@@ -45,8 +45,7 @@
           <v-card class="ma-2" height="220" :image="firstMeeting">
             <div class="fill-height bottom-gradient-darker d-flex flex-column align-center justify-end">
               <h3 class="text-white">Встреча-знакомство</h3>
-              <!--  Добавить обращение на ты для людей, которые младше 35    -->
-              <p class="text-mono text-white text-caption">Мы будем рады познакомиться с Вами</p>
+              <p class="text-mono text-white text-caption">Для тех, кто недавно в нашей церкви</p>
               <v-btn
                 class="ma-2"
                 color="surface"

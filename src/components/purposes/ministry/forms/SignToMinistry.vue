@@ -30,7 +30,7 @@
       block
       variant="outlined"
       @click="sendForm('ministry', {action, choice, answer}, 'Записаться на консультацию')">
-      Записаться на консультацию
+      Отправить
     </v-btn>
   </v-card-actions>
 </template>

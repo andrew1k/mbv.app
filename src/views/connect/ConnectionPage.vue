@@ -57,16 +57,17 @@ const questionList = ref([
 Мы будем рады помочь вам в этих шагах, если вы помолились впервые, нажмите кнопку ниже`,
     component: FirstPrayBtn,
     isOpen: false,
+  //   TODO: добавить молитву покаяния
   }, {
     title: 'Водное Крещение',
-    subtitle: 'Хочу принять водное крещение?',
+    subtitle: 'Хочу принять водное крещение',
     color: 'evangelism',
     icon: 'mdi-waves',
     text: `Заполните небольшую анкету, и мы свяжемся с вами, чтобы записать вас`,
     component: SignToBaptism,
     isOpen: false,
   }, {
-    title: 'Стать частью церкови',
+    title: 'Стать частью церкви',
     subtitle: 'Что делать, если я хочу стать частью церкви?',
     color: 'fellowship',
     icon: 'mdi-account-multiple-outline',
@@ -83,7 +84,7 @@ const questionList = ref([
     isOpen: false,
   }, {
     title: 'Найти Малую Группу',
-    subtitle: 'Малая Группа - это малая Церковь',
+    subtitle: 'Хочу присоединиться к общению',
     color: 'fellowship',
     icon: 'mdi-home-city-outline',
     text: ``,
@@ -91,10 +92,10 @@ const questionList = ref([
     isOpen: false,
   }, {
     title: 'Духовное консультация',
-    subtitle: 'Забота о вашей душе',
+    subtitle: 'Кто поможет справиться с трудностями?',
     color: 'worship',
     icon: 'mdi-account-heart-outline',
-    text: 'Если у вас есть что-то, что вас беспокоит и вы хотите помощи, сообщите нам об этом',
+    text: 'Если вас что-то беспокоит, и вы хотите помощи и поддержки, сообщите нам об этом',
     component: SpiritualCounsellingForm,
     isOpen: false,
   }, {
@@ -126,7 +127,7 @@ const questionList = ref([
     subtitle: 'Напишите нам',
     color: '',
     icon: 'mdi-chat-question-outline',
-    text: 'Здесь вы можете написать ваш вопрос, обратную связь, идеи, предложения, свидетельства и тд...',
+    text: 'Здесь вы можете написать ваш вопрос, обратную связь, идеи, предложения, свидетельства.',
     component: OtherForm,
     isOpen: false,
   },

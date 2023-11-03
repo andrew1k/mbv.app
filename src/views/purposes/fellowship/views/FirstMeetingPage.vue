@@ -3,7 +3,7 @@
     <v-card class="ma-2">
       <PCard
         title="Встреча-знакомство"
-        btn="Записаться"
+        btn="Я приду"
         :img="firstMeeting"
         :text="textFirstMeeting"
         @toggler-btn="sendForm('fellowship', {'btn': 'Я хочу на встречу-знакомство'}, 'Встреча-Знакомство')"

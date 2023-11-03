@@ -61,6 +61,7 @@ export const useAuthStore = defineStore('authStore', () => {
         stepsPassed: [],
         adminComments: [],
         baptismDate: '',
+        sundayNotes: [],
         churchLevel: 1, // 1 = newBorn, 2 = member, 3 = student, 4 = serv, 5 = leader
         // listeners: {
         //   loginsCounter: 0,
