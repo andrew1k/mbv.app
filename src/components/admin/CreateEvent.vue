@@ -35,12 +35,8 @@
         label="Заголовок"
         type="string"
       />
-      <VTextarea
-        class="ma-1"
-        v-model="eventText"
-        label="html Текст"
-        type="string"
-      />
+      <QuillEditor v-model:content="eventText" content-type="html" placeholder="Text"/>
+      <v-card-text>{{ eventText }}</v-card-text>
       <VSelect
         v-model="chipValues"
         class="ma-1"
@@ -57,6 +53,7 @@
         chips
         label="Иконка"
       />
+      <v-switch v-model="isBtn" :label="`Создать кнопку ${isBtn.toString()}`"/>
       <VTextField
         class="ma-1"
         v-model="btnTitle"
@@ -66,7 +63,7 @@
       <v-card-actions>
         <VSpacer/>
         <v-btn block
-               @click="saveEventToDB({eventTitle,eventText,eventDate,eventColor,eventTime, chipValues, chipIcon, btnTitle})">
+               @click="saveEventToDB({eventTitle,eventText,eventDate,eventColor,eventTime, chipValues, chipIcon, btnTitle, isBtn})">
           Создать
         </v-btn>
       </v-card-actions>
@@ -77,6 +74,7 @@
 <script setup>
 import {ref} from 'vue'
 import {useCalendarEventsStore} from '@/store/calendar.store'
+import {QuillEditor} from '@vueup/vue-quill'
 
 const {saveEventToDB} = useCalendarEventsStore()
 
@@ -90,6 +88,7 @@ const eventColor = ref('gray')
 const eventTitle = ref('')
 const eventText = ref('')
 const btnTitle = ref('')
+const isBtn = ref(false)
 
 const openCard = ref(false)
 </script>

@@ -36,7 +36,7 @@
     "roboto-fontface": "*",
     "v-calendar": "^3.0.3",
     "vee-validate": "^4.11.8",
-    "vue": "3.3.7",
+    "vue": "3.3.8",
     "vue-lite-youtube-embed": "^1.2.1",
     "vue-picture-input": "^3.0.1",
     "vue-router": "4.2.5",
@@ -47,7 +47,7 @@
   "devDependencies": {
     "@capacitor/cli": "5.5.1",
     "@vitejs/plugin-vue": "^4.4.0",
-    "eslint": "^8.52.0",
+    "eslint": "^8.53.0",
     "eslint-plugin-vue": "^9.18.1",
     "sass": "^1.69.5",
     "vite": "^4.5.0",
