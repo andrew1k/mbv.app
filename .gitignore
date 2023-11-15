@@ -3,7 +3,7 @@ node_modules
 /dist
 /ios
 /android
-
+/androidkeystore
 # local env files
 .env
 .env.local
