@@ -4,8 +4,6 @@ import 'vuetify/styles'
 
 // Vuetify
 import {createVuetify} from 'vuetify'
-import {VDataTable, VDataTableVirtual} from 'vuetify/labs/VDataTable'
-import {VSkeletonLoader} from 'vuetify/labs/VSkeletonLoader'
 import {md3} from 'vuetify/blueprints'
 
 export default createVuetify({
@@ -48,11 +46,6 @@ export default createVuetify({
       VFileInput: {
         variant: 'outlined',
       },
-    },
-    components: {
-      VDataTable,
-      VDataTableVirtual,
-      VSkeletonLoader,
     },
     theme: {
       themes: {

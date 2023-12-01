@@ -26,6 +26,7 @@ export const useCalendarEventsStore = defineStore('calendarEventsStore', () => {
   const allCalendarEvents = ref([])
   const weekCalendarEvents = ref([])
   const docIds = ref([])
+  const filterDay = ref()
   // ------------------------------ app state
   const appState = useAppState()
   const {isPending} = storeToRefs(appState)
@@ -76,7 +77,11 @@ export const useCalendarEventsStore = defineStore('calendarEventsStore', () => {
       Object.values(filteredDays).map(arr => {
         filteredEvents.push(...arr)
       })
-      allCalendarEvents.value = events
+      allCalendarEvents.value = events.sort((a,b) => {
+        const dateA = a.start
+        const dateB = b.start
+        return dateA - dateB
+      })
       weekCalendarEvents.value = filteredEvents
       isPending.value = false
     })
@@ -98,8 +103,8 @@ export const useCalendarEventsStore = defineStore('calendarEventsStore', () => {
         signedEvents: arrayUnion({eventDay, eventId}),
       })
       await scheduleCalendarNotification({
-        title: evnt.title,
-        body: evnt.text,
+        title: 'Напоминание о мероприятии в церкви Миссия Благая Весть',
+        body: evnt.title,
         id: +eventId.slice(5),
         schedule: { at: new Date(d.setDate(d.getDate() - 1)) },
       })
@@ -156,7 +161,7 @@ export const useCalendarEventsStore = defineStore('calendarEventsStore', () => {
     const docRef = doc(db, 'calendar', eventDay)
     const eventId = evnt.id
 
-    await evnt.signedAccounts.forEach(usr => {
+    if (evnt.signedAccounts) await evnt.signedAccounts.forEach(usr => {
       updateDoc(doc(db, 'users', usr.id), {
         signedEvents: arrayRemove({eventDay, eventId}),
       })
@@ -167,6 +172,7 @@ export const useCalendarEventsStore = defineStore('calendarEventsStore', () => {
   return {
     allCalendarEvents,
     weekCalendarEvents,
+    filterDay,
     getCalendarEvents,
     signToEvent,
     unsignToEvent,

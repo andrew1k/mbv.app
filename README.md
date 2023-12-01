@@ -1,4 +1,5 @@
-# Team of Mission of the Gospel Church in Saint-Petersburg, Russia
+![](/src/assets/logo.png)
+![](/src/assets/links.png)
 
 For backend discover  [Firebase Documentation](https://firebase.google.com/docs?authuser=0&hl=en)
 

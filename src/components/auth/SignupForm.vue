@@ -90,7 +90,7 @@
             </div>
           </template>
         </v-checkbox>
-        <v-btn class="my-2" block size="x-large" type="submit" :disabled="!acceptCheckbox">Создать Аккаунт</v-btn>
+        <v-btn class="my-2" block size="x-large" type="submit" :disabled="!acceptCheckbox" :loading="isSubmitting">Создать Аккаунт</v-btn>
         <v-btn class="mt-4" block size="large" variant="outlined" to="/auth/login">Войти</v-btn>
       </v-form>
     </v-card>

@@ -7,6 +7,7 @@
     locale="ru"
     :min-date="new Date()"
     :is-dark="theme === 'dark'"
+    @dayclick="dayClick"
   />
 
 </template>
@@ -19,7 +20,7 @@ import {storeToRefs} from 'pinia'
 import {useAppState} from '@/store/app.store'
 
 const calendarEventsStore = useCalendarEventsStore()
-const {allCalendarEvents} = storeToRefs(calendarEventsStore)
+const {allCalendarEvents, filterDay} = storeToRefs(calendarEventsStore)
 const {getCalendarEvents} = calendarEventsStore
 getCalendarEvents()
 const appState = useAppState()
@@ -38,4 +39,8 @@ allCalendarEvents.value.map(evnt => {
     },
   })
 })
+
+const dayClick = ({date}) => {
+  filterDay.value = date
+}
 </script>

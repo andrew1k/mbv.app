@@ -19,11 +19,10 @@ App.addListener('backButton', () => {
   router.back()
 }) // для Android слушает кнопку назад
 
-Network.getStatus().then(e => {
-  if (!e.connected) router.push('/404')
-})
-
 router.beforeEach((to, from, next) => {
+  Network.getStatus().then(e => {
+    if (!e.connected) router.push('/404')
+  })
   const authStore = useAuthStore()
   const {isAuthed} = storeToRefs(authStore)
   const requireAuth = to.meta.auth

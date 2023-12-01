@@ -230,6 +230,13 @@
         append-icon="mdi-chevron-right"
       />
     </v-card>
+    <!-- ----------------------------------------------------------------- -->
+    <v-card class="mx-2 mt-2 mb-4" rounded="lg" to="/profile/notes">
+      <VCardItem
+        title="Сохранения"
+        append-icon="mdi-arrow-down"
+      />
+    </v-card>
     <!-- --------------------------------------------------------------------------------------------------------------------- -->
     <template v-slot:append>
       <v-card-actions>

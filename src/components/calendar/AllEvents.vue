@@ -58,13 +58,17 @@ import {watch, ref} from 'vue'
 import {useAuthStore} from '@/store/auth.store'
 
 const calendarEventsStore = useCalendarEventsStore()
-const {allCalendarEvents} = storeToRefs(calendarEventsStore)
+const {allCalendarEvents, filterDay} = storeToRefs(calendarEventsStore)
 const filteredEvents = ref([])
 const {signToEvent, unsignToEvent, deleteEvent} = calendarEventsStore
 const {isAdmin} = useAuthStore()
 
 const eventsChips = ref([
   {
+    value: '',
+    title: 'все события',
+    color: 'teal',
+  }, {
     value: 'ministry',
     title: 'служение',
     color: 'brown',
@@ -88,12 +92,7 @@ const eventsChips = ref([
     value: 'youth',
     title: 'молодежное',
     color: 'indigo',
-  },
-  // {
-  //   value: 'baptism',
-  //   title: 'крещение',
-  //   color: 'teal',
-  // },
+  }
 ])
 
 const selectedChip = ref([])
@@ -105,6 +104,18 @@ watch(selectedChip, () => {
     })
   } else {
     filteredEvents.value = allCalendarEvents.value
+  }
+})
+
+watch(filterDay, () => {
+  if (filterDay.value) {
+    filteredEvents.value = allCalendarEvents.value.filter(evnt => {
+      if (new Date(evnt.start).toDateString() === filterDay.value.toDateString()) {
+        return evnt
+      } else {
+        filteredEvents.value = allCalendarEvents.value
+      }
+    })
   }
 })
 </script>

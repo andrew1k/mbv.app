@@ -20,7 +20,7 @@
           :append-inner-icon="passwordEye ?'mdi-eye-off' : 'mdi-eye'"
           @click:append-inner="passwordEye = !passwordEye"
         />
-        <v-btn class="my-2" size="x-large" :disabled="!!eError || !!pError" block type="submit">Войти</v-btn>
+        <v-btn class="my-2" size="x-large" :disabled="!!eError || !!pError" block type="submit" :loading="isSubmitting">Войти</v-btn>
         <v-btn block variant="outlined" size="large" to="/auth/signup">Зарегистрироваться</v-btn>
         <VBtn to="/auth/restorePassword" variant="text" block text="забыли пароль?" class="mt-5"/>
       </v-form>
