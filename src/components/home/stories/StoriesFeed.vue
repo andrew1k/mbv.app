@@ -1,15 +1,15 @@
 <template>
   <v-card min-height="100" variant="text" rounded="0" class="mx-1">
-    <v-slide-group v-if="isPending">
+    <v-slide-group v-if="isPending || !stories.length">
       <v-slide-group-item>
         <v-card height="100" width="90" class="my-2 mx-1">
-          <VSkeletonLoader/>
+          <VSkeletonLoader type="image"/>
         </v-card>
         <v-card height="100" width="90" class="my-2 mx-1">
-          <VSkeletonLoader/>
+          <VSkeletonLoader type="image"/>
         </v-card>
         <v-card height="100" width="90" class="my-2 mx-1">
-          <VSkeletonLoader/>
+          <VSkeletonLoader type="image"/>
         </v-card>
       </v-slide-group-item>
     </v-slide-group>

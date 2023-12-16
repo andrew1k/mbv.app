@@ -1,6 +1,9 @@
 <template>
   <h2 class="mt-6 ml-4 font-weight-medium">Это интересно</h2>
   <!--                                             News Cards                  -->
+  <v-card class="ma-2" v-if="!news.length">
+    <v-skeleton-loader type="card" />
+  </v-card>
   <NewsCard
     v-for="item in news"
     :key="item.id"

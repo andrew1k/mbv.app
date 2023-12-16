@@ -11,7 +11,7 @@ import {
   orderBy,
   limit,
   getDocs,
-  getDoc, updateDoc, arrayUnion, arrayRemove,
+  getDoc, updateDoc, arrayUnion, arrayRemove, onSnapshot,
 } from 'firebase/firestore'
 import {uploadBytes, ref as sref, getDownloadURL, deleteObject} from 'firebase/storage'
 import {ref} from 'vue'
@@ -33,13 +33,18 @@ export const useContentStore = defineStore('contentStore', () => {
 
   async function getSunday() {
     isPending.value = true
-    const q = query(collection(db, 'sunday'), orderBy('timeId', 'desc'), limit(1))
-    const qSnapshot = await getDocs(q)
-    qSnapshot.forEach(doc => {
-      const docId = doc.id
-      sunday.value = {...doc.data(), docId}
-      isPending.value = false
-    })
+    try {
+      const q = query(collection(db, 'sunday'), orderBy('timeId', 'desc'), limit(1))
+      onSnapshot(q, (qSnapshot) => {
+        qSnapshot.forEach(doc => {
+          const docId = doc.id
+          sunday.value = {...doc.data(), docId}
+        })
+      })
+    } catch (e) {
+      setMessage(e.message)
+    }
+    isPending.value = false
   }
 
   async function saveSundayNotes(note) {
@@ -87,15 +92,20 @@ export const useContentStore = defineStore('contentStore', () => {
 
   async function getNews() {
     isPending.value = true
-    const newsSnapshoot = await getDocs(collection(db, 'newsfeed'))
-    newsSnapshoot.forEach(doc => {
-      const id = doc.id
-      const data = doc.data()
-      if (!newsIds.value.includes(id)) {
-        newsIds.value.push(id)
-        news.value.unshift({...data, id})
-      }
-    })
+    try {
+      onSnapshot(collection(db, 'newsfeed'), (snapshot) => {
+        snapshot.forEach(doc => {
+          const id = doc.id
+          const data = doc.data()
+          if (!newsIds.value.includes(id)) {
+            newsIds.value.push(id)
+            news.value.unshift({...data, id})
+          }
+        })
+      })
+    } catch (e) {
+      setMessage(e.message)
+    }
     isPending.value = false
   }
 
@@ -104,18 +114,22 @@ export const useContentStore = defineStore('contentStore', () => {
     if (newsSnap.exists()) newsItem.value = newsSnap.data()
   }
 
-
   async function getStories() {
     isPending.value = true
-    const storySnapshot = await getDocs(collection(db, 'stories'))
-    storySnapshot.forEach(doc => {
-      const id = doc.id
-      const data = doc.data()
-      if (!storiesIds.value.includes(id)) {
-        storiesIds.value.push(id)
-        stories.value.unshift({id, ...data})
-      }
-    })
+    try {
+      onSnapshot(collection(db, 'stories'), (snapshot) => {
+        snapshot.forEach(doc => {
+          const id = doc.id
+          const data = doc.data()
+          if (!storiesIds.value.includes(id)) {
+            storiesIds.value.push(id)
+            stories.value.unshift({id, ...data})
+          }
+        })
+      })
+    } catch (e) {
+      setMessage(e.message)
+    }
     isPending.value = false
   }
 
@@ -129,7 +143,6 @@ export const useContentStore = defineStore('contentStore', () => {
       if (!ids.includes(doc.id)) sgLeadersData.value.push(data)
     })
   }
-
 
   // ------------------------------------------------------------------------------------------------------------------------------ admin Funcs
   async function uploadNews(imgs, payload) {

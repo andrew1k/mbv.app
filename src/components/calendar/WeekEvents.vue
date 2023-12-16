@@ -3,7 +3,10 @@
   <v-card rounded="xl" class="mx-2 my-2" v-if="!weekCalendarEvents.length && !isPending">
     <VCardItem prepend-icon="mdi-close" title="Нет событий"/>
   </v-card>
-  <v-card rounded="pill" class="mx-1 my-2" v-if="isPending">
+  <v-card rounded="xl" class="mx-1 my-2" v-if="isPending">
+    <VSkeletonLoader type="list-item-avatar"/>
+  </v-card>
+  <v-card rounded="xl" class="mx-1 my-2" v-if="isPending">
     <VSkeletonLoader type="list-item-avatar"/>
   </v-card>
   <CalendarEventCard
